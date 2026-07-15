@@ -157,29 +157,6 @@ export function IsaacLens() {
     reader.readAsDataURL(file);
   }
 
-  function detectRegions() {
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d", { willReadFrequently: true });
-    const image = imageRef.current;
-    if (!canvas || !ctx || !image) return;
-
-    drawBaseImage(canvas, ctx, image);
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const raw = findConnectedComponents(imageData, canvas.width, canvas.height);
-    const nextRegions = raw
-      .map((box, index) => makeRegion(canvas, ctx, image, box, `候选 ${index + 1}`))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 12)
-      .map((region, index) => ({ ...region, label: `候选 ${index + 1}` }));
-
-    setRegions(nextRegions);
-    setSelectedRegionId(nextRegions[0]?.id ?? null);
-    setSelectedItemId(null);
-    setModelMatches(null);
-    draw(canvas, ctx, image, nextRegions, nextRegions[0]?.id ?? null);
-    setStatus(nextRegions.length ? `找到 ${nextRegions.length} 个候选区域` : "没有找到明显候选，可开启手动补框");
-  }
-
   function handleCanvasClick(event: MouseEvent<HTMLCanvasElement>) {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d", { willReadFrequently: true });
@@ -249,14 +226,13 @@ export function IsaacLens() {
               <input type="file" accept="image/*" onChange={handleFile} />
               上传截图
             </label>
-            <button type="button" disabled={!hasImage} onClick={detectRegions}>自动标注</button>
             <button
               type="button"
               disabled={!hasImage}
               aria-pressed={manualMode}
               onClick={() => setManualMode((value) => !value)}
             >
-              手动补框
+              框选道具
             </button>
             {manualMode && (
               <label className="manual-size-control">
@@ -284,14 +260,14 @@ export function IsaacLens() {
           {!hasImage && (
             <div className="empty-state">
               <strong>上传一张游戏截图</strong>
-              <span>工具会在本地浏览器里圈出可能的道具，再给出相似道具候选。</span>
+              <span>上传后框选截图中的道具，工具会在本地给出相似候选。</span>
             </div>
           )}
         </div>
 
         <footer className="statusbar">
           <span>{status}</span>
-          <span>{manualMode ? `手动补框：当前 ${manualBoxSize}px，点击截图中的道具中心` : "识别在本地完成，不上传图片"}</span>
+          <span>{manualMode ? `框选道具：当前 ${manualBoxSize}px，点击截图中的道具中心` : "识别在本地完成，不上传图片"}</span>
         </footer>
       </section>
 
@@ -299,7 +275,7 @@ export function IsaacLens() {
         <section>
           <h2>候选区域</h2>
           <div className="region-list">
-            {regions.length === 0 && <p className="muted">暂无候选。上传截图后点击自动标注，或用手动补框。</p>}
+            {regions.length === 0 && <p className="muted">暂无候选。上传截图后点击“框选道具”。</p>}
             {regions.map((region) => (
               <button
                 className={`region-card${region.id === selectedRegionId ? " active" : ""}`}
@@ -345,7 +321,7 @@ export function IsaacLens() {
 
         <section className="detail-panel">
           <h2>对象说明</h2>
-          {!selectedItem && <p className="muted">点击截图标注或相似对象后显示描述。</p>}
+          {!selectedItem && <p className="muted">点击候选区域或相似对象后显示描述。</p>}
           {selectedItem && (
             <>
               <div className="thumb large"><img src={selectedItem.iconPath} alt="" /></div>
@@ -370,143 +346,6 @@ export function IsaacLens() {
 
 function defaultManualBoxSize(width: number, height: number) {
   return Math.max(48, Math.min(140, Math.round(Math.min(width, height) * 0.075)));
-}
-
-function findConnectedComponents(imageData: ImageData, width: number, height: number) {
-  const pixels = imageData.data;
-  const sampleStep = Math.max(1, Math.round(width / 900));
-  const gridWidth = Math.ceil(width / sampleStep);
-  const gridHeight = Math.ceil(height / sampleStep);
-  const active = new Uint8Array(gridWidth * gridHeight);
-  const visited = new Uint8Array(gridWidth * gridHeight);
-
-  for (let gy = 0; gy < gridHeight; gy += 1) {
-    for (let gx = 0; gx < gridWidth; gx += 1) {
-      const x = Math.min(width - 2, gx * sampleStep);
-      const y = Math.min(height - 2, gy * sampleStep);
-      if (isLikelySpritePixel(pixels, width, height, x, y)) active[gy * gridWidth + gx] = 1;
-    }
-  }
-
-  const boxes = [];
-  const queue: number[] = [];
-  for (let i = 0; i < active.length; i += 1) {
-    if (!active[i] || visited[i]) continue;
-    let minX = Infinity;
-    let minY = Infinity;
-    let maxX = -Infinity;
-    let maxY = -Infinity;
-    let count = 0;
-    queue.length = 0;
-    queue.push(i);
-    visited[i] = 1;
-
-    while (queue.length) {
-      const current = queue.pop() ?? 0;
-      const gx = current % gridWidth;
-      const gy = Math.floor(current / gridWidth);
-      count += 1;
-      minX = Math.min(minX, gx * sampleStep);
-      minY = Math.min(minY, gy * sampleStep);
-      maxX = Math.max(maxX, gx * sampleStep);
-      maxY = Math.max(maxY, gy * sampleStep);
-
-      for (const [ox, oy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
-        const nx = gx + ox;
-        const ny = gy + oy;
-        if (nx < 0 || ny < 0 || nx >= gridWidth || ny >= gridHeight) continue;
-        const next = ny * gridWidth + nx;
-        if (active[next] && !visited[next]) {
-          visited[next] = 1;
-          queue.push(next);
-        }
-      }
-    }
-
-    const pad = Math.max(8, Math.round(Math.min(width, height) * 0.008));
-    const box = {
-      x: Math.max(0, minX - pad),
-      y: Math.max(0, minY - pad),
-      w: Math.min(width, maxX - minX + pad * 2),
-      h: Math.min(height, maxY - minY + pad * 2),
-      count,
-    };
-    if (passesRegionFilter(box, width, height)) boxes.push(box);
-  }
-
-  return mergeNearbyBoxes(boxes, width, height);
-}
-
-function isLikelySpritePixel(pixels: Uint8ClampedArray, width: number, height: number, x: number, y: number) {
-  const index = (y * width + x) * 4;
-  const r = pixels[index];
-  const g = pixels[index + 1];
-  const b = pixels[index + 2];
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const saturation = max === 0 ? 0 : (max - min) / max;
-  const luma = 0.299 * r + 0.587 * g + 0.114 * b;
-  const contrast = localContrast(pixels, width, height, x, y);
-  return y > height * 0.08 && y < height * 0.92 && luma > 24 && (contrast > 38 || saturation > 0.42) && luma < 245;
-}
-
-function localContrast(pixels: Uint8ClampedArray, width: number, height: number, x: number, y: number) {
-  const base = lumaAt(pixels, width, x, y);
-  let maxDelta = 0;
-  for (const [ox, oy] of [[-2, 0], [2, 0], [0, -2], [0, 2]]) {
-    const nx = Math.max(0, Math.min(width - 1, x + ox));
-    const ny = Math.max(0, Math.min(height - 1, y + oy));
-    maxDelta = Math.max(maxDelta, Math.abs(base - lumaAt(pixels, width, nx, ny)));
-  }
-  return maxDelta;
-}
-
-function lumaAt(pixels: Uint8ClampedArray, width: number, x: number, y: number) {
-  const index = (y * width + x) * 4;
-  return 0.299 * pixels[index] + 0.587 * pixels[index + 1] + 0.114 * pixels[index + 2];
-}
-
-function passesRegionFilter(box: { x: number; y: number; w: number; h: number }, width: number, height: number) {
-  const area = box.w * box.h;
-  const screenArea = width * height;
-  const ratio = box.w / Math.max(1, box.h);
-  const nearHudLeft = box.x < width * 0.14 && box.y < height * 0.44;
-  const nearMap = box.x > width * 0.84 && box.y < height * 0.24;
-  return area > screenArea * 0.00018 && area < screenArea * 0.026 && ratio > 0.38 && ratio < 2.4 && !nearHudLeft && !nearMap;
-}
-
-function mergeNearbyBoxes(boxes: Array<{ x: number; y: number; w: number; h: number; count: number }>, width: number, height: number) {
-  const merged: Array<{ x: number; y: number; w: number; h: number; count: number }> = [];
-  for (const box of boxes) {
-    const target = merged.find((existing) => overlapRatio(existing, box) > 0.18 || centerDistance(existing, box) < Math.min(width, height) * 0.035);
-    if (target) {
-      const x1 = Math.min(target.x, box.x);
-      const y1 = Math.min(target.y, box.y);
-      const x2 = Math.max(target.x + target.w, box.x + box.w);
-      const y2 = Math.max(target.y + target.h, box.y + box.h);
-      target.x = x1;
-      target.y = y1;
-      target.w = x2 - x1;
-      target.h = y2 - y1;
-      target.count += box.count;
-    } else {
-      merged.push({ ...box });
-    }
-  }
-  return merged.filter((box) => passesRegionFilter(box, width, height));
-}
-
-function overlapRatio(a: { x: number; y: number; w: number; h: number }, b: { x: number; y: number; w: number; h: number }) {
-  const x1 = Math.max(a.x, b.x);
-  const y1 = Math.max(a.y, b.y);
-  const x2 = Math.min(a.x + a.w, b.x + b.w);
-  const y2 = Math.min(a.y + a.h, b.y + b.h);
-  const overlap = Math.max(0, x2 - x1) * Math.max(0, y2 - y1);
-  return overlap / Math.min(a.w * a.h, b.w * b.h);
-}
-
-function centerDistance(a: { x: number; y: number; w: number; h: number }, b: { x: number; y: number; w: number; h: number }) {
-  return Math.hypot(a.x + a.w / 2 - b.x - b.w / 2, a.y + a.h / 2 - b.y - b.h / 2);
 }
 
 function makeRegion(
@@ -764,6 +603,22 @@ function saturationOf(r: number, g: number, b: number) {
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   return max === 0 ? 0 : (max - min) / max;
+}
+
+function localContrast(pixels: Uint8ClampedArray, width: number, height: number, x: number, y: number) {
+  const base = lumaAt(pixels, width, x, y);
+  let maxDelta = 0;
+  for (const [ox, oy] of [[-2, 0], [2, 0], [0, -2], [0, 2]]) {
+    const nx = Math.max(0, Math.min(width - 1, x + ox));
+    const ny = Math.max(0, Math.min(height - 1, y + oy));
+    maxDelta = Math.max(maxDelta, Math.abs(base - lumaAt(pixels, width, nx, ny)));
+  }
+  return maxDelta;
+}
+
+function lumaAt(pixels: Uint8ClampedArray, width: number, x: number, y: number) {
+  const index = (y * width + x) * 4;
+  return 0.299 * pixels[index] + 0.587 * pixels[index + 1] + 0.114 * pixels[index + 2];
 }
 
 function extractFeature(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number): Feature {
