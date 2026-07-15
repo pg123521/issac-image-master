@@ -1,0 +1,116 @@
+[
+  {
+    "id": "item-011",
+    "gameId": 11,
+    "kind": "item",
+    "nameZh": "1UP",
+    "nameEn": "1UP",
+    "pickup": "额外生命",
+    "description": "额外生命",
+    "effects": [
+      "生命+1",
+      "跟随角色的绿蘑菇会在复活时消失，与复活前的心之容器数量相同并回满红心",
+      "在所有给予额外生命的道具中最优先使用（除了嗝屁猫的项圈）",
+      "蘑菇套装部件之一"
+    ],
+    "type": "被动",
+    "pools": [
+      "隐藏房"
+    ],
+    "tags": [
+      "secret room pool",
+      "mario",
+      "green mushroom",
+      "extra life"
+    ],
+    "iconFeature": {
+      "r": 115.36,
+      "g": 121.892,
+      "b": 95.312,
+      "aspect": 0.94,
+      "hash": "898cf0f34a58e7a4"
+    },
+    "iconPath": "/items/icons/item-011.png",
+    "sourceUrl": "https://issac-icecat.azurewebsites.net/",
+    "sourceName": "IcaCat 以撒图鉴"
+  },
+  {
+    "id": "item-015",
+    "gameId": 15,
+    "kind": "item",
+    "nameZh": "<3",
+    "nameEn": "<3",
+    "pickup": "生命提升",
+    "description": "生命提升",
+    "effects": [
+      "心之容器+1",
+      "回复所有红心",
+      "Gluttony（暴食）有几率掉落"
+    ],
+    "type": "被动",
+    "pools": [
+      "宝物房",
+      "BOSS 房",
+      "Gluttony"
+    ],
+    "tags": [
+      "boss room pool",
+      "boss room item",
+      "item room",
+      "treasure room",
+      "item room pool",
+      "red heart",
+      "ballchinnian",
+      "ball sack",
+      "full heal",
+      "gluttony",
+      "the lost item pool"
+    ],
+    "iconFeature": {
+      "r": 97.155,
+      "g": 22.108,
+      "b": 22.108,
+      "aspect": 1.0,
+      "hash": "a07a5fa4c49d2d68"
+    },
+    "iconPath": "/items/icons/item-015.png",
+    "sourceUrl": "https://issac-icecat.azurewebsites.net/",
+    "sourceName": "IcaCat 以撒图鉴"
+  },
+  {
+    "id": "item-320",
+    "gameId": 320,
+    "kind": "item",
+    "nameZh": "???唯一的朋友",
+    "nameEn": "???'s Only Friend",
+    "pickup": "可控制的朋友",
+    "description": "可控制的朋友",
+    "effects": [
+      "一个可以用射击键控制的苍蝇跟班，对敌人造成2.5点/帧的接触伤害，类似于THE LUDOVICO TECHNIQUE（鲁多维科科技）",
+      "苍蝇套部件之一",
+      "解锁：用？？？通关Bossrush"
+    ],
+    "type": "被动，跟班",
+    "pools": [
+      "道具房"
+    ],
+    "tags": [
+      "item room",
+      "treasure room",
+      "item room pool",
+      "blue fly",
+      "big fly",
+      "blue baby's only friend"
+    ],
+    "iconFeature": {
+      "r": 52.638,
+      "g": 62.925,
+      "b": 89.621,
+      "aspect": 1.04,
+      "hash": "2d86e66858f272d8"
+    },
+    "iconPath": "/items/icons/item-320.png",
+    "sourceUrl": "https://issac-icecat.azurewebsites.net/",
+    "sourceName": "IcaCat 以撒图鉴"
+  }
+]
