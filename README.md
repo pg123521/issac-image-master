@@ -63,11 +63,10 @@ python3 scripts/import_tboi_objects.py
 ```bash
 .venv-train/bin/python scripts/mobileclip_item_search.py build-index \
   --output models/mobileclip-object-icon-index-v1.pt \
-  --synthetic-per-item 0 \
   --batch-size 96
 ```
 
-当前上线索引没有混入合成训练图。`data/training/`、旧分类模型、调试截图和本地构建缓存不会提交到 GitHub。
+当前索引只使用百科原始图标。旧 CNN 分类器、合成训练集、调试截图和本地构建缓存均未保留。
 
 ## 验证
 

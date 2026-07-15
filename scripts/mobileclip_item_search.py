@@ -3,9 +3,7 @@ from __future__ import annotations
 
 import argparse
 import base64
-import csv
 import json
-from collections import defaultdict
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from io import BytesIO
 from pathlib import Path
@@ -20,7 +18,6 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OBJECTS_JSON = PROJECT_ROOT / "data" / "objects.en.json"
 ICON_ROOT = PROJECT_ROOT / "public"
 DEFAULT_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-icon-index-v1.pt"
-DEFAULT_DATASET = PROJECT_ROOT / "data" / "training" / "synthetic-v3"
 MODEL_NAME = "MobileCLIP2-S0"
 PRETRAINED = "dfndr2b"
 
@@ -32,8 +29,6 @@ def main() -> int:
   build = subparsers.add_parser("build-index")
   build.add_argument("--output", type=Path, default=DEFAULT_INDEX)
   build.add_argument("--objects-json", type=Path, default=OBJECTS_JSON)
-  build.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
-  build.add_argument("--synthetic-per-item", type=int, default=12)
   build.add_argument("--batch-size", type=int, default=96)
 
   query = subparsers.add_parser("query")
@@ -50,7 +45,7 @@ def main() -> int:
   args = parser.parse_args()
   if args.command == "build-index":
     encoder = MobileClipEncoder()
-    build_index(encoder, args.objects_json, args.output, args.dataset, args.synthetic_per_item, args.batch_size)
+    build_index(encoder, args.objects_json, args.output, args.batch_size)
   elif args.command == "query":
     searcher = Searcher(args.index)
     image = Image.open(args.image).convert("RGB")
@@ -80,8 +75,6 @@ def build_index(
   encoder: MobileClipEncoder,
   objects_json: Path,
   output: Path,
-  dataset: Path,
-  synthetic_per_item: int,
   batch_size: int,
 ) -> None:
   items = json.loads(objects_json.read_text(encoding="utf-8"))
@@ -97,23 +90,6 @@ def build_index(
   examples: list[tuple[int, Path, str]] = []
   for index, item in enumerate(items):
     examples.append((index, ICON_ROOT / item["iconPath"].lstrip("/"), "icon"))
-
-  if dataset.exists() and synthetic_per_item > 0:
-    grouped: dict[str, list[dict]] = defaultdict(list)
-    with (dataset / "manifest.csv").open(encoding="utf-8") as handle:
-      for row in csv.DictReader(handle):
-        grouped[row["item_id"]].append(row)
-    item_to_index = {label["item_id"]: index for index, label in enumerate(labels)}
-    for item_id, rows in grouped.items():
-      if item_id not in item_to_index:
-        continue
-      rows = sorted(rows, key=lambda row: (row.get("style", ""), row["path"]))
-      hard = [row for row in rows if "hard" in row.get("style", "")]
-      closeup = [row for row in rows if "closeup" in row.get("style", "")]
-      full = [row for row in rows if row.get("crop_mode") == "full"]
-      picked = dedupe_rows([*hard[: synthetic_per_item // 2], *closeup[: synthetic_per_item // 3], *full[: synthetic_per_item], *rows])[:synthetic_per_item]
-      for row in picked:
-        examples.append((item_to_index[item_id], dataset / row["path"], row.get("style", "synthetic")))
 
   vectors: list[torch.Tensor] = []
   index_to_item: list[int] = []
@@ -136,19 +112,6 @@ def build_index(
     "labels": labels,
   }, output)
   print(f"wrote {output}", flush=True)
-
-
-def dedupe_rows(rows: list[dict]) -> list[dict]:
-  seen: set[str] = set()
-  out: list[dict] = []
-  for row in rows:
-    path = row["path"]
-    if path in seen:
-      continue
-    seen.add(path)
-    out.append(row)
-  return out
-
 
 class Searcher:
   def __init__(self, index_path: Path) -> None:
