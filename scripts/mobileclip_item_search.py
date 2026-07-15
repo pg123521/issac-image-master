@@ -17,7 +17,9 @@ from PIL import Image
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OBJECTS_JSON = PROJECT_ROOT / "data" / "objects.en.json"
 ICON_ROOT = PROJECT_ROOT / "public"
-DEFAULT_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-icon-index-v1.pt"
+DEFAULT_WEIGHTS = PROJECT_ROOT / "models" / "mobileclip-partial-v1.pt"
+DEFAULT_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-partial-index-v1.pt"
+BASELINE_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-icon-index-v1.pt"
 MODEL_NAME = "MobileCLIP2-S0"
 PRETRAINED = "dfndr2b"
 
@@ -30,36 +32,42 @@ def main() -> int:
   build.add_argument("--output", type=Path, default=DEFAULT_INDEX)
   build.add_argument("--objects-json", type=Path, default=OBJECTS_JSON)
   build.add_argument("--batch-size", type=int, default=96)
+  build.add_argument("--weights", type=Path, default=DEFAULT_WEIGHTS)
 
   query = subparsers.add_parser("query")
   query.add_argument("image", type=Path)
   query.add_argument("--index", type=Path, default=DEFAULT_INDEX)
   query.add_argument("--top-k", type=int, default=10)
+  query.add_argument("--weights", type=Path, default=DEFAULT_WEIGHTS)
 
   serve_cmd = subparsers.add_parser("serve")
   serve_cmd.add_argument("--index", type=Path, default=DEFAULT_INDEX)
   serve_cmd.add_argument("--host", default="127.0.0.1")
   serve_cmd.add_argument("--port", type=int, default=8766)
   serve_cmd.add_argument("--top-k", type=int, default=10)
+  serve_cmd.add_argument("--weights", type=Path, default=DEFAULT_WEIGHTS)
 
   args = parser.parse_args()
   if args.command == "build-index":
-    encoder = MobileClipEncoder()
+    encoder = MobileClipEncoder(args.weights)
     build_index(encoder, args.objects_json, args.output, args.batch_size)
   elif args.command == "query":
-    searcher = Searcher(args.index)
+    searcher = Searcher(args.index, args.weights)
     image = Image.open(args.image).convert("RGB")
     print(json.dumps(searcher.search(image, args.top_k), ensure_ascii=False, indent=2))
   elif args.command == "serve":
-    searcher = Searcher(args.index)
+    searcher = Searcher(args.index, args.weights)
     serve(searcher, args.host, args.port, args.top_k)
   return 0
 
 
 class MobileClipEncoder:
-  def __init__(self) -> None:
+  def __init__(self, weights_path: Path | None = None) -> None:
     self.device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
     model, _, preprocess = open_clip.create_model_and_transforms(MODEL_NAME, pretrained=PRETRAINED)
+    self.weights_path = weights_path
+    if weights_path is not None:
+      load_visual_weights(model, weights_path)
     self.model = model.to(self.device).eval()
     self.preprocess = preprocess
 
@@ -106,6 +114,7 @@ def build_index(
   torch.save({
     "model_name": MODEL_NAME,
     "pretrained": PRETRAINED,
+    "visual_weights": encoder.weights_path.name if encoder.weights_path else None,
     "vectors": torch.cat(vectors, dim=0),
     "index_to_item": torch.tensor(index_to_item, dtype=torch.long),
     "sources": sources,
@@ -114,13 +123,21 @@ def build_index(
   print(f"wrote {output}", flush=True)
 
 class Searcher:
-  def __init__(self, index_path: Path) -> None:
-    self.encoder = MobileClipEncoder()
+  def __init__(self, index_path: Path, weights_path: Path | None = None) -> None:
+    self.encoder = MobileClipEncoder(weights_path)
     payload = torch.load(index_path, map_location="cpu")
     self.vectors = payload["vectors"].float()
     self.index_to_item = payload["index_to_item"].long()
     self.labels = payload["labels"]
     self.sources = payload["sources"]
+
+    expected_weights = payload.get("visual_weights")
+    actual_weights = weights_path.name if weights_path else None
+    if expected_weights != actual_weights:
+      raise ValueError(
+        f"index expects visual weights {expected_weights!r}, but loaded {actual_weights!r}; "
+        "rebuild the index or pass the matching --weights file"
+      )
 
   def search(self, image: Image.Image, top_k: int) -> dict[str, Any]:
     query = self.encoder.encode([image])[0]
@@ -165,7 +182,13 @@ def serve(searcher: Searcher, host: str, port: int, top_k: int) -> None:
       if self.path != "/health":
         self.send_json({"error": "not found"}, status=404)
         return
-      self.send_json({"ok": True, "device": str(searcher.encoder.device), "model": MODEL_NAME, "vectors": len(searcher.vectors)})
+      self.send_json({
+        "ok": True,
+        "device": str(searcher.encoder.device),
+        "model": MODEL_NAME,
+        "vectors": len(searcher.vectors),
+        "weights": searcher.encoder.weights_path.name if searcher.encoder.weights_path else None,
+      })
 
     def do_POST(self) -> None:
       if self.path != "/predict":
@@ -205,6 +228,14 @@ def decode_image(value: str) -> Image.Image:
   if value.startswith("data:"):
     value = value.split(",", 1)[1]
   return Image.open(BytesIO(base64.b64decode(value))).convert("RGB")
+
+
+def load_visual_weights(model: torch.nn.Module, weights_path: Path) -> None:
+  payload = torch.load(weights_path, map_location="cpu")
+  state_dict = payload.get("visual_state_dict", payload)
+  incompatible = model.visual.load_state_dict(state_dict, strict=True)
+  if incompatible.missing_keys or incompatible.unexpected_keys:
+    raise ValueError(f"invalid visual checkpoint: {incompatible}")
 
 
 if __name__ == "__main__":

@@ -50,7 +50,8 @@ test("ships the complete offline object library and active index", async () => {
   assert.ok(objects.some((object) => object.id === "item-070" && object.nameEn === "Growth Hormones"));
 
   await Promise.all([
-    access(new URL("../models/mobileclip-object-icon-index-v1.pt", import.meta.url)),
+    access(new URL("../models/mobileclip-partial-v1.pt", import.meta.url)),
+    access(new URL("../models/mobileclip-object-partial-index-v1.pt", import.meta.url)),
     access(new URL("../public/items/icons/item-070.png", import.meta.url)),
     access(new URL("../public/objects/icons/trinket-10147.png", import.meta.url)),
   ]);

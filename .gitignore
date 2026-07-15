@@ -53,3 +53,5 @@ next-env.d.ts
 # Keep only the MobileCLIP index used by the current app
 /models/*
 !/models/mobileclip-object-icon-index-v1.pt
+!/models/mobileclip-partial-v1.pt
+!/models/mobileclip-object-partial-index-v1.pt
