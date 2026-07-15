@@ -45,13 +45,16 @@ next-env.d.ts
 
 # Local datasets, experiments, and screenshots
 /data/training/
+/data/detection/
 /data/debug/
 /*.pic.jpg
 **/__pycache__/
 *.pyc
+/yolo*.pt
 
 # Keep only the MobileCLIP index used by the current app
 /models/*
 !/models/mobileclip-object-icon-index-v1.pt
 !/models/mobileclip-partial-v1.pt
 !/models/mobileclip-object-partial-index-v1.pt
+!/models/room-collectible-detector-v1.pt

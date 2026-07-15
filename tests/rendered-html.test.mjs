@@ -35,6 +35,7 @@ test("server-renders Isaac Item Lens", async () => {
   assert.match(html, /上传截图/);
   assert.match(html, /框选道具/);
   assert.doesNotMatch(html, /自动标注/);
+  assert.match(html, /自动检测房间道具/);
   assert.match(html, /Top K 相似对象/);
   assert.match(html, /aria-label="上传后的游戏截图"/);
 });

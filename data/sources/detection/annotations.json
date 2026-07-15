@@ -1,0 +1,32 @@
+{
+  "room-01.jpg": {
+    "split": "train-background",
+    "roomRect": [430, 80, 2350, 1130],
+    "excludeBoxes": [[1330, 455, 1445, 595]]
+  },
+  "room-02.jpg": {
+    "split": "train-background",
+    "roomRect": [440, 95, 2330, 1130],
+    "excludeBoxes": [[1295, 455, 1485, 635]]
+  },
+  "room-03.jpg": {
+    "split": "train-background",
+    "roomRect": [440, 160, 2330, 1100],
+    "excludeBoxes": []
+  },
+  "room-04.jpg": {
+    "split": "real-validation",
+    "roomRect": [525, 120, 2210, 1060],
+    "boxes": [[1225, 655, 1365, 790], [1430, 655, 1570, 790]]
+  },
+  "room-05.jpg": {
+    "split": "real-validation",
+    "roomRect": [525, 110, 2215, 1060],
+    "boxes": [[1350, 690, 1435, 820]]
+  },
+  "room-06.jpg": {
+    "split": "real-validation",
+    "roomRect": [525, 120, 2215, 1040],
+    "boxes": [[1340, 690, 1450, 810]]
+  }
+}

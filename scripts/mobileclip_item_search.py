@@ -141,6 +141,15 @@ class Searcher:
 
   def search(self, image: Image.Image, top_k: int) -> dict[str, Any]:
     query = self.encoder.encode([image])[0]
+    return self.search_feature(query, top_k)
+
+  def search_many(self, images: list[Image.Image], top_k: int) -> list[dict[str, Any]]:
+    if not images:
+      return []
+    queries = self.encoder.encode(images)
+    return [self.search_feature(query, top_k) for query in queries]
+
+  def search_feature(self, query: torch.Tensor, top_k: int) -> dict[str, Any]:
     scores = self.vectors @ query
     raw_k = min(max(top_k * 8, 40), scores.numel())
     values, indices = scores.topk(raw_k)
@@ -191,14 +200,19 @@ def serve(searcher: Searcher, host: str, port: int, top_k: int) -> None:
       })
 
     def do_POST(self) -> None:
-      if self.path != "/predict":
+      if self.path not in ("/predict", "/predict-batch"):
         self.send_json({"error": "not found"}, status=404)
         return
       try:
         length = int(self.headers.get("Content-Length", "0"))
         payload = json.loads(self.rfile.read(length).decode("utf-8"))
-        image = decode_image(payload["image"])
-        self.send_json(searcher.search(image, int(payload.get("topK", top_k))))
+        requested_top_k = int(payload.get("topK", top_k))
+        if self.path == "/predict-batch":
+          images = [decode_image(value) for value in payload.get("images", [])]
+          self.send_json({"results": searcher.search_many(images, requested_top_k)})
+        else:
+          image = decode_image(payload["image"])
+          self.send_json(searcher.search(image, requested_top_k))
       except Exception as exc:
         self.send_json({"error": f"{type(exc).__name__}: {exc}"}, status=400)
 

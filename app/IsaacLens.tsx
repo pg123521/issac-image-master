@@ -70,12 +70,33 @@ type Match = {
   source: "model" | "fallback";
 };
 
+type DetectionResponse = {
+  model?: string;
+  device?: string;
+  boxes?: Array<{ x: number; y: number; w: number; h: number; score: number }>;
+};
+
+type BatchVerificationResponse = {
+  results?: Array<{
+    device?: string;
+    model?: string;
+    topK?: Array<{ itemId: string; score?: number; confidence?: number }>;
+  }>;
+};
+
+const DETECTOR_CANDIDATE_THRESHOLD = 0.25;
+const EMBEDDING_STRONG_THRESHOLD = 0.76;
+const EMBEDDING_WEAK_THRESHOLD = 0.70;
+const EMBEDDING_WEAK_MARGIN = 0.10;
+const EMBEDDING_WEAK_DETECTOR_THRESHOLD = 0.70;
+
 const fallbackItems = itemsData as IsaacObject[];
 const objects = objectsData as IsaacObject[];
 
 export function IsaacLens() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const uploadIdRef = useRef(0);
   const [regions, setRegions] = useState<Region[]>([]);
   const [selectedRegionId, setSelectedRegionId] = useState<string | null>(null);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
@@ -133,6 +154,8 @@ export function IsaacLens() {
     const file = event.target.files?.[0];
     if (!file) return;
 
+    const uploadId = uploadIdRef.current + 1;
+    uploadIdRef.current = uploadId;
     const reader = new FileReader();
     reader.onload = () => {
       const img = new Image();
@@ -149,12 +172,88 @@ export function IsaacLens() {
         setSelectedRegionId(null);
         setSelectedItemId(null);
         setModelMatches(null);
+        setManualMode(false);
         setManualBoxSize(defaultManualBoxSize(img.naturalWidth, img.naturalHeight));
-        setStatus(`已载入 ${img.naturalWidth} x ${img.naturalHeight} 截图`);
+        setStatus(`已载入 ${img.naturalWidth} x ${img.naturalHeight} 截图，正在检测房间道具...`);
+        detectRoomObjects(String(reader.result), canvas, ctx, img, uploadId);
       };
       img.src = String(reader.result);
     };
     reader.readAsDataURL(file);
+  }
+
+  async function detectRoomObjects(
+    imageDataUrl: string,
+    canvas: HTMLCanvasElement,
+    ctx: CanvasRenderingContext2D,
+    image: HTMLImageElement,
+    uploadId: number,
+  ) {
+    try {
+      const response = await fetch("http://127.0.0.1:8767/detect", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: imageDataUrl }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const payload = await response.json() as DetectionResponse;
+      if (uploadId !== uploadIdRef.current) return;
+      const candidateRegions = (payload.boxes ?? [])
+        .filter((box) => (
+          box.score >= DETECTOR_CANDIDATE_THRESHOLD &&
+          isInsideRoomFloor(box, canvas.width, canvas.height)
+        ))
+        .map((box, index) => makeRegion(
+        canvas,
+        ctx,
+        image,
+        { ...box, count: box.score },
+        `检测 ${index + 1}`,
+      ));
+      setStatus(`检测到 ${candidateRegions.length} 个候选，正在进行向量验证...`);
+      const nextRegions = await verifyDetectedRegions(candidateRegions, uploadId);
+      if (uploadId !== uploadIdRef.current) return;
+      const selectedId = nextRegions[0]?.id ?? null;
+      setRegions(nextRegions);
+      setSelectedRegionId(selectedId);
+      setSelectedItemId(null);
+      setModelMatches(null);
+      draw(canvas, ctx, image, nextRegions, selectedId);
+      setStatus(nextRegions.length
+        ? `标注 ${nextRegions.length} 个房间道具 · 检测 + MobileCLIP 验证 · ${payload.device ?? "local"}`
+        : "未检测到房间道具，可使用“框选道具”手动添加");
+    } catch {
+      if (uploadId !== uploadIdRef.current) return;
+      draw(canvas, ctx, image, [], null);
+      setStatus("目标检测服务未启动，可使用“框选道具”手动添加");
+    }
+  }
+
+  async function verifyDetectedRegions(candidateRegions: Region[], uploadId: number): Promise<Region[]> {
+    if (!candidateRegions.length) return [];
+    try {
+      const response = await fetch("http://127.0.0.1:8766/predict-batch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ images: candidateRegions.map((region) => region.modelImageUrl), topK: 2 }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const payload = await response.json() as BatchVerificationResponse;
+      if (uploadId !== uploadIdRef.current) return [];
+      return candidateRegions.filter((_, index) => {
+        const matches = payload.results?.[index]?.topK ?? [];
+        const bestScore = matches[0]?.score ?? matches[0]?.confidence ?? 0;
+        const secondScore = matches[1]?.score ?? matches[1]?.confidence ?? 0;
+        if (bestScore >= EMBEDDING_STRONG_THRESHOLD) return true;
+        return (
+          bestScore >= EMBEDDING_WEAK_THRESHOLD &&
+          bestScore - secondScore >= EMBEDDING_WEAK_MARGIN &&
+          candidateRegions[index].score >= EMBEDDING_WEAK_DETECTOR_THRESHOLD
+        );
+      });
+    } catch {
+      return candidateRegions.filter((region) => region.score >= 0.75);
+    }
   }
 
   function handleCanvasClick(event: MouseEvent<HTMLCanvasElement>) {
@@ -260,7 +359,7 @@ export function IsaacLens() {
           {!hasImage && (
             <div className="empty-state">
               <strong>上传一张游戏截图</strong>
-              <span>上传后框选截图中的道具，工具会在本地给出相似候选。</span>
+              <span>上传后自动检测房间道具，漏检时可手动补框。</span>
             </div>
           )}
         </div>
@@ -275,7 +374,7 @@ export function IsaacLens() {
         <section>
           <h2>候选区域</h2>
           <div className="region-list">
-            {regions.length === 0 && <p className="muted">暂无候选。上传截图后点击“框选道具”。</p>}
+            {regions.length === 0 && <p className="muted">上传后自动检测房间道具；漏检时可用“框选道具”补充。</p>}
             {regions.map((region) => (
               <button
                 className={`region-card${region.id === selectedRegionId ? " active" : ""}`}
@@ -341,6 +440,21 @@ export function IsaacLens() {
         </section>
       </aside>
     </main>
+  );
+}
+
+function isInsideRoomFloor(
+  box: { x: number; y: number; w: number; h: number },
+  width: number,
+  height: number,
+) {
+  const centerX = box.x + box.w / 2;
+  const centerY = box.y + box.h / 2;
+  return (
+    centerX >= width * 0.12 &&
+    centerX <= width * 0.88 &&
+    centerY >= height * 0.24 &&
+    centerY <= height * 0.82
   );
 }
 
