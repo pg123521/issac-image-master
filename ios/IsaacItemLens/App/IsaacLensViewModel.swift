@@ -6,20 +6,19 @@ import UIKit
 
 @MainActor
 final class IsaacLensViewModel: ObservableObject {
-  private static let autoDetectionKey = "autoDetectionEnabled"
+  private static let candidateDisplayLimitKey = "candidateDisplayLimit"
+  private static let candidateSearchLimit = 50
   private let logger = Logger(subsystem: "com.pg123521.IsaacItemLens", category: "pipeline")
   @Published var image: UIImage?
   @Published var regions: [DetectionRegion] = []
   @Published var selectedRegionID: UUID?
   @Published var matches: [SearchMatch] = []
   @Published var selectedItem: IsaacObject?
-  @Published var stage: DetectionStage = .idle
-  @Published var progress: Double = 0
   @Published var manualMode = false
   @Published var manualBoxFraction = 0.082
-  @Published var autoDetectionEnabled: Bool {
+  @Published var candidateDisplayLimit: Int {
     didSet {
-      UserDefaults.standard.set(autoDetectionEnabled, forKey: Self.autoDetectionKey)
+      UserDefaults.standard.set(candidateDisplayLimit, forKey: Self.candidateDisplayLimitKey)
     }
   }
   @Published var showManualGuidance = false
@@ -27,35 +26,33 @@ final class IsaacLensViewModel: ObservableObject {
   @Published var status = "上传截图以识别物品"
 
   let repository: ItemRepository?
-  private let detector: CollectibleDetector?
   private let searchEngine: ItemSearchEngine?
   private var selectionTask: Task<Void, Never>?
-  private var detectionTask: Task<Void, Never>?
+  private var thumbnailCache: [UUID: UIImage] = [:]
+  private var currentZoomScale: CGFloat = 1
+  private var selectedRegionNeedsSearch = false
 
   var selectedRegion: DetectionRegion? {
     regions.first { $0.id == selectedRegionID }
   }
 
   init() {
-    autoDetectionEnabled = UserDefaults.standard.object(forKey: Self.autoDetectionKey) as? Bool ?? true
+    let savedCandidateLimit = UserDefaults.standard.object(forKey: Self.candidateDisplayLimitKey) as? Int ?? 15
+    candidateDisplayLimit = min(max(savedCandidateLimit, 1), Self.candidateSearchLimit)
     var loadedRepository: ItemRepository?
-    var loadedDetector: CollectibleDetector?
     var loadedSearchEngine: ItemSearchEngine?
     var initialStatus = "上传截图以识别物品"
     do {
       let repository = try ItemRepository()
       loadedRepository = repository
-      loadedDetector = try CollectibleDetector()
       loadedSearchEngine = try ItemSearchEngine(repository: repository)
     } catch {
       logger.error("initialization failed error=\(error.localizedDescription, privacy: .public)")
       loadedRepository = nil
-      loadedDetector = nil
       loadedSearchEngine = nil
       initialStatus = error.localizedDescription
     }
     repository = loadedRepository
-    detector = loadedDetector
     searchEngine = loadedSearchEngine
     status = initialStatus
   }
@@ -68,86 +65,39 @@ final class IsaacLensViewModel: ObservableObject {
       }
       begin(image)
     } catch {
-      stage = .failed(error.localizedDescription)
-      progress = 1
       status = error.localizedDescription
     }
   }
 
   func begin(_ newImage: UIImage) {
-    detectionTask?.cancel()
     selectionTask?.cancel()
     image = newImage
     regions = []
     selectedRegionID = nil
     matches = []
     selectedItem = nil
-    manualMode = !autoDetectionEnabled
-    showManualGuidance = false
-    if autoDetectionEnabled {
-      startDetection()
-    } else {
-      stage = .idle
-      progress = 0
-      showManualGuidance = true
-      status = "自动检测已关闭，请手动选取"
+    thumbnailCache = [:]
+    currentZoomScale = 1
+    selectedRegionNeedsSearch = false
+    manualMode = true
+    showManualGuidance = true
+    status = "点击图片中物品进行手动选取"
+    Task { [weak self] in
+      try? await Task.sleep(for: .seconds(4))
+      self?.showManualGuidance = false
     }
-  }
-
-  func toggleAutoDetection() {
-    autoDetectionEnabled.toggle()
-    detectionTask?.cancel()
-    if autoDetectionEnabled {
-      manualMode = false
-      showManualGuidance = false
-      if image != nil {
-        regions = []
-        selectedRegionID = nil
-        matches = []
-        selectedItem = nil
-        startDetection()
-      } else {
-        status = "上传截图以识别物品"
-      }
-    } else {
-      stage = .idle
-      progress = 0
-      manualMode = image != nil
-      showManualGuidance = image != nil
-      status = image == nil ? "自动检测已关闭" : "自动检测已关闭，请手动选取"
-    }
-  }
-
-  private func startDetection() {
-    stage = .detecting
-    progress = 0.08
-    status = "正在查找道具"
-    detectionTask = Task { [weak self] in
-      await self?.runDetection()
-    }
-  }
-
-  func dismissDetection() {
-    stage = .idle
-  }
-
-  func cancelDetection() {
-    detectionTask?.cancel()
-    stage = .idle
-    progress = 0
-    status = image == nil ? "上传截图以识别物品" : "已取消自动检测，可手动选取"
   }
 
   func clearImage() {
-    detectionTask?.cancel()
     selectionTask?.cancel()
     image = nil
     regions = []
     selectedRegionID = nil
     matches = []
     selectedItem = nil
-    stage = .idle
-    progress = 0
+    thumbnailCache = [:]
+    currentZoomScale = 1
+    selectedRegionNeedsSearch = false
     manualMode = false
     showManualGuidance = false
     status = "上传截图以识别物品"
@@ -159,31 +109,15 @@ final class IsaacLensViewModel: ObservableObject {
     matches = []
     selectedItem = nil
     isSearching = false
-    status = manualMode ? "点击图片中物品进行手动选取" : "选择图中的检测框查看候选"
-  }
-
-  func startManualSelection() {
-    stage = .idle
-    manualMode = true
-    showManualGuidance = true
     status = "点击图片中物品进行手动选取"
-    Task { [weak self] in
-      try? await Task.sleep(for: .seconds(4))
-      self?.showManualGuidance = false
-    }
   }
 
-  func toggleManualSelection() {
-    manualMode.toggle()
-    showManualGuidance = manualMode
-    status = manualMode ? "点击图片中物品进行手动选取" : "手动选取已关闭"
-  }
-
-  func addManualRegion(at point: CGPoint) {
+  func addManualRegion(at point: CGPoint, zoomScale: CGFloat) {
     guard manualMode, let image else { return }
+    currentZoomScale = max(1, zoomScale)
     let pixelWidth = image.size.width * image.scale
     let pixelHeight = image.size.height * image.scale
-    let side = min(pixelWidth, pixelHeight) * manualBoxFraction
+    let side = min(pixelWidth, pixelHeight) * manualBoxFraction / currentZoomScale
     let width = min(1, side / pixelWidth)
     let height = min(1, side / pixelHeight)
     let rect = CGRect(
@@ -192,11 +126,69 @@ final class IsaacLensViewModel: ObservableObject {
       width: width,
       height: height
     )
-    let region = DetectionRegion(rect: rect, automatic: false)
+    let region = DetectionRegion(rect: rect)
     regions.append(region)
     showManualGuidance = false
     select(region)
     status = "已添加手动选取"
+  }
+
+  func updateRegionsForZoom(from oldScale: CGFloat, to newScale: CGFloat) {
+    guard oldScale > 0, newScale > 0, oldScale != newScale else { return }
+    currentZoomScale = newScale
+    let sizeRatio = oldScale / newScale
+    for index in regions.indices {
+      let rect = regions[index].rect
+      let width = min(1, max(1 / CGFloat(max(1, image?.size.width ?? 1)), rect.width * sizeRatio))
+      let height = min(1, max(1 / CGFloat(max(1, image?.size.height ?? 1)), rect.height * sizeRatio))
+      regions[index].rect = CGRect(
+        x: min(max(0, rect.midX - width / 2), 1 - width),
+        y: min(max(0, rect.midY - height / 2), 1 - height),
+        width: width,
+        height: height
+      )
+    }
+    thumbnailCache = [:]
+    if let selectedRegion {
+      matches = []
+      search(selectedRegion)
+    }
+  }
+
+  func setManualBoxFraction(_ value: Double) {
+    manualBoxFraction = value
+    guard resizeSelectedRegionToManualBoxSize() else { return }
+    selectedRegionNeedsSearch = true
+  }
+
+  func finishManualBoxResize() {
+    guard selectedRegionNeedsSearch else { return }
+    selectedRegionNeedsSearch = false
+    if let selectedRegion {
+      matches = []
+      search(selectedRegion)
+    }
+  }
+
+  @discardableResult
+  private func resizeSelectedRegionToManualBoxSize() -> Bool {
+    guard let selectedRegionID,
+          let index = regions.firstIndex(where: { $0.id == selectedRegionID }),
+          let image else { return false }
+    let pixelWidth = image.size.width * image.scale
+    let pixelHeight = image.size.height * image.scale
+    let side = min(pixelWidth, pixelHeight) * manualBoxFraction / max(1, currentZoomScale)
+    let width = min(1, side / pixelWidth)
+    let height = min(1, side / pixelHeight)
+    let rect = regions[index].rect
+    regions[index].rect = CGRect(
+      x: min(max(0, rect.midX - width / 2), 1 - width),
+      y: min(max(0, rect.midY - height / 2), 1 - height),
+      width: width,
+      height: height
+    )
+    thumbnailCache.removeValue(forKey: selectedRegionID)
+    return true
   }
 
   func select(_ region: DetectionRegion) {
@@ -208,6 +200,7 @@ final class IsaacLensViewModel: ObservableObject {
 
   func remove(_ region: DetectionRegion) {
     regions.removeAll { $0.id == region.id }
+    thumbnailCache.removeValue(forKey: region.id)
     if selectedRegionID == region.id {
       selectedRegionID = regions.first?.id
       matches = []
@@ -218,47 +211,13 @@ final class IsaacLensViewModel: ObservableObject {
   }
 
   func thumbnail(for region: DetectionRegion) -> UIImage? {
+    if let cached = thumbnailCache[region.id] { return cached }
     guard let image, let source = try? ImageUtilities.normalizedCGImage(image),
-          let crop = try? ImageUtilities.squareCrop(source, normalizedRect: region.rect) else { return nil }
-    return UIImage(cgImage: crop)
-  }
-
-  private func runDetection() async {
-    guard let detector, let searchEngine, let image else {
-      stage = .failed(status)
-      return
-    }
-    do {
-      let candidates = try await detector.detect(in: image)
-      logger.info("detector candidates=\(candidates.count)")
-      guard !Task.isCancelled else { return }
-      progress = 0.62
-      stage = .verifying
-      status = "正在核对检测结果"
-      var verified: [DetectionRegion] = []
-      for (index, region) in candidates.enumerated() {
-        let results = try await searchEngine.search(image: image, region: region, topK: 2)
-        let best = results.first?.score ?? 0
-        let second = results.dropFirst().first?.score ?? 0
-        logger.info("candidate \(index) detector=\(region.detectorScore) best=\(best) second=\(second)")
-        if best >= 0.76 || (best >= 0.70 && best - second >= 0.10 && region.detectorScore >= 0.70) {
-          verified.append(region)
-        }
-        progress = 0.62 + 0.34 * Double(index + 1) / Double(max(1, candidates.count))
-      }
-      guard !Task.isCancelled else { return }
-      regions = verified
-      selectedRegionID = verified.first?.id
-      progress = 1
-      stage = .complete(verified.count)
-      status = verified.isEmpty ? "未自动检测到道具，请手动选取" : "找到 \(verified.count) 个可能的道具"
-      if let first = verified.first { search(first) }
-    } catch {
-      guard !Task.isCancelled else { return }
-      progress = 1
-      stage = .failed(error.localizedDescription)
-      status = "自动检测未完成，请手动选取"
-    }
+          let crop = try? ImageUtilities.squareCrop(source, normalizedRect: region.rect),
+          let buffer = try? ImageUtilities.searchInputBuffer(from: crop),
+          let thumbnail = try? ImageUtilities.image(from: buffer) else { return nil }
+    thumbnailCache[region.id] = thumbnail
+    return thumbnail
   }
 
   private func search(_ region: DetectionRegion) {
@@ -267,10 +226,18 @@ final class IsaacLensViewModel: ObservableObject {
     isSearching = true
     selectionTask = Task { [weak self] in
       do {
-        let results = try await searchEngine.search(image: image, region: region, topK: 8)
+        let result = try await searchEngine.search(
+          image: image,
+          region: region,
+          topK: Self.candidateSearchLimit
+        )
         guard !Task.isCancelled, self?.selectedRegionID == region.id else { return }
-        self?.matches = results
+        self?.thumbnailCache[region.id] = result.modelInputImage
+        self?.matches = result.matches
         self?.isSearching = false
+        self?.logger.info(
+          "UI preview uses exact model input region=\(region.id.uuidString, privacy: .public) \(result.modelInputHash, privacy: .public) saved=\(result.savedInputURL.path, privacy: .public)"
+        )
       } catch {
         guard !Task.isCancelled else { return }
         self?.logger.error("search failed region=\(region.id.uuidString, privacy: .public) error=\(error.localizedDescription, privacy: .public)")

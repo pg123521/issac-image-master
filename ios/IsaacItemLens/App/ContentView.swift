@@ -17,11 +17,15 @@ struct ContentView: View {
               regions: viewModel.regions,
               selectedRegionID: viewModel.selectedRegionID,
               manualMode: viewModel.manualMode,
-              boxSizePreview: showBoxSizeControl ? CGFloat(viewModel.manualBoxFraction) : nil,
+              boxSizePreview: showBoxSizeControl && viewModel.selectedRegionID == nil
+                ? CGFloat(viewModel.manualBoxFraction)
+                : nil,
               onSelect: viewModel.select,
               onDelete: viewModel.remove,
-              onManualPoint: viewModel.addManualRegion
+              onManualPoint: viewModel.addManualRegion,
+              onZoomChange: viewModel.updateRegionsForZoom
             )
+            .id(ObjectIdentifier(image))
             .padding(12)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             statusBar
@@ -44,18 +48,7 @@ struct ContentView: View {
           .allowsHitTesting(false)
         }
 
-        if viewModel.stage.isPresented {
-          DetectionDialog(
-            stage: viewModel.stage,
-            progress: viewModel.progress,
-            onClose: viewModel.cancelDetection,
-            onReview: viewModel.dismissDetection,
-            onManual: viewModel.startManualSelection
-          )
-          .transition(.opacity)
-        }
       }
-      .animation(.easeInOut(duration: 0.2), value: viewModel.stage)
       .navigationTitle("Isaac Item Lens")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
@@ -70,7 +63,7 @@ struct ContentView: View {
         toolbar(hasImage: viewModel.image != nil)
       }
       .safeAreaInset(edge: .bottom, spacing: 0) {
-        if viewModel.selectedRegion != nil && !viewModel.stage.isPresented {
+        if viewModel.selectedRegion != nil {
           CandidatePanel(viewModel: viewModel, onClose: viewModel.closeSelection)
         }
       }
@@ -83,36 +76,18 @@ struct ContentView: View {
         showBoxSizeControl = false
         Task { await viewModel.importPhoto(item) }
       }
-      .onChange(of: viewModel.manualMode) { _, enabled in
-        if !enabled { showBoxSizeControl = false }
-      }
     }
   }
 
   @ToolbarContentBuilder private func toolbar(hasImage: Bool) -> some ToolbarContent {
     ToolbarItemGroup(placement: .topBarTrailing) {
-      Button(action: viewModel.toggleAutoDetection) {
-        ZStack {
-          Image(systemName: "viewfinder")
-          if !viewModel.autoDetectionEnabled {
-            Image(systemName: "slash.circle.fill")
-              .font(.system(size: 10, weight: .bold))
-              .symbolRenderingMode(.palette)
-              .foregroundStyle(.white, .red)
-              .offset(x: 7, y: 7)
-          }
-        }
-      }
-      .tint(viewModel.autoDetectionEnabled ? .primary : .red)
-      .accessibilityLabel(viewModel.autoDetectionEnabled ? "关闭自动检测" : "开启自动检测")
-
       if viewModel.image != nil {
         Button {
           showBoxSizeControl.toggle()
         } label: {
           Image(systemName: "square.resize")
         }
-        .disabled(!viewModel.manualMode)
+        .disabled(!viewModel.manualMode && viewModel.selectedRegionID == nil)
         .accessibilityLabel("检测框大小")
         .popover(isPresented: $showBoxSizeControl, arrowEdge: .top) {
           VStack(alignment: .leading, spacing: 14) {
@@ -122,7 +97,16 @@ struct ContentView: View {
               Image(systemName: "square")
                 .font(.caption)
                 .foregroundStyle(.secondary)
-              Slider(value: $viewModel.manualBoxFraction, in: 0.035...0.18)
+              Slider(
+                value: Binding(
+                  get: { viewModel.manualBoxFraction },
+                  set: viewModel.setManualBoxFraction
+                ),
+                in: 0.012...0.54,
+                onEditingChanged: { editing in
+                  if !editing { viewModel.finishManualBoxResize() }
+                }
+              )
                 .tint(.yellow)
               Image(systemName: "square")
                 .font(.title3)
@@ -133,12 +117,6 @@ struct ContentView: View {
           .frame(width: 290)
           .presentationCompactAdaptation(.popover)
         }
-
-        Button(action: viewModel.toggleManualSelection) {
-          Image(systemName: viewModel.manualMode ? "cursorarrow.click.2" : "cursorarrow.click")
-        }
-        .tint(viewModel.manualMode ? .yellow : .primary)
-        .accessibilityLabel("手动选取")
       }
 
       PhotosPicker(selection: $photoItem, matching: .images) {
@@ -169,7 +147,7 @@ struct ContentView: View {
   private var statusBar: some View {
     HStack(spacing: 8) {
       Circle()
-        .fill(viewModel.manualMode ? Color.yellow : Color.green)
+        .fill(Color.yellow)
         .frame(width: 7, height: 7)
       Text(viewModel.status)
         .font(.caption)

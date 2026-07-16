@@ -33,9 +33,16 @@ SPRITES = {
   "rep": "images/repentance-items.png",
   "rep2": "images/repentance-items2.png",
   "rep_trinkets": "images/repentance-trinkets.png",
-  "rep_cards": "images/repentance-cards.png",
+  "rep_cards": "images/repentance-cards_final.png",
+  "legacy_trinkets": "images/repentance-rebirth-trinkets.png",
+  "legacy_cards": "images/ap-cards2.png",
   "icecat_trinkets": "https://issac-icecat.azurewebsites.net/images/rebirth-trinkets-final.png",
   "icecat_cards": "https://issac-icecat.azurewebsites.net/images/ab-cards4.png",
+}
+
+STANDALONE_ICONS = {
+  # tboi.com lists Damocles as rep577, but its current CSS has no rep577 rule.
+  "item-577": "https://isaacguru.com/core/data/isaac/collectibles/collectibles_577_damocles.png",
 }
 
 
@@ -59,6 +66,7 @@ def main() -> int:
   ICON_DIR.mkdir(parents=True, exist_ok=True)
   html_text = read_or_fetch_text(SOURCE_URL, SOURCE_DIR / "all.html", args.offline)
   sprites = load_sprites(args.offline)
+  standalone_icons = load_standalone_icons(args.offline)
   icecat_css = read_or_fetch_text(
     "https://issac-icecat.azurewebsites.net/assets/main.css?v=7",
     SOURCE_DIR / "icecat-main.css",
@@ -85,13 +93,42 @@ def main() -> int:
   imported = []
   missing: list[dict] = []
   for obj in objects:
-    spec = icon_spec_for(obj, tboi_icons, icecat_icons, icecat_name_icons)
-    if not spec:
-      missing.append({"id": obj["id"], "kind": obj["kind"], "classes": obj["iconClasses"]})
+    crop = standalone_icons.get(obj["id"])
+    if crop is None:
+      spec = icon_spec_for(obj, tboi_icons, icecat_icons, icecat_name_icons)
+      if not spec:
+        missing.append({
+          "id": obj["id"],
+          "kind": obj["kind"],
+          "nameEn": obj["nameEn"],
+          "reason": "no matching icon CSS rule",
+          "classes": obj["iconClasses"],
+        })
+        continue
+      sprite = sprites[spec.sprite]
+      x = spec.index * spec.width if spec.x is None else spec.x
+      if x < 0 or spec.y < 0 or x + spec.width > sprite.width or spec.y + spec.height > sprite.height:
+        missing.append({
+          "id": obj["id"],
+          "kind": obj["kind"],
+          "nameEn": obj["nameEn"],
+          "reason": "icon crop is outside sprite bounds",
+          "classes": obj["iconClasses"],
+          "sprite": spec.sprite,
+          "spriteSize": [sprite.width, sprite.height],
+          "crop": [x, spec.y, x + spec.width, spec.y + spec.height],
+        })
+        continue
+      crop = sprite.crop((x, spec.y, x + spec.width, spec.y + spec.height))
+    if crop.getchannel("A").getbbox() is None:
+      missing.append({
+        "id": obj["id"],
+        "kind": obj["kind"],
+        "nameEn": obj["nameEn"],
+        "reason": "icon crop is fully transparent",
+        "classes": obj["iconClasses"],
+      })
       continue
-    sprite = sprites[spec.sprite]
-    x = spec.index * spec.width if spec.x is None else spec.x
-    crop = sprite.crop((x, spec.y, x + spec.width, spec.y + spec.height))
     icon_name = f"{obj['kind']}-{obj['gameId']:03d}.png"
     icon_path = ICON_DIR / icon_name
     crop.save(icon_path)
@@ -112,7 +149,7 @@ def main() -> int:
     "sourceUrl": SOURCE_URL,
     "count": len(imported),
     "missingCount": len(missing),
-    "missing": missing[:200],
+    "missing": missing,
     "kindCounts": kind_counts(imported),
   }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
   print(f"Imported {len(imported)} objects")
@@ -125,9 +162,14 @@ def main() -> int:
 def read_or_fetch_text(url: str, dest: Path, offline: bool) -> str:
   if offline and dest.exists():
     return decode_text(dest.read_bytes())
-  data = urllib.request.urlopen(url, timeout=60).read()
+  data = fetch_bytes(url)
   dest.write_bytes(data)
   return decode_text(data)
+
+
+def fetch_bytes(url: str) -> bytes:
+  request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 IsaacItemLens/1.0"})
+  return urllib.request.urlopen(request, timeout=60).read()
 
 
 def decode_text(data: bytes) -> str:
@@ -142,9 +184,20 @@ def load_sprites(offline: bool) -> dict[str, Image.Image]:
     dest = SOURCE_DIR / Path(rel.split("?")[0]).name
     if not offline or not dest.exists():
       url = rel if rel.startswith("http") else urljoin(BASE_URL, rel)
-      dest.write_bytes(urllib.request.urlopen(url, timeout=60).read())
+      dest.write_bytes(fetch_bytes(url))
     sprites[key] = Image.open(dest).convert("RGBA")
   return sprites
+
+
+def load_standalone_icons(offline: bool) -> dict[str, Image.Image]:
+  icons = {}
+  for object_id, url in STANDALONE_ICONS.items():
+    dest = SOURCE_DIR / f"{object_id}.png"
+    if not offline or not dest.exists():
+      dest.write_bytes(fetch_bytes(url))
+    source = Image.open(dest).convert("RGBA")
+    icons[object_id] = source.resize((50, 50), Image.Resampling.NEAREST)
+  return icons
 
 
 def parse_objects(text: str) -> list[dict]:
@@ -232,11 +285,16 @@ def icon_spec_for(
     junxx = next((cls for cls in classes if re.fullmatch(r"rep-junxx\d+", cls)), None)
     if junxx and junxx in tboi_icons:
       return tboi_icons[junxx]
+    legacy = next((cls for cls in classes if re.fullmatch(r"trinket\d+", cls)), None)
+    if legacy and legacy in tboi_icons:
+      return tboi_icons[legacy]
     icecat_class = icecat_name_icons.get(name_key(obj["nameEn"]))
     if icecat_class and icecat_class in icecat_icons:
       return icecat_icons[icecat_class]
   if obj["kind"] == "card":
     old_card = next((cls for cls in classes if re.fullmatch(r"r-card\d+", cls)), None)
+    if old_card and old_card in tboi_icons:
+      return tboi_icons[old_card]
     if old_card and old_card in icecat_icons:
       return icecat_icons[old_card]
     repc = next((cls for cls in classes if re.fullmatch(r"repc\d+", cls)), None)
@@ -254,6 +312,8 @@ def parse_tboi_icons(css: str) -> dict[str, IconSpec]:
     (r"\.rep-item\.(rep\d+)(?:$|[:.\s#])", "rep2", 50, 50),
     (r"\.rep-trink\.(rep-junxx\d+)(?:$|[:.\s#])", "rep_trinkets", 50, 50),
     (r"\.rep-card\.(repc\d+)(?:$|[:.\s#])", "rep_cards", 43, 50),
+    (r"\.trinket\.(trinket\d+)(?:$|[:.\s#])", "legacy_trinkets", 50, 50),
+    (r"\.rebirth-card\.(r-card\d+)(?:$|[:.\s#])", "legacy_cards", 50, 50),
   )
   for selector_text, declaration in re.findall(r"([^{}]+)\{([^{}]*)\}", css):
     for selector in selector_text.split(","):
@@ -333,7 +393,7 @@ def parse_icecat_localizations(text: str) -> dict[tuple[str, str], dict]:
     if not icon_match:
       continue
     classes = icon_match.group(1).split()
-    if any("trinket" in class_name for class_name in classes):
+    if any("trinket" in class_name or "trink" in class_name for class_name in classes):
       kind = "trinket"
     elif any("card" in class_name for class_name in classes):
       kind = "card"

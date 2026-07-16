@@ -1,8 +1,10 @@
+import Foundation
 import SwiftUI
 
 struct CandidatePanel: View {
   @ObservedObject var viewModel: IsaacLensViewModel
   let onClose: () -> Void
+  @State private var showCandidateLimitPicker = false
 
   var body: some View {
     VStack(alignment: .leading, spacing: 9) {
@@ -18,13 +20,39 @@ struct CandidatePanel: View {
         VStack(alignment: .leading, spacing: 2) {
           Text("选中区域")
             .font(.subheadline.bold())
-          Text("相似道具")
+          Text("Top \(viewModel.candidateDisplayLimit) 相似对象")
             .font(.caption)
             .foregroundStyle(.secondary)
         }
         Spacer()
         if viewModel.isSearching {
           ProgressView().controlSize(.small)
+        }
+        Button {
+          showCandidateLimitPicker.toggle()
+        } label: {
+          Label("\(viewModel.candidateDisplayLimit)", systemImage: "list.number")
+            .font(.caption.bold())
+        }
+        .buttonStyle(.bordered)
+        .controlSize(.small)
+        .accessibilityLabel("选择候选数量")
+        .popover(isPresented: $showCandidateLimitPicker, arrowEdge: .bottom) {
+          VStack(alignment: .leading, spacing: 12) {
+            Text("候选数量")
+              .font(.headline)
+            Stepper(
+              value: $viewModel.candidateDisplayLimit,
+              in: 1...50,
+              step: 1
+            ) {
+              Text("显示 Top \(viewModel.candidateDisplayLimit)")
+                .monospacedDigit()
+            }
+          }
+          .padding(18)
+          .frame(minWidth: 220)
+          .presentationCompactAdaptation(.popover)
         }
         Button(action: onClose) {
           Image(systemName: "xmark.circle.fill")
@@ -41,32 +69,26 @@ struct CandidatePanel: View {
       } else {
         ScrollView(.horizontal, showsIndicators: false) {
           LazyHStack(spacing: 10) {
-            ForEach(viewModel.matches) { match in
+            ForEach(viewModel.matches.prefix(viewModel.candidateDisplayLimit)) { match in
               Button {
                 viewModel.selectedItem = match.item
               } label: {
-                HStack(spacing: 9) {
+                VStack(spacing: 3) {
                   ObjectIcon(item: match.item, repository: viewModel.repository)
                     .frame(width: 48, height: 48)
-                  VStack(alignment: .leading, spacing: 4) {
-                    Text(match.item.nameZh)
-                      .font(.subheadline.bold())
-                      .foregroundStyle(.primary)
-                      .lineLimit(1)
-                    Text(match.item.nameEn)
-                      .font(.caption)
-                      .foregroundStyle(.secondary)
-                      .lineLimit(1)
-                  }
+                  Text(String(format: "%.1f%%", match.score * 100))
+                    .font(.caption2.bold().monospacedDigit())
+                    .foregroundStyle(.orange)
                 }
-                .padding(8)
-                .frame(width: 166, height: 66, alignment: .leading)
+                .padding(5)
+                .frame(width: 64, height: 70)
                 .background(Color(uiColor: .tertiarySystemBackground), in: RoundedRectangle(cornerRadius: 6))
                 .overlay {
                   RoundedRectangle(cornerRadius: 6).stroke(Color.white.opacity(0.08))
                 }
               }
               .buttonStyle(.plain)
+              .accessibilityLabel("\(match.item.nameZh)，相似度 \(String(format: "%.1f%%", match.score * 100))")
             }
           }
         }

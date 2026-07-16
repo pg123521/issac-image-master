@@ -1,6 +1,6 @@
 # Isaac Item Lens for iOS
 
-Native SwiftUI client for fully offline Isaac object detection and retrieval.
+Native SwiftUI client for fully offline manual Isaac object selection and retrieval.
 
 ## Generate and open
 
@@ -12,7 +12,7 @@ open IsaacItemLens.xcodeproj
 ```
 
 The project consumes the Core ML packages from `../ModelConversion/output` and
-bundles the 943-object encyclopedia, icons, and Float16 vector index. Select a
+bundles the 1020-object encyclopedia, icons, and Float16 vector index. Select a
 development team under Signing & Capabilities before running on a physical
 iPhone.
 

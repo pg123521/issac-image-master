@@ -17,9 +17,9 @@ from PIL import Image
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OBJECTS_JSON = PROJECT_ROOT / "data" / "objects.en.json"
 ICON_ROOT = PROJECT_ROOT / "public"
-DEFAULT_WEIGHTS = PROJECT_ROOT / "models" / "mobileclip-partial-v1.pt"
-DEFAULT_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-partial-index-v1.pt"
-BASELINE_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-icon-index-v1.pt"
+DEFAULT_WEIGHTS = PROJECT_ROOT / "models" / "mobileclip-partial-v2.pt"
+DEFAULT_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-partial-index-v2.pt"
+BASELINE_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-icon-index-v2.pt"
 MODEL_NAME = "MobileCLIP2-S0"
 PRETRAINED = "dfndr2b"
 

@@ -17,8 +17,8 @@ if str(PROJECT_ROOT) not in sys.path:
   sys.path.insert(0, str(PROJECT_ROOT))
 DEFAULT_OUTPUT = PROJECT_ROOT / "ios" / "ModelConversion" / "output"
 DETECTOR_WEIGHTS = PROJECT_ROOT / "models" / "room-collectible-detector-v1.pt"
-ENCODER_WEIGHTS = PROJECT_ROOT / "models" / "mobileclip-partial-v1.pt"
-SEARCH_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-partial-index-v1.pt"
+ENCODER_WEIGHTS = PROJECT_ROOT / "models" / "mobileclip-partial-v2.pt"
+SEARCH_INDEX = PROJECT_ROOT / "models" / "mobileclip-object-partial-index-v2.pt"
 
 
 class ImageEncoder(torch.nn.Module):
@@ -129,19 +129,22 @@ def export_encoder(output: Path, overwrite: bool) -> None:
       scale=1.0 / 255.0,
       color_layout=ct.colorlayout.RGB,
     )],
-    outputs=[ct.TensorType(name="embedding")],
+    # Keep internal weights/compute in Float16 to minimize the package and
+    # runtime footprint, but expose the small 512-D output in Float32. This
+    # avoids the all-zero/underflow behavior seen from FP16 MPS output.
+    outputs=[ct.TensorType(name="embedding", dtype=np.float32)],
     minimum_deployment_target=ct.target.iOS17,
     compute_precision=ct.precision.FLOAT16,
   )
   converted.short_description = "Fine-tuned MobileCLIP2-S0 image encoder for Isaac object retrieval."
   converted.author = "Isaac Item Lens"
-  converted.version = "1.0"
+  converted.version = "2.0"
   converted.user_defined_metadata.update({
     "model": MODEL_NAME,
     "weights": ENCODER_WEIGHTS.name,
     "input_size": "256x256 RGB",
     "input_scale": "1/255",
-    "output": "Raw 512-dimensional embedding; normalize in Float32 in the app",
+    "output": "Raw Float32 512-dimensional embedding; normalize in Float32 in the app",
   })
   converted.save(str(destination))
   print(f"  wrote {destination} ({directory_size(destination) / 1024 / 1024:.1f} MiB)", flush=True)

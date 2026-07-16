@@ -11,7 +11,6 @@
 		0FA095E40C0EFEAD0936A98E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A846DC414FED2854FEE7C748 /* ContentView.swift */; };
 		1430C75962BE66ECB2AA748B /* item-vectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 63A69F960997E9A5CBCAD913 /* item-vectors.json */; };
 		17471280ADB16ABF9BE9EBA0 /* objects in Resources */ = {isa = PBXBuildFile; fileRef = C0B42499C44D16200FDFDBC1 /* objects */; };
-		2A7BE3AC393AE9EA1DEAF006 /* DetectionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDF521BE45467C4373364E /* DetectionDialog.swift */; };
 		402E35DB266304117D22FF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD5D742DDC090A108D0675F /* Assets.xcassets */; };
 		53AD8EE7829A0A47E3E65DC1 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8912A1BF15F9E832FD57B62A /* ImageUtilities.swift */; };
 		64B03C40DFC999791CFCD641 /* IsaacItemLensApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E103C19924CE194B095AD /* IsaacItemLensApp.swift */; };
@@ -23,9 +22,7 @@
 		C2CD4FB276252A5A60920854 /* MobileCLIPImageEncoderRaw.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = 0DF3AAB623CA8B41888294B9 /* MobileCLIPImageEncoderRaw.mlpackage */; };
 		D0910FC3D530FCEE747830B0 /* items in Resources */ = {isa = PBXBuildFile; fileRef = D1AC323863E193846D76BABA /* items */; };
 		D2EC79F293F2FE635F59CB34 /* ItemSearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62138D1191AA45D953A9A4B5 /* ItemSearchEngine.swift */; };
-		E8E9A8FDA29D398F255C7459 /* CollectibleDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEA953F54E5CE6645FE108 /* CollectibleDetector.swift */; };
 		EF7B79DC9B32619820563E87 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95325B3B99B4A3265F28ADB /* ItemRepository.swift */; };
-		F3CCA6F858B1EA76646EE5A8 /* RoomCollectibleDetector.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = A3E71F1D9FCD536C8EA0729D /* RoomCollectibleDetector.mlpackage */; };
 		FC3A2218051391A0C0572275 /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = BD099417CE23CFD3018D7B0F /* objects.json */; };
 		FD5277A9C1C0C0943C9B3A93 /* ScreenshotCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62984B0045B0BC6142EC6A5 /* ScreenshotCanvas.swift */; };
 /* End PBXBuildFile section */
@@ -42,9 +39,6 @@
 		8912A1BF15F9E832FD57B62A /* ImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
 		8A4DB0AAC4242376060C3F13 /* item-vectors.f16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "item-vectors.f16"; sourceTree = "<group>"; };
 		9A968494B51AE842730C5435 /* IsaacLensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsaacLensViewModel.swift; sourceTree = "<group>"; };
-		9FEEA953F54E5CE6645FE108 /* CollectibleDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleDetector.swift; sourceTree = "<group>"; };
-		A3DDF521BE45467C4373364E /* DetectionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionDialog.swift; sourceTree = "<group>"; };
-		A3E71F1D9FCD536C8EA0729D /* RoomCollectibleDetector.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = RoomCollectibleDetector.mlpackage; sourceTree = "<group>"; };
 		A846DC414FED2854FEE7C748 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD099417CE23CFD3018D7B0F /* objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = objects.json; sourceTree = "<group>"; };
 		C0B42499C44D16200FDFDBC1 /* objects */ = {isa = PBXFileReference; lastKnownFileType = folder; name = objects; path = App/Resources/objects; sourceTree = SOURCE_ROOT; };
@@ -105,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				17A32FEC94F77F679AB1CBBB /* CandidatePanel.swift */,
-				A3DDF521BE45467C4373364E /* DetectionDialog.swift */,
 				498487D8D8416969675A4A95 /* ItemDetailView.swift */,
 				F62984B0045B0BC6142EC6A5 /* ScreenshotCanvas.swift */,
 			);
@@ -116,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				0DF3AAB623CA8B41888294B9 /* MobileCLIPImageEncoderRaw.mlpackage */,
-				A3E71F1D9FCD536C8EA0729D /* RoomCollectibleDetector.mlpackage */,
 			);
 			name = output;
 			path = ../ModelConversion/output;
@@ -125,7 +117,6 @@
 		D2F233ABA350225719D834E4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9FEEA953F54E5CE6645FE108 /* CollectibleDetector.swift */,
 				244C429AB955059E5D22D069 /* CoreMLModelLoader.swift */,
 				8912A1BF15F9E832FD57B62A /* ImageUtilities.swift */,
 				E95325B3B99B4A3265F28ADB /* ItemRepository.swift */,
@@ -203,7 +194,6 @@
 			files = (
 				402E35DB266304117D22FF5C /* Assets.xcassets in Resources */,
 				C2CD4FB276252A5A60920854 /* MobileCLIPImageEncoderRaw.mlpackage in Resources */,
-				F3CCA6F858B1EA76646EE5A8 /* RoomCollectibleDetector.mlpackage in Resources */,
 				949F0B7DD280A0DC0F7A1BBF /* item-vectors.f16 in Resources */,
 				1430C75962BE66ECB2AA748B /* item-vectors.json in Resources */,
 				D0910FC3D530FCEE747830B0 /* items in Resources */,
@@ -220,10 +210,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C409EB4CDD73130B1E6811D /* CandidatePanel.swift in Sources */,
-				E8E9A8FDA29D398F255C7459 /* CollectibleDetector.swift in Sources */,
 				0FA095E40C0EFEAD0936A98E /* ContentView.swift in Sources */,
 				7984FFC4DC1C9C0CE191792C /* CoreMLModelLoader.swift in Sources */,
-				2A7BE3AC393AE9EA1DEAF006 /* DetectionDialog.swift in Sources */,
 				53AD8EE7829A0A47E3E65DC1 /* ImageUtilities.swift in Sources */,
 				64B03C40DFC999791CFCD641 /* IsaacItemLensApp.swift in Sources */,
 				86A30C63AE218CE56ADC41C7 /* IsaacLensViewModel.swift in Sources */,

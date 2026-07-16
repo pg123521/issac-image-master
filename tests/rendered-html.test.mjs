@@ -51,15 +51,16 @@ test("ships the complete offline object library and active index", async () => {
   );
   const counts = Object.groupBy(objects, (object) => object.kind);
 
-  assert.equal(objects.length, 943);
-  assert.equal(counts.item.length, 717);
-  assert.equal(counts.trinket.length, 121);
-  assert.equal(counts.card.length, 105);
+  assert.equal(objects.length, 1020);
+  assert.equal(counts.item.length, 718);
+  assert.equal(counts.trinket.length, 188);
+  assert.equal(counts.card.length, 114);
   assert.ok(objects.some((object) => object.id === "item-070" && object.nameEn === "Growth Hormones"));
+  assert.ok(objects.some((object) => object.id === "trinket-10073" && object.nameZh === "爆炸帽子"));
 
   await Promise.all([
-    access(new URL("../models/mobileclip-partial-v1.pt", import.meta.url)),
-    access(new URL("../models/mobileclip-object-partial-index-v1.pt", import.meta.url)),
+    access(new URL("../models/mobileclip-partial-v2.pt", import.meta.url)),
+    access(new URL("../models/mobileclip-object-partial-index-v2.pt", import.meta.url)),
     access(new URL("../public/items/icons/item-070.png", import.meta.url)),
     access(new URL("../public/objects/icons/trinket-10147.png", import.meta.url)),
   ]);

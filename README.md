@@ -4,10 +4,10 @@
 
 ## 当前数据
 
-- 943 个可检索对象
-- 717 个道具、121 个饰品、105 张卡牌
+- 1020 个可检索对象
+- 718 个道具、188 个饰品、114 张卡牌
 - 百科数据来自 [IcaCat 以撒图鉴](https://issac-icecat.azurewebsites.net/) 与 [Platinum God](https://tboi.com/)
-- 图标、百科 JSON、微调视觉权重和 943 项向量索引均保存在仓库中
+- 图标、百科 JSON、微调视觉权重和 1020 项向量索引均保存在仓库中
 - 房间检测器不检测 HUD、角色、敌人、心、硬币、炸弹、钥匙或药丸
 - 截图不会上传到远程服务
 
@@ -54,9 +54,9 @@ pnpm run dev
 - `data/objects.en.json`：道具、饰品和卡牌百科清单
 - `public/items/icons/`：IcaCat 道具图标
 - `public/objects/icons/`：Platinum God 道具、饰品和卡牌图标
-- `models/mobileclip-partial-v1.pt`：针对残缺图标微调的 MobileCLIP 视觉权重
-- `models/mobileclip-object-partial-index-v1.pt`：当前 943 项微调向量索引
-- `models/mobileclip-object-icon-index-v1.pt`：未微调基线索引，用于前后评测
+- `models/mobileclip-partial-v2.pt`：使用完整 1020 项和强化缩放/明暗增强微调的 MobileCLIP 视觉权重
+- `models/mobileclip-object-partial-index-v2.pt`：当前 1020 项微调向量索引
+- `models/mobileclip-object-icon-index-v2.pt`：1020 项未微调基线索引，用于前后评测
 - `models/room-collectible-detector-v1.pt`：房间内可拾取道具单类别检测模型
 - `scripts/mobileclip_item_search.py`：索引构建、查询和本地服务
 - `scripts/train_mobileclip_partial.py`：残缺图标评测与 MobileCLIP 对比微调
@@ -77,7 +77,7 @@ python3 scripts/import_tboi_objects.py
 
 ```bash
 .venv-train/bin/python scripts/mobileclip_item_search.py build-index \
-  --output models/mobileclip-object-partial-index-v1.pt \
+  --output models/mobileclip-object-partial-index-v2.pt \
   --batch-size 96
 ```
 
@@ -128,26 +128,26 @@ python3 scripts/import_tboi_objects.py
 
 ```bash
 .venv-train/bin/python scripts/train_mobileclip_partial.py train \
-  --output models/mobileclip-partial-v1.pt
+  --output models/mobileclip-partial-v2.pt
 ```
 
 训练后评测并重建图库索引：
 
 ```bash
 .venv-train/bin/python scripts/train_mobileclip_partial.py evaluate \
-  --weights models/mobileclip-partial-v1.pt
+  --weights models/mobileclip-partial-v2.pt
 
 .venv-train/bin/python scripts/mobileclip_item_search.py build-index \
-  --weights models/mobileclip-partial-v1.pt \
-  --output models/mobileclip-object-partial-index-v1.pt
+  --weights models/mobileclip-partial-v2.pt \
+  --output models/mobileclip-object-partial-index-v2.pt
 ```
 
 使用微调模型启动服务时，权重和索引必须配套：
 
 ```bash
 .venv-train/bin/python scripts/mobileclip_item_search.py serve \
-  --weights models/mobileclip-partial-v1.pt \
-  --index models/mobileclip-object-partial-index-v1.pt \
+  --weights models/mobileclip-partial-v2.pt \
+  --index models/mobileclip-object-partial-index-v2.pt \
   --port 8766 --top-k 10
 ```
 

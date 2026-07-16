@@ -16,7 +16,7 @@ Run from the repository root:
 The command prints progress and writes:
 
 - `RoomCollectibleDetector.mlpackage`: 1024x1024 room collectible detector.
-- `MobileCLIPImageEncoderRaw.mlpackage`: 256x256 RGB to raw 512-D embedding.
+- `MobileCLIPImageEncoderRaw.mlpackage`: 256x256 RGB to raw Float32 512-D embedding.
 - `item-vectors.f16`: row-major little-endian Float16 reference vectors.
 - `item-vectors.json`: vector dimensions and object metadata.
 
@@ -28,7 +28,8 @@ Pass `--overwrite` to replace previously generated output.
   by `scripts/room_detector_service.py`.
 - The encoder receives a square RGB crop resized to 256x256. Core ML applies
   the `1/255` input scale; no mean/std normalization is required.
-- The app L2-normalizes the encoder output in Float32. Search then uses a dot
+- The encoder keeps internal Core ML compute in Float16 to reduce size, exposes
+  its 512-D output as Float32, and the app L2-normalizes it in Float32. Search then uses a dot
   product because both query and reference vectors are normalized.
 
 Generated `.mlpackage` directories are POC artifacts. Source weights remain the

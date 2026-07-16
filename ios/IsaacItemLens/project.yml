@@ -29,8 +29,6 @@ targets:
       - path: App/Resources/objects
         type: folder
         buildPhase: resources
-      - path: ../ModelConversion/output/RoomCollectibleDetector.mlpackage
-        buildPhase: resources
       - path: ../ModelConversion/output/MobileCLIPImageEncoderRaw.mlpackage
         buildPhase: resources
     settings:

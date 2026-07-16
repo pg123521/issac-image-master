@@ -2,6 +2,7 @@ import SwiftUI
 import UIKit
 
 struct ScreenshotCanvas: View {
+  private static let maximumZoom: CGFloat = 15
   let image: UIImage
   let regions: [DetectionRegion]
   let selectedRegionID: UUID?
@@ -9,32 +10,50 @@ struct ScreenshotCanvas: View {
   let boxSizePreview: CGFloat?
   let onSelect: (DetectionRegion) -> Void
   let onDelete: (DetectionRegion) -> Void
-  let onManualPoint: (CGPoint) -> Void
+  let onManualPoint: (CGPoint, CGFloat) -> Void
+  let onZoomChange: (CGFloat, CGFloat) -> Void
+  @State private var settledZoom: CGFloat = 1
+  @State private var settledOffset: CGSize = .zero
+  @GestureState private var gestureZoom: CGFloat = 1
+  @GestureState private var gestureOffset: CGSize = .zero
 
   var body: some View {
     GeometryReader { proxy in
       let imageSize = CGSize(width: image.size.width * image.scale, height: image.size.height * image.scale)
       let frame = aspectFitFrame(content: imageSize, container: proxy.size)
+      let zoom = min(Self.maximumZoom, max(1, settledZoom * gestureZoom))
+      let proposedOffset = CGSize(
+        width: settledOffset.width + gestureOffset.width,
+        height: settledOffset.height + gestureOffset.height
+      )
+      let offset = clampedOffset(proposedOffset, frame: frame, zoom: zoom)
+      let zoomedFrame = CGRect(
+        x: frame.midX + offset.width - frame.width * zoom / 2,
+        y: frame.midY + offset.height - frame.height * zoom / 2,
+        width: frame.width * zoom,
+        height: frame.height * zoom
+      )
+      let overlaySizeCorrection = settledZoom / zoom
       ZStack(alignment: .topLeading) {
         Color.black.opacity(0.45)
         Image(uiImage: image)
           .resizable()
           .interpolation(.high)
           .scaledToFit()
-          .frame(width: frame.width, height: frame.height)
-          .position(x: frame.midX, y: frame.midY)
+          .frame(width: zoomedFrame.width, height: zoomedFrame.height)
+          .position(x: zoomedFrame.midX, y: zoomedFrame.midY)
 
         Color.clear
-          .frame(width: frame.width, height: frame.height)
+          .frame(width: zoomedFrame.width, height: zoomedFrame.height)
           .contentShape(Rectangle())
           .onTapGesture { location in
             guard manualMode else { return }
             onManualPoint(CGPoint(
-              x: min(max(0, location.x / frame.width), 1),
-              y: min(max(0, location.y / frame.height), 1)
-            ))
+              x: min(max(0, location.x / zoomedFrame.width), 1),
+              y: min(max(0, location.y / zoomedFrame.height), 1)
+            ), zoom)
           }
-          .position(x: frame.midX, y: frame.midY)
+          .position(x: zoomedFrame.midX, y: zoomedFrame.midY)
 
         ForEach(regions) { region in
           let cropRect = ImageUtilities.squareNormalizedRect(
@@ -42,15 +61,20 @@ struct ScreenshotCanvas: View {
             imageHeight: imageSize.height,
             normalizedRect: region.rect
           )
+          let overlayWidth = cropRect.width * zoomedFrame.width * overlaySizeCorrection
+          let overlayHeight = cropRect.height * zoomedFrame.height * overlaySizeCorrection
+          let overlayCenter = CGPoint(
+            x: zoomedFrame.minX + cropRect.midX * zoomedFrame.width,
+            y: zoomedFrame.minY + cropRect.midY * zoomedFrame.height
+          )
           let overlay = CGRect(
-            x: frame.minX + cropRect.minX * frame.width,
-            y: frame.minY + cropRect.minY * frame.height,
-            width: cropRect.width * frame.width,
-            height: cropRect.height * frame.height
+            x: overlayCenter.x - overlayWidth / 2,
+            y: overlayCenter.y - overlayHeight / 2,
+            width: overlayWidth,
+            height: overlayHeight
           )
           RegionOverlay(
             selected: region.id == selectedRegionID,
-            automatic: region.automatic,
             onSelect: { onSelect(region) },
             onDelete: { onDelete(region) }
           )
@@ -70,6 +94,32 @@ struct ScreenshotCanvas: View {
         }
       }
       .animation(.easeOut(duration: 0.14), value: boxSizePreview)
+      .simultaneousGesture(
+        MagnifyGesture()
+          .updating($gestureZoom) { value, state, _ in
+            state = value.magnification
+          }
+          .onEnded { value in
+            let oldScale = settledZoom
+            let newScale = min(Self.maximumZoom, max(1, oldScale * value.magnification))
+            settledZoom = newScale
+            settledOffset = clampedOffset(settledOffset, frame: frame, zoom: newScale)
+            onZoomChange(oldScale, newScale)
+          }
+      )
+      .simultaneousGesture(
+        DragGesture(minimumDistance: 4)
+          .updating($gestureOffset) { value, state, _ in
+            state = value.translation
+          }
+          .onEnded { value in
+            let proposed = CGSize(
+              width: settledOffset.width + value.translation.width,
+              height: settledOffset.height + value.translation.height
+            )
+            settledOffset = clampedOffset(proposed, frame: frame, zoom: settledZoom)
+          }
+      )
     }
     .clipShape(RoundedRectangle(cornerRadius: 6))
   }
@@ -82,6 +132,16 @@ struct ScreenshotCanvas: View {
       y: (container.height - size.height) / 2,
       width: size.width,
       height: size.height
+    )
+  }
+
+  private func clampedOffset(_ offset: CGSize, frame: CGRect, zoom: CGFloat) -> CGSize {
+    guard zoom > 1 else { return .zero }
+    let maximumX = max(0, frame.width * (zoom - 1) / 2)
+    let maximumY = max(0, frame.height * (zoom - 1) / 2)
+    return CGSize(
+      width: min(max(offset.width, -maximumX), maximumX),
+      height: min(max(offset.height, -maximumY), maximumY)
     )
   }
 }
@@ -110,7 +170,6 @@ private struct BoxSizePreview: View {
 
 private struct RegionOverlay: View {
   let selected: Bool
-  let automatic: Bool
   let onSelect: () -> Void
   let onDelete: () -> Void
 
@@ -138,7 +197,7 @@ private struct RegionOverlay: View {
           .shadow(color: selected ? Color.white.opacity(0.45) : .clear, radius: 3)
       }
       .buttonStyle(.plain)
-      .accessibilityLabel(automatic ? "自动检测区域" : "手动选取区域")
+      .accessibilityLabel("手动选取区域")
 
       if selected {
         Image(systemName: "checkmark")

@@ -31,6 +31,13 @@ VISIBLE_BUCKETS = {
   "50-70": (0.50, 0.70),
 }
 
+TRAIN_SCALE_RANGE = (0.30, 1.25)
+EVAL_SCALE_RANGE = (0.45, 1.05)
+TRAIN_BACKGROUND_BRIGHTNESS_RANGE = (0.35, 1.70)
+EVAL_BACKGROUND_BRIGHTNESS_RANGE = (0.55, 1.45)
+TRAIN_BACKGROUND_CONTRAST_RANGE = (0.65, 1.45)
+EVAL_BACKGROUND_CONTRAST_RANGE = (0.80, 1.25)
+
 
 def main() -> int:
   parser = argparse.ArgumentParser(
@@ -359,8 +366,8 @@ def render_query(
   sprite = sprite.rotate(rotation, resample=Image.Resampling.BICUBIC, expand=True)
 
   canvas_size = rng.randint(88, 120)
-  background = make_background(canvas_size, rng)
-  scale = rng.uniform(0.55, 0.90)
+  background = make_background(canvas_size, rng, training)
+  scale = rng.uniform(*(TRAIN_SCALE_RANGE if training else EVAL_SCALE_RANGE))
   longest = max(sprite.size)
   target = max(18, int(canvas_size * scale))
   width = max(1, round(sprite.width * target / longest))
@@ -388,7 +395,7 @@ def render_query(
   return result
 
 
-def make_background(size: int, rng: random.Random) -> Image.Image:
+def make_background(size: int, rng: random.Random, training: bool) -> Image.Image:
   palettes = [
     ((91, 71, 56), (119, 91, 70)),
     ((111, 85, 69), (145, 109, 83)),
@@ -416,7 +423,27 @@ def make_background(size: int, rng: random.Random) -> Image.Image:
     shade = rng.choice([-1, 1]) * rng.randint(5, 18)
     pixel = tuple(max(0, min(255, channel + shade)) for channel in base)
     draw.point((x, y), fill=(*pixel, rng.randint(20, 65)))
-  return image
+  brightness_range = (
+    TRAIN_BACKGROUND_BRIGHTNESS_RANGE if training else EVAL_BACKGROUND_BRIGHTNESS_RANGE
+  )
+  contrast_range = TRAIN_BACKGROUND_CONTRAST_RANGE if training else EVAL_BACKGROUND_CONTRAST_RANGE
+  adjusted = ImageEnhance.Brightness(image.convert("RGB")).enhance(rng.uniform(*brightness_range))
+  adjusted = ImageEnhance.Contrast(adjusted).enhance(rng.uniform(*contrast_range)).convert("RGBA")
+
+  lighting = Image.new("RGBA", adjusted.size)
+  lighting_draw = ImageDraw.Draw(lighting, "RGBA")
+  patch_count = rng.randint(1, 3) if training else rng.randint(0, 2)
+  for _ in range(patch_count):
+    radius = rng.randint(size // 3, size)
+    center_x = rng.randint(-size // 4, size + size // 4)
+    center_y = rng.randint(-size // 4, size + size // 4)
+    shade = 255 if rng.random() < 0.45 else 0
+    alpha = rng.randint(12, 55) if training else rng.randint(8, 32)
+    lighting_draw.ellipse(
+      (center_x - radius, center_y - radius, center_x + radius, center_y + radius),
+      fill=(shade, shade, shade, alpha),
+    )
+  return Image.alpha_composite(adjusted, lighting)
 
 
 def apply_partial_mask(sprite: Image.Image, visible: float, rng: random.Random) -> Image.Image:
@@ -468,6 +495,9 @@ def save_checkpoint(
       "phase1_epochs": args.phase1_epochs,
       "phase2_epochs": args.phase2_epochs,
       "visible_range": [0.50, 1.00],
+      "training_scale_range": list(TRAIN_SCALE_RANGE),
+      "training_background_brightness_range": list(TRAIN_BACKGROUND_BRIGHTNESS_RANGE),
+      "training_background_contrast_range": list(TRAIN_BACKGROUND_CONTRAST_RANGE),
       "history": history,
     },
   }, output)

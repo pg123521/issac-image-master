@@ -65,6 +65,15 @@ def main() -> int:
   detector_spec = ct.models.MLModel(str(detector_path), skip_model_load=True).get_spec()
   report["coreML"]["encoderContract"] = model_contract(encoder_spec)
   report["coreML"]["detectorContract"] = model_contract(detector_spec)
+  encoder_metadata = dict(encoder_spec.description.metadata.userDefined)
+  report["coreML"]["encoderMetadata"] = encoder_metadata
+  if encoder_metadata.get("weights") != DEFAULT_WEIGHTS.name:
+    raise ValueError(
+      f"encoder weights metadata is {encoder_metadata.get('weights')}, expected {DEFAULT_WEIGHTS.name}"
+    )
+  encoder_output = encoder_spec.description.output[0].type.multiArrayType
+  if encoder_output.dataType != 65568:
+    raise ValueError(f"encoder output must be Float32, got Core ML data type {encoder_output.dataType}")
 
   print("[4/4] attempting Core ML runtime parity", flush=True)
   try:
@@ -74,10 +83,21 @@ def main() -> int:
     model_image = image.resize((256, 256), Image.Resampling.BILINEAR)
     prediction = coreml_encoder.predict({"image": model_image})["embedding"]
     coreml_vector = torch.from_numpy(np.asarray(prediction, dtype=np.float32)).reshape(-1)
-    coreml_vector = coreml_vector / coreml_vector.norm().clamp_min(1e-12)
+    finite = bool(torch.isfinite(coreml_vector).all())
+    raw_norm = float(coreml_vector.norm())
+    if not finite or raw_norm <= 1e-8:
+      raise ValueError(f"invalid Core ML embedding finite={finite} norm={raw_norm}")
+    raw_min = float(coreml_vector.min())
+    raw_max = float(coreml_vector.max())
+    coreml_vector = coreml_vector / raw_norm
     pytorch_vector = MobileClipEncoder(DEFAULT_WEIGHTS).encode([image])[0]
     report["coreML"]["runtime"] = {
       "available": True,
+      "embeddingDataType": str(np.asarray(prediction).dtype),
+      "embeddingFinite": finite,
+      "embeddingRawNorm": raw_norm,
+      "embeddingRawMin": raw_min,
+      "embeddingRawMax": raw_max,
       "encoderMaxAbsoluteError": float((pytorch_vector - coreml_vector).abs().max()),
       "encoderCosineSimilarity": float(pytorch_vector @ coreml_vector),
     }
@@ -109,6 +129,7 @@ def feature_contract(feature: Any) -> dict[str, Any]:
     result.update({"width": feature.type.imageType.width, "height": feature.type.imageType.height})
   elif kind == "multiArrayType":
     result["shape"] = list(feature.type.multiArrayType.shape)
+    result["dataType"] = feature.type.multiArrayType.dataType
   return result
 
 

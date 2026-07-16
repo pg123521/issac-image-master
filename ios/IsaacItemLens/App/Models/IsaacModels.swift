@@ -22,14 +22,10 @@ struct IsaacObject: Codable, Identifiable, Hashable {
 struct DetectionRegion: Identifiable, Equatable {
   let id: UUID
   var rect: CGRect
-  let detectorScore: Float
-  let automatic: Bool
 
-  init(id: UUID = UUID(), rect: CGRect, detectorScore: Float = 1, automatic: Bool) {
+  init(id: UUID = UUID(), rect: CGRect) {
     self.id = id
     self.rect = rect
-    self.detectorScore = detectorScore
-    self.automatic = automatic
   }
 }
 
@@ -37,16 +33,4 @@ struct SearchMatch: Identifiable {
   let item: IsaacObject
   let score: Float
   var id: String { item.id }
-}
-
-enum DetectionStage: Equatable {
-  case idle
-  case detecting
-  case verifying
-  case complete(Int)
-  case failed(String)
-
-  var isPresented: Bool {
-    self != .idle
-  }
 }

@@ -16101,6 +16101,33 @@
     "sourceUrl": "https://tboi.com/"
   },
   {
+    "id": "item-577",
+    "kind": "item",
+    "gameId": 577,
+    "nameZh": "Damocles",
+    "nameEn": "Damocles",
+    "pickup": "A king's fortune... but at what cost?",
+    "description": "A king's fortune... but at what cost?",
+    "effects": [
+      "When used, places a sword directly above Isaac's head and while active, will spawn an extra item for every item pedestal spawned",
+      "After getting hit once with the item activated, at any time without warning, the sword may fall, instantly killing Isaac regardless of his health",
+      "After being hit the sword has a 1/10000 chance every 4 frames to fall. This chance doesnt change if you take further damage",
+      "You effectively have a 4.4% chance for every minute that passes after taking damage to die",
+      "Self-inflicted damage i.e. Curse Rooms and Blood Donation Machines don't trigger this effect",
+      "Items with a price will spawn the extra item free of charge (i.e. in shops or devil rooms)",
+      "The only way to survive the falling sword is either through extra lives, by using items that would make you invincible, such as Gnawed Leaf or playing as The Lost. After the sword falls, extra items will no longer spawn",
+      "*,"
+    ],
+    "type": "Active",
+    "pools": [
+      "Devil Room"
+    ],
+    "tags": [],
+    "iconPath": "/objects/icons/item-577.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
     "id": "item-578",
     "kind": "item",
     "gameId": 578,
@@ -20817,6 +20844,26 @@
     "sourceUrl": "https://tboi.com/"
   },
   {
+    "id": "trinket-10045",
+    "kind": "trinket",
+    "gameId": 10045,
+    "nameZh": "黑桃A",
+    "nameEn": "Ace of Spades",
+    "pickup": "全看天命",
+    "description": "全看天命",
+    "effects": [
+      "获得卡片的概率提高"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "card"
+    ],
+    "iconPath": "/objects/icons/trinket-10045.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
     "id": "trinket-10046",
     "kind": "trinket",
     "gameId": 10046,
@@ -21203,6 +21250,328 @@
     "sourceUrl": "https://tboi.com/"
   },
   {
+    "id": "trinket-10062",
+    "kind": "trinket",
+    "gameId": 10062,
+    "nameZh": "闪光小石头",
+    "nameEn": "Shiny Rock",
+    "pickup": "为它的兄弟闪光",
+    "description": "为它的兄弟闪光",
+    "effects": [
+      "宝箱石头或下面有地道入口的石头每10秒闪烁一次"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "silver",
+      "lump",
+      "metal",
+      "stone"
+    ],
+    "iconPath": "/objects/icons/trinket-10062.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10063",
+    "kind": "trinket",
+    "gameId": 10063,
+    "nameZh": "安全剪刀",
+    "nameEn": "Safety Scissors",
+    "pickup": "剪断引线",
+    "description": "剪断引线",
+    "effects": [
+      "使房间内的即爆炸弹自动转化为基础掉落的炸弹（可以被拾取）",
+      "超级即爆炸弹将被转化为1+1炸弹"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "blue",
+      "metal",
+      "sissors"
+    ],
+    "iconPath": "/objects/icons/trinket-10063.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10064",
+    "kind": "trinket",
+    "gameId": 10064,
+    "nameZh": "彩虹虫",
+    "nameEn": "Rainbow Worm",
+    "pickup": "哔-啵-卜",
+    "description": "哔-啵-卜",
+    "effects": [
+      "每隔几秒会随机获得一个虫饰品的效果"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "lgbt",
+      "circle",
+      "snake",
+      "red",
+      "green",
+      "blue"
+    ],
+    "iconPath": "/objects/icons/trinket-10064.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10065",
+    "kind": "trinket",
+    "gameId": 10065,
+    "nameZh": "胶带虫",
+    "nameEn": "Tape Worm",
+    "pickup": "哗啦啦啦啦",
+    "description": "哗啦啦啦啦",
+    "effects": [
+      "射程X2",
+      "子弹高度X0.5"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "intestine",
+      "white",
+      "snake"
+    ],
+    "iconPath": "/objects/icons/trinket-10065.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10066",
+    "kind": "trinket",
+    "gameId": 10066,
+    "nameZh": "懒虫",
+    "nameEn": "Lazy Worm",
+    "pickup": "(ˉ▽￣～) 切~~",
+    "description": "(ˉ▽￣～) 切~~",
+    "effects": [
+      "弹速-0.4",
+      "射程+4",
+      "子弹高度+2"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "circle",
+      "button",
+      "eyes",
+      "white"
+    ],
+    "iconPath": "/objects/icons/trinket-10066.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10067",
+    "kind": "trinket",
+    "gameId": 10067,
+    "nameZh": "裂开的骰子",
+    "nameEn": "Cracked Dice",
+    "pickup": "你感到被诅咒了……有点",
+    "description": "你感到被诅咒了……有点",
+    "effects": [
+      "每次受伤会随机触发以下道具之一的效果：D6、D20、D8、D12",
+      "解锁：用???（小蓝人）击败Ultra Greed（终极贪婪）"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "stone",
+      "rock",
+      "grey",
+      "gray",
+      "white",
+      "dice",
+      "pip",
+      "broken",
+      "die"
+    ],
+    "iconPath": "/objects/icons/trinket-10067.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10068",
+    "kind": "trinket",
+    "gameId": 10068,
+    "nameZh": "超级磁铁",
+    "nameEn": "Super Magnet",
+    "pickup": "超能拉",
+    "description": "超能拉",
+    "effects": [
+      "将房间内所有掉落物和敌人向角色方向吸引",
+      "也会影响Mom（妈腿）的腿和Ultra Greed（终极贪婪）房间内的门"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "white",
+      "grey",
+      "gray",
+      "pill",
+      "medicine",
+      "drug"
+    ],
+    "iconPath": "/objects/icons/trinket-10068.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10069",
+    "kind": "trinket",
+    "gameId": 10069,
+    "nameZh": "褪色的全家福",
+    "nameEn": "Faded Polaroid",
+    "pickup": "你感到黯淡无光",
+    "description": "你感到黯淡无光",
+    "effects": [
+      "角色会有一定几率伪装成保护色，持续数秒，使当前房间内的敌人进入混乱状态（移动路径随机，无法以角色为目标）"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "photo",
+      "family",
+      "old"
+    ],
+    "iconPath": "/objects/icons/trinket-10069.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10070",
+    "kind": "trinket",
+    "gameId": 10070,
+    "nameZh": "虱子",
+    "nameEn": "Louse",
+    "pickup": "痒，好吃",
+    "description": "痒，好吃",
+    "effects": [
+      "在有敌人的房间内，有小概率生成一只蓝蜘蛛"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "bug",
+      "insect",
+      "pink",
+      "legs"
+    ],
+    "iconPath": "/objects/icons/trinket-10070.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10071",
+    "kind": "trinket",
+    "gameId": 10071,
+    "nameZh": "鲍勃的气囊",
+    "nameEn": "Bob's Bladder",
+    "pickup": "粘液炸弹",
+    "description": "粘液炸弹",
+    "effects": [
+      "角色放置的炸弹爆炸后会留下一滩绿色液体，对踩在上面的敌人造成伤害"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "green",
+      "bogey",
+      "snot",
+      "ocarina",
+      "bobs bladder",
+      "bob bladder"
+    ],
+    "iconPath": "/objects/icons/trinket-10071.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10072",
+    "kind": "trinket",
+    "gameId": 10072,
+    "nameZh": "纽扣电池",
+    "nameEn": "Watch Battery",
+    "pickup": "小型充能",
+    "description": "小型充能",
+    "effects": [
+      "提高获得电池的概率",
+      "有一定几率在角色清理完一个房间后获得额外的一格充能"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "metal",
+      "grey",
+      "gray",
+      "silver",
+      "pill",
+      "cross"
+    ],
+    "iconPath": "/objects/icons/trinket-10072.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10073",
+    "kind": "trinket",
+    "gameId": 10073,
+    "nameZh": "爆炸帽子",
+    "nameEn": "Blasting Cap",
+    "pickup": "啪！啪！",
+    "description": "啪！啪！",
+    "effects": [
+      "炸弹爆炸后有一定几率掉落一个炸弹（可被拾取）"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "orange",
+      "red",
+      "circle"
+    ],
+    "iconPath": "/objects/icons/trinket-10073.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10074",
+    "kind": "trinket",
+    "gameId": 10074,
+    "nameZh": "探柱器",
+    "nameEn": "Stud Finder",
+    "pickup": "地下好像有点空洞……",
+    "description": "地下好像有点空洞……",
+    "effects": [
+      "提高炸石头时发现地道的概率",
+      "解锁：完成挑战27"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "toe",
+      "finger",
+      "thumb",
+      "grey",
+      "gray",
+      "black",
+      "red",
+      "yellow"
+    ],
+    "iconPath": "/objects/icons/trinket-10074.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
     "id": "trinket-10075",
     "kind": "trinket",
     "gameId": 10075,
@@ -21223,6 +21592,1278 @@
       "red"
     ],
     "iconPath": "/objects/icons/trinket-10075.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10076",
+    "kind": "trinket",
+    "gameId": 10076,
+    "nameZh": "筹码",
+    "nameEn": "Poker Chip",
+    "pickup": "双倍下注时间！",
+    "description": "双倍下注时间！",
+    "effects": [
+      "宝箱有50%概率有额外掉落物，有50%概率是空的或一个敌人",
+      "解锁：完成挑战26"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "red",
+      "white",
+      "circle",
+      "pill",
+      "bow"
+    ],
+    "iconPath": "/objects/icons/trinket-10076.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10077",
+    "kind": "trinket",
+    "gameId": 10077,
+    "nameZh": "水泡",
+    "nameEn": "Blister",
+    "pickup": "弹回去！",
+    "description": "弹回去！",
+    "effects": [
+      "子弹获得更大的击退效果"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "white",
+      "lump",
+      "circle",
+      "hairy"
+    ],
+    "iconPath": "/objects/icons/trinket-10077.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10078",
+    "kind": "trinket",
+    "gameId": 10078,
+    "nameZh": "二手货",
+    "nameEn": "Second Hand",
+    "pickup": "延长状态影响时间",
+    "description": "延长状态影响时间",
+    "effects": [
+      "延长敌人受到状态影响的时间，如：敌人进入中毒或魅惑等状态的时间会被延长"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "red",
+      "stick",
+      "dynamite",
+      "tnt",
+      "rod"
+    ],
+    "iconPath": "/objects/icons/trinket-10078.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10079",
+    "kind": "trinket",
+    "gameId": 10079,
+    "nameZh": "无限的难以言喻",
+    "nameEn": "Endless Nameless",
+    "pickup": "我陷入了一个循环……",
+    "description": "我陷入了一个循环……",
+    "effects": [
+      "使用卡片/符文或胶囊时有一定几率会在身边掉落一个完全一样的卡片/符文或胶囊"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "black",
+      "infinity",
+      "oo"
+    ],
+    "iconPath": "/objects/icons/trinket-10079.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10080",
+    "kind": "trinket",
+    "gameId": 10080,
+    "nameZh": "黑羽毛",
+    "nameEn": "Black Feather",
+    "pickup": "力量源于黑暗",
+    "description": "力量源于黑暗",
+    "effects": [
+      "角色每拥有一个“evil”道具，伤害+0.2",
+      "“evil”道具包括：Black Candle（黑蜡烛）, Ceremonial Robes（仪式法袍）, Abaddon（亚巴顿）, Goat Head（山羊头）, Match Book（纸板火柴）, Missing Page 2（迷失书页2）, Safety Pin（安全别针）",
+      "解锁：用Eve（夏娃）击败Ultra Greed（终极贪婪）"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "leaf"
+    ],
+    "iconPath": "/objects/icons/trinket-10080.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10081",
+    "kind": "trinket",
+    "gameId": 10081,
+    "nameZh": "盲目的愤怒",
+    "nameEn": "Blind Rage",
+    "pickup": "对受伤的盲目",
+    "description": "对受伤的盲目",
+    "effects": [
+      "延长受伤后的无敌时间",
+      "被延长后的无敌时间足够使角色连续两次使用献血机而只损一次血",
+      "解锁：用Samson（参孙）击败Hush"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "bandana",
+      "sling",
+      "white",
+      "knot",
+      "blindfold"
+    ],
+    "iconPath": "/objects/icons/trinket-10081.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10082",
+    "kind": "trinket",
+    "gameId": 10082,
+    "nameZh": "金马掌",
+    "nameEn": "Golden Horse Shoe",
+    "pickup": "感到幸运？",
+    "description": "感到幸运？",
+    "effects": [
+      "下一层的宝物房有15%的几率会出现两个道具，但是拾取一个后另一个会消失（即二选一）",
+      "如果拥有Mom's Box（妈妈的盒子），几率为30%"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "yellow",
+      "u",
+      "magnet"
+    ],
+    "iconPath": "/objects/icons/trinket-10082.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10083",
+    "kind": "trinket",
+    "gameId": 10083,
+    "nameZh": "商店钥匙",
+    "nameEn": "Store Key",
+    "pickup": "商店开门",
+    "description": "商店开门",
+    "effects": [
+      "进入商店门时不耗费钥匙",
+      "解锁：在贪婪存款机存款累计666硬币",
+      "解锁：用Keeper击败Satan（撒旦）后，可以使Keeper初始携带该饰品"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "starting",
+      "grey",
+      "gray",
+      "metal"
+    ],
+    "iconPath": "/objects/icons/trinket-10083.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10084",
+    "kind": "trinket",
+    "gameId": 10084,
+    "nameZh": "贪婪的肋骨",
+    "nameEn": "Rib of Greed",
+    "pickup": "感到贪婪",
+    "description": "感到贪婪",
+    "effects": [
+      "使商店和隐藏房不会再出现Greed（贪婪）和Super Greed（超级贪婪）",
+      "解锁：用Keeper击败Ultra Greed（终极贪婪）"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "white",
+      "trunk",
+      "bent"
+    ],
+    "iconPath": "/objects/icons/trinket-10084.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10085",
+    "kind": "trinket",
+    "gameId": 10085,
+    "nameZh": "业",
+    "nameEn": "Karma",
+    "pickup": "因缘上升",
+    "description": "因缘上升",
+    "effects": [
+      "向捐款机捐款有一定几率使角色回复1红心，或在地上生成一个乞丐",
+      "解锁：用Keeper击败The Lamb（羔羊）"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "black",
+      "three",
+      "spiral"
+    ],
+    "iconPath": "/objects/icons/trinket-10085.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10086",
+    "kind": "trinket",
+    "gameId": 10086,
+    "nameZh": "幼虫",
+    "nameEn": "Lil Larva",
+    "pickup": "大便在动……",
+    "description": "大便在动……",
+    "effects": [
+      "摧毁大便时会生成一只蓝苍蝇"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "white",
+      "grey",
+      "gray",
+      "bent"
+    ],
+    "iconPath": "/objects/icons/trinket-10086.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10087",
+    "kind": "trinket",
+    "gameId": 10087,
+    "nameZh": "妈妈的吊坠",
+    "nameEn": "Mom's Locket",
+    "pickup": "你感到了她的爱",
+    "description": "你感到了她的爱",
+    "effects": [
+      "每次使用钥匙时会回复半红心",
+      "所有地上的半红心会被转换为一个完整的红心"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "red",
+      "brown",
+      "grey",
+      "gray",
+      "necklace",
+      "moms locket",
+      "mom locket"
+    ],
+    "iconPath": "/objects/icons/trinket-10087.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10088",
+    "kind": "trinket",
+    "gameId": 10088,
+    "nameZh": "不！",
+    "nameEn": "NO!",
+    "pickup": "别再来了！",
+    "description": "别再来了！",
+    "effects": [
+      "持有该饰品时，道具池中的所有主动道具将从道具池被移除",
+      "饰品被卸下或换掉后，此效果会消失，但不影响已经生成的被动道具",
+      "对图书馆道具无效",
+      "对一些小boss的固定掉落道具无效，如Krampus’ Head（坎普斯的头）、Bob's Rotten Head （鲍勃的烂脑袋）",
+      "对ROSARY（念珠）强制增加在道具池的The Bible（圣经）无效"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "stop",
+      "red",
+      "circle",
+      "line",
+      "cross",
+      "entry",
+      "warning"
+    ],
+    "iconPath": "/objects/icons/trinket-10088.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10089",
+    "kind": "trinket",
+    "gameId": 10089,
+    "nameZh": "栓童绳",
+    "nameEn": "Child Leash",
+    "pickup": "让你的伙伴离得近一点……",
+    "description": "让你的伙伴离得近一点……",
+    "effects": [
+      "使所有跟班聚在一起"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "ribbon",
+      "green",
+      "blue"
+    ],
+    "iconPath": "/objects/icons/trinket-10089.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10090",
+    "kind": "trinket",
+    "gameId": 10090,
+    "nameZh": "棕帽子",
+    "nameEn": "Brown Cap",
+    "pickup": "炸屎了！",
+    "description": "炸屎了！",
+    "effects": [
+      "摧毁大便时大便会爆炸"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "circle",
+      "rectangle"
+    ],
+    "iconPath": "/objects/icons/trinket-10090.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10091",
+    "kind": "trinket",
+    "gameId": 10091,
+    "nameZh": "胎粪",
+    "nameEn": "Meconium",
+    "pickup": "额",
+    "description": "额",
+    "effects": [
+      "当你持有时有更大的几率生成黑色大便,摧毁时对所有敌人造成伤害",
+      "给 The Poop（便便 主动道具）一定几率生成黑色便便",
+      "解锁: 使用???通关Greedier Mode（困难贪婪模式）解锁该饰品."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "black",
+      "grey",
+      "gray",
+      "poop"
+    ],
+    "iconPath": "/objects/icons/trinket-10091.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10092",
+    "kind": "trinket",
+    "gameId": 10092,
+    "nameZh": "破碎的王冠",
+    "nameEn": "Cracked Crown",
+    "pickup": "增强属性",
+    "description": "增强属性",
+    "effects": [
+      "持有时给予随机属性提升(确切机制不明)"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "broken",
+      "damaged",
+      "yellow",
+      "golden"
+    ],
+    "iconPath": "/objects/icons/trinket-10092.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10093",
+    "kind": "trinket",
+    "gameId": 10093,
+    "nameZh": "用过的尿布",
+    "nameEn": "Used Diaper",
+    "pickup": "你好臭",
+    "description": "你好臭",
+    "effects": [
+      "携带时，以撒接触敌人会造成毒伤害，被毒死的怪物有概率掉落黑心"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "circle",
+      "white",
+      "fly",
+      "brown",
+      "poop"
+    ],
+    "iconPath": "/objects/icons/trinket-10093.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10094",
+    "kind": "trinket",
+    "gameId": 10094,
+    "nameZh": "鱼尾巴",
+    "nameEn": "Fish Tail",
+    "pickup": "这个也很臭!",
+    "description": "这个也很臭!",
+    "effects": [
+      "杀死敌人有概率产生一个蓝苍蝇"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "green",
+      "arrow",
+      "flower",
+      "plant"
+    ],
+    "iconPath": "/objects/icons/trinket-10094.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10095",
+    "kind": "trinket",
+    "gameId": 10095,
+    "nameZh": "黑牙齿",
+    "nameEn": "Black Tooth",
+    "pickup": "看起来挂掉了",
+    "description": "看起来挂掉了",
+    "effects": [
+      "一些眼泪随机变成黑牙齿, 可以使敌人中毒"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "horn"
+    ],
+    "iconPath": "/objects/icons/trinket-10095.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10096",
+    "kind": "trinket",
+    "gameId": 10096,
+    "nameZh": "衔尾蛇幼虫",
+    "nameEn": "Ouroboros Worm",
+    "pickup": "Foop foop!",
+    "description": "Foop foop!",
+    "effects": [
+      "眼泪现在会在房间中绕大弧线"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "brown",
+      "circle",
+      "snake"
+    ],
+    "iconPath": "/objects/icons/trinket-10096.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10097",
+    "kind": "trinket",
+    "gameId": 10097,
+    "nameZh": "扁桃体",
+    "nameEn": "Tonsil",
+    "pickup": "恶心...",
+    "description": "恶心...",
+    "effects": [
+      "每次你收到伤害时，都有几率生成一个扁桃体跟班给你抵挡子弹。",
+      "在饰品破坏前可起效两次。"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "pink",
+      "bloody",
+      "brain"
+    ],
+    "iconPath": "/objects/icons/trinket-10097.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10098",
+    "kind": "trinket",
+    "gameId": 10098,
+    "nameZh": "鼻子哥布林",
+    "nameEn": "Nose Goblin",
+    "pickup": "看起来有不可思议的魔力...",
+    "description": "看起来有不可思议的魔力...",
+    "effects": [
+      "你的眼泪几率变成鼻涕",
+      "鼻涕眼泪会黏在敌人身上，对敌人造成毒性伤害直至死亡或持续60秒. 每帧毒液伤害等于当前眼泪伤害"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "green",
+      "snot",
+      "booger",
+      "bogey",
+      "slime"
+    ],
+    "iconPath": "/objects/icons/trinket-10098.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10099",
+    "kind": "trinket",
+    "gameId": 10099,
+    "nameZh": "超级球",
+    "nameEn": "Super Ball",
+    "pickup": "啵嘤嘤嘤!",
+    "description": "啵嘤嘤嘤!",
+    "effects": [
+      "一些眼泪随机会变得有弹性，像得到了橡胶水泥一样"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "yellow",
+      "orange",
+      "red",
+      "circle",
+      "stripe"
+    ],
+    "iconPath": "/objects/icons/trinket-10099.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10100",
+    "kind": "trinket",
+    "gameId": 10100,
+    "nameZh": "亮起的灯泡",
+    "nameEn": "Vibrant Bulb",
+    "pickup": "需要能源",
+    "description": "需要能源",
+    "effects": [
+      "当你持有一个满充能的主动道具时，你的所有属性+1"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "yellow",
+      "light"
+    ],
+    "iconPath": "/objects/icons/trinket-10100.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10101",
+    "kind": "trinket",
+    "gameId": 10101,
+    "nameZh": "昏暗的灯泡",
+    "nameEn": "Dim Bulb",
+    "pickup": "我想它坏了",
+    "description": "我想它坏了",
+    "effects": [
+      "当持有主动道具一格充能也没有时给予 +0.5速度, +1.5射程, +0.3子弹速度, +0.4眼泪数, +1.5伤害"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "light"
+    ],
+    "iconPath": "/objects/icons/trinket-10101.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10102",
+    "kind": "trinket",
+    "gameId": 10102,
+    "nameZh": "破碎的卡片",
+    "nameEn": "Fragmented Card",
+    "pickup": "两个月亮",
+    "description": "两个月亮",
+    "effects": [
+      "当持有时接下来每一层会有两个隐藏房间",
+      "不会生成超过一个超隐,只作用于普通隐藏"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "purple",
+      "torn",
+      "ripped",
+      "paper",
+      "page",
+      "poster"
+    ],
+    "iconPath": "/objects/icons/trinket-10102.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10103",
+    "kind": "trinket",
+    "gameId": 10103,
+    "nameZh": "平等!",
+    "nameEn": "Equality!",
+    "pickup": "=",
+    "description": "=",
+    "effects": [
+      "一定的几率使半个的消耗品变成整个的"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "red",
+      "lines",
+      "redpill"
+    ],
+    "iconPath": "/objects/icons/trinket-10103.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10104",
+    "kind": "trinket",
+    "gameId": 10104,
+    "nameZh": "许愿骨",
+    "nameEn": "Wish Bone",
+    "pickup": "许个愿吧",
+    "description": "许个愿吧",
+    "effects": [
+      "每次你受到伤害时有很小的几率会产生一个基座道具",
+      "效果触发时，饰品被破坏"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "claw",
+      "rib"
+    ],
+    "iconPath": "/objects/icons/trinket-10104.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10105",
+    "kind": "trinket",
+    "gameId": 10105,
+    "nameZh": "袋装便当",
+    "nameEn": "Bag Lunch",
+    "pickup": "我想知道里面有啥",
+    "description": "我想知道里面有啥",
+    "effects": [
+      "每次你受到伤害，有很小的几率产生一个午餐道具，+1红心",
+      "效果触发时，饰品被破坏"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "brown",
+      "sack",
+      "hoof"
+    ],
+    "iconPath": "/objects/icons/trinket-10105.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10106",
+    "kind": "trinket",
+    "gameId": 10106,
+    "nameZh": "丢失的软木塞",
+    "nameEn": "Lost Cork",
+    "pickup": "塞不住了",
+    "description": "塞不住了",
+    "effects": [
+      "增大你产生的任何弧线的半径"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "brown",
+      "yellow",
+      "orange",
+      "black"
+    ],
+    "iconPath": "/objects/icons/trinket-10106.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10107",
+    "kind": "trinket",
+    "gameId": 10107,
+    "nameZh": "乌鸦之心",
+    "nameEn": "Crow Heart",
+    "pickup": "流干我的血",
+    "description": "流干我的血",
+    "effects": [
+      "持有时，收到伤害后无视魂心黑心，优先扣除红心",
+      "只剩半个红心时,再次受到伤害会开始扣除魂心和黑心.",
+      "解锁: 用Eve（夏娃）通关Greedier（困难贪婪模式）."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "crow's",
+      "purple",
+      "blue",
+      "bloody"
+    ],
+    "iconPath": "/objects/icons/trinket-10107.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10108",
+    "kind": "trinket",
+    "gameId": 10108,
+    "nameZh": "核桃",
+    "nameEn": "Walnut",
+    "pickup": "这是个棘手的难题!",
+    "description": "这是个棘手的难题!",
+    "effects": [
+      "当你受到伤害时, 核桃会破裂并掉落一个随机的饰品、硬币、心或钥匙",
+      "起效时这个饰品会被破坏",
+      "走过店主尸体时会触发这个效果"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "brown",
+      "brain",
+      "stone",
+      "rock"
+    ],
+    "iconPath": "/objects/icons/trinket-10108.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10109",
+    "kind": "trinket",
+    "gameId": 10109,
+    "nameZh": "胶带",
+    "nameEn": "Duct Tape",
+    "pickup": "被黏住了!",
+    "description": "被黏住了!",
+    "effects": [
+      "使你有的任何环绕物停止移动",
+      "包括莉莉丝的梦魇宝宝"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "tp",
+      "toilet",
+      "paper",
+      "roll",
+      "silver"
+    ],
+    "iconPath": "/objects/icons/trinket-10109.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10110",
+    "kind": "trinket",
+    "gameId": 10110,
+    "nameZh": "银元",
+    "nameEn": "Silver Dollar",
+    "pickup": "感觉好幸运...",
+    "description": "感觉好幸运...",
+    "effects": [
+      "持有时子宫层也有会出现商店",
+      "解锁: 使用Cain（该隐）通关虚空层击败Delirium（精神错乱）."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "coin",
+      "money",
+      "cash",
+      "cent"
+    ],
+    "iconPath": "/objects/icons/trinket-10110.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10111",
+    "kind": "trinket",
+    "gameId": 10111,
+    "nameZh": "血腥皇冠",
+    "nameEn": "Bloody Crown",
+    "pickup": "流着血...",
+    "description": "流着血...",
+    "effects": [
+      "持有时，子宫层也会出现宝箱房",
+      "解锁: 使用Samson（参孙）通关虚空层击败Delirium（精神错乱）."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "red",
+      "dripping"
+    ],
+    "iconPath": "/objects/icons/trinket-10111.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10112",
+    "kind": "trinket",
+    "gameId": 10112,
+    "nameZh": "麻花藤",
+    "nameEn": "Pay To Win",
+    "pickup": "充值使你变强",
+    "description": "充值使你变强",
+    "effects": [
+      "持有时，宝箱房里总会有进货箱子（roll道具机？）"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "cent",
+      "money",
+      "cash",
+      "coin",
+      "pixel",
+      "blue",
+      "green",
+      "p2w"
+    ],
+    "iconPath": "/objects/icons/trinket-10112.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10113",
+    "kind": "trinket",
+    "gameId": 10113,
+    "nameZh": "Locust of War",
+    "nameEn": "Locust of War",
+    "pickup": "I Bring Wrath",
+    "description": "I Bring Wrath",
+    "effects": [
+      "TrinketID: 113",
+      "Upon entering a room with enemies, spawns a Red Locust which detonates upon impact with enemies, dealing double tear damage for the impact of the Locust and 60 damage for the explosion",
+      "Can be dangerous as the fly will target the nearest enemy, which can be close enough to catch Isaac in its blast radius",
+      "*, red, wings, fly, locust of wrath"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "red",
+      "wings",
+      "fly",
+      "locust of wrath"
+    ],
+    "iconPath": "/objects/icons/trinket-10113.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10114",
+    "kind": "trinket",
+    "gameId": 10114,
+    "nameZh": "瘟疫（蝗虫版）",
+    "nameEn": "Locust of Pestilence",
+    "pickup": "我带来了瘟疫",
+    "description": "我带来了瘟疫",
+    "effects": [
+      "进入有怪的房间时，产生一个可以对敌人产生伤害并使敌人中毒的绿色苍蝇， 自动瞄准最近的敌人，造成两倍当前伤害并使敌人中毒",
+      "解锁: 使用Apollyon（亚波伦）击败Satan（撒旦）."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "green",
+      "wings",
+      "fly"
+    ],
+    "iconPath": "/objects/icons/trinket-10114.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10115",
+    "kind": "trinket",
+    "gameId": 10115,
+    "nameZh": "饥荒（蝗虫版）",
+    "nameEn": "Locust of Famine",
+    "pickup": "我带来了饥荒",
+    "description": "我带来了饥荒",
+    "effects": [
+      "进入有怪的房间时，产生一个可以对敌人产生伤害并使敌人减速的黄色苍蝇，自动瞄准最近的敌人，造成两倍当前伤害并使敌人减速",
+      "解锁: 使用Apollyon（亚波伦）在宝箱层击败???."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "brown",
+      "wings",
+      "fly"
+    ],
+    "iconPath": "/objects/icons/trinket-10115.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10116",
+    "kind": "trinket",
+    "gameId": 10116,
+    "nameZh": "死亡（蝗虫版）",
+    "nameEn": "Locust of Death",
+    "pickup": "我带来了死亡",
+    "description": "我带来了死亡",
+    "effects": [
+      "进入有怪的房间时，产生一个可造成极高伤害的黑色苍蝇. 苍蝇会瞄准最近的敌人，并造成两倍当前角色眼泪的伤害，有一定几率造成两次该伤害",
+      "解锁: 使用Apollyon（亚波伦）击败The Lamb（羔羊）."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "grey",
+      "gray",
+      "black",
+      "wings",
+      "fly"
+    ],
+    "iconPath": "/objects/icons/trinket-10116.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10117",
+    "kind": "trinket",
+    "gameId": 10117,
+    "nameZh": "征服（蝗虫版）",
+    "nameEn": "Locust of Conquest",
+    "pickup": "我带来了征服",
+    "description": "我带来了征服",
+    "effects": [
+      "进入有怪的房间时，产生两个可以对敌人产生伤害的白色苍蝇，苍蝇会瞄准最近的敌人，并造成两倍当前角色眼泪的伤害。",
+      "解锁: 使用Apollyon（亚波伦）通关Boss Rush."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "white",
+      "wings",
+      "fly"
+    ],
+    "iconPath": "/objects/icons/trinket-10117.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10118",
+    "kind": "trinket",
+    "gameId": 10118,
+    "nameZh": "蝙蝠翅膀",
+    "nameEn": "Bat Wing",
+    "pickup": "它们长出来了...",
+    "description": "它们长出来了...",
+    "effects": [
+      "受到伤害时，有很小的几率生出一对翅膀，在当前房间给予飞行能力.",
+      "解锁: 使用Azazel（阿萨谢尔）通关Greedier Mode（困难贪婪模式） ."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "black",
+      "grey",
+      "gray"
+    ],
+    "iconPath": "/objects/icons/trinket-10118.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10119",
+    "kind": "trinket",
+    "gameId": 10119,
+    "nameZh": "干细胞",
+    "nameEn": "Stem Cell",
+    "pickup": "再生!",
+    "description": "再生!",
+    "effects": [
+      "一定时间后回复半个红心",
+      "杀死敌人后回复半个红心",
+      "解锁: 使用Samson（参孙）通关Greedier Mode（困难贪婪模式）."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "red",
+      "pink",
+      "orange",
+      "eye",
+      "circle"
+    ],
+    "iconPath": "/objects/icons/trinket-10119.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10120",
+    "kind": "trinket",
+    "gameId": 10120,
+    "nameZh": "发卡",
+    "nameEn": "Hairpin",
+    "pickup": "把插头拔了!老板冲你吼道",
+    "description": "把插头拔了!老板冲你吼道",
+    "effects": [
+      "进入boss战时将角色的主动道具充能充满",
+      "他会将物品完全充能,即便是12格的超级吐息（撒旦头）也是如此",
+      "该道具是基于创意工坊中zarat.us的创意。"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "yellow",
+      "whip",
+      "glow",
+      "black"
+    ],
+    "iconPath": "/objects/icons/trinket-10120.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10121",
+    "kind": "trinket",
+    "gameId": 10121,
+    "nameZh": "木制十字",
+    "nameEn": "Wooden Cross",
+    "pickup": "我的信仰保护着我!",
+    "description": "我的信仰保护着我!",
+    "effects": [
+      "当进入一个新的楼层时，给予一个神圣护盾，以防止受到伤害。",
+      "失去了护盾后直到下层前不会重新生成。",
+      "木制十字架授予的盾牌不与Holy Mantle的盾牌重叠。",
+      "该道具是基于创意工坊中ep和Mills的创意。"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "brown",
+      "crucifix"
+    ],
+    "iconPath": "/objects/icons/trinket-10121.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10122",
+    "kind": "trinket",
+    "gameId": 10122,
+    "nameZh": "黄油！",
+    "nameEn": "Butter!",
+    "pickup": "我抓不住了!",
+    "description": "我抓不住了!",
+    "effects": [
+      "使用一个主动道具将使其掉落在地面的基座上。",
+      "如果在1点房里使用则可以不替换以撒的主动道具",
+      "如果在4点房里使用则可以使主动道具掉落并重新随机",
+      "该道具是基于创意工坊中Mark Confidant和IguestI的创意。"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "yellow",
+      "golden",
+      "box",
+      "block",
+      "square",
+      "cube"
+    ],
+    "iconPath": "/objects/icons/trinket-10122.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10123",
+    "kind": "trinket",
+    "gameId": 10123,
+    "nameZh": "银丝羽毛",
+    "nameEn": "Filigree Feather",
+    "pickup": "天使的战利品",
+    "description": "天使的战利品",
+    "effects": [
+      "角色击败乌列尔/加百列后不会掉落钥匙碎片1/钥匙碎片2（即使你已经有了一个），而是掉落随机天使房道具池的道具。"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "silver",
+      "grey",
+      "gray",
+      "white",
+      "quill"
+    ],
+    "iconPath": "/objects/icons/trinket-10123.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10124",
+    "kind": "trinket",
+    "gameId": 10124,
+    "nameZh": "门挡",
+    "nameEn": "Door Stop",
+    "pickup": "让门开着!",
+    "description": "让门开着!",
+    "effects": [
+      "角色穿过的最后一扇门会保持开启。",
+      "该道具来源于Strawrat和CupertinoEffect设计的这个Steam创意工坊道具。"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "door",
+      "stop",
+      "wedge",
+      "cheese",
+      "wood",
+      "brown",
+      "hodor",
+      "game of thrones",
+      "Wylis"
+    ],
+    "iconPath": "/objects/icons/trinket-10124.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10125",
+    "kind": "trinket",
+    "gameId": 10125,
+    "nameZh": "扩展电缆",
+    "nameEn": "Extension Cord",
+    "pickup": "充能的宝宝",
+    "description": "充能的宝宝",
+    "effects": [
+      "角色与跟班之间会产生电弧，电弧能对敌人造成6点的接触伤害。",
+      "只在角色与第一个跟班之间产生，跟班越多产生频率越快"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [],
+    "iconPath": "/objects/icons/trinket-10125.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10126",
+    "kind": "trinket",
+    "gameId": 10126,
+    "nameZh": "Rotten Penny",
+    "nameEn": "Rotten Penny",
+    "pickup": "Wealth of flies",
+    "description": "Wealth of flies",
+    "effects": [
+      "TrinketID: 126",
+      "While held, spawns +1 friendly blue fly every time you pick up a coin",
+      "Added as part of the Afterbirth+ Booster Pack #5. Based on the Steam Workshop mod created by Eufuu",
+      "*,"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [],
+    "iconPath": "/objects/icons/trinket-10126.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10127",
+    "kind": "trinket",
+    "gameId": 10127,
+    "nameZh": "Baby-Bender",
+    "nameEn": "Baby-Bender",
+    "pickup": "Feed them magic!",
+    "description": "Feed them magic!",
+    "effects": [
+      "TrinketID: 127",
+      "While held this trinket gives your familiars homing shots",
+      "Added as part of the Afterbirth+ Booster Pack #5. Based on the Steam Workshop mod created by Ink Tears",
+      "*, baby bender babybender"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "baby bender babybender"
+    ],
+    "iconPath": "/objects/icons/trinket-10127.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "trinket-10128",
+    "kind": "trinket",
+    "gameId": 10128,
+    "nameZh": "Finger Bone",
+    "nameEn": "Finger Bone",
+    "pickup": "It looks brittle",
+    "description": "It looks brittle",
+    "effects": [
+      "TrinketID: 128",
+      "While held, gives you a 5% chance to gain a bone heart everytime you take damage",
+      "Added as part of the Afterbirth+ Booster Pack #5",
+      "*,"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [],
+    "iconPath": "/objects/icons/trinket-10128.png",
     "sourceName": "Platinum God",
     "sourceUrl": "https://tboi.com/"
   },
@@ -23761,6 +25402,86 @@
     "sourceUrl": "https://tboi.com/"
   },
   {
+    "id": "card-052",
+    "kind": "card",
+    "gameId": 52,
+    "nameZh": "变巨术",
+    "nameEn": "Huge Growth",
+    "pickup": "变大！",
+    "description": "变大！",
+    "effects": [
+      "使用后在当前房间提高大量的攻击和射程，并且使人物的体积变大。",
+      "变巨术基于创意工坊JOHN MADDEN的MOD",
+      "创意来源于万智牌卡牌：变巨术."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "mtg",
+      "card",
+      "magic",
+      "gathering",
+      "green",
+      "brown",
+      "giant growth"
+    ],
+    "iconPath": "/objects/icons/card-052.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "card-053",
+    "kind": "card",
+    "gameId": 53,
+    "nameZh": "先祖召唤",
+    "nameEn": "Ancient Recall",
+    "pickup": "给你三张卡！",
+    "description": "给你三张卡！",
+    "effects": [
+      "使用后在当前房间掉落3张卡牌。",
+      "先祖召唤基于创意工坊JOHN MADDEN的MOD",
+      "创意来源于万智牌卡牌：先人召唤."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "mtg",
+      "card",
+      "magic",
+      "gathering",
+      "blue"
+    ],
+    "iconPath": "/objects/icons/card-053.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "card-054",
+    "kind": "card",
+    "gameId": 54,
+    "nameZh": "时间旅行",
+    "nameEn": "Era Walk",
+    "pickup": "享受这一刻",
+    "description": "享受这一刻",
+    "effects": [
+      "使用后对当前房间对所有怪物永久减速，增加人物0.5speed，减少人物1.0的弹速。",
+      "先祖召唤基于创意工坊JOHN MADDEN的MOD",
+      "创意来源于万智牌卡牌：时间旅行."
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "mtg",
+      "card",
+      "magic",
+      "gathering",
+      "blue"
+    ],
+    "iconPath": "/objects/icons/card-054.png",
+    "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
     "id": "card-055",
     "kind": "card",
     "gameId": 55,
@@ -24839,6 +26560,125 @@
     "sourceUrl": "https://tboi.com/"
   },
   {
+    "id": "card-300",
+    "kind": "card",
+    "gameId": 300,
+    "nameZh": "Rebirth Pills A - L",
+    "nameEn": "Rebirth Pills A - L",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "48 Hour Energy - Fully recharges your active item and drops 1-2 battery pickups. Can be used with Placebo to generate infinite batteries",
+      "Amnesia - Hides the floor map for the rest of the current floor (same as curse of the lost). Can be negated with Black Candle",
+      "Bad Gas - Isaac farts, poisoning enemies around him",
+      "Bad Trip - Deals damage to yourself",
+      "Balls of Steel - +2 Soul Hearts",
+      "Bombs are key - Switches number of bombs and keys",
+      "Explosive Diarrhea - Spawns five live troll bombs behind Isaac, one per second",
+      "Full Health - Restores all your empty red heart containers",
+      "Health Down - -1 HP. If you have 1 or less heart containers, this pill becomes Health Up",
+      "Health Up - +1 HP",
+      "Hematemesis - Empties all but one red heart container and spawns 1-4 red hearts on the floor. Spawns coins as The Keeper",
+      "I can see forever - Opens secret room and super secret room entrances on the current floor",
+      "I found pills - Changes the appearance of Isaac's face for the current room (Cosmetic change only)",
+      "Lemon Party - Spawns a large yellow pool on the floor around you, damaging enemies which walk in it",
+      "Luck Down - Reduces your luck stat by -1",
+      "Luck Up - Increases your luck stat by +1",
+      "*"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [],
+    "iconPath": "/objects/icons/card-300.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "card-301",
+    "kind": "card",
+    "gameId": 301,
+    "nameZh": "Rebirth Pills P - Z",
+    "nameEn": "Rebirth Pills P - Z",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Paralysis - Prevents you from moving for a short while",
+      "Pheromones - Applies the charm effect to all enemies in the room for a short while",
+      "Puberty - Causes Isaac to grow hair for the rest of the run. Cosmetic change only. In Afterbirth+, taking 3 of this pill gives the Adult transformation",
+      "Pretty Fly - Gives Isaac +1 fly orbital, which blocks enemy projectiles and damages fly-type enemies on touch",
+      "Range Down - Reduces your range stat by -2",
+      "Range Up - Increases your range stat by +2.5",
+      "R U a wizard? - Tears will shoot diagonally for about 60 seconds. Effect persists between rooms while the time period is active",
+      "Speed Down - Reduces your speed stat by -0.12",
+      "Speed Up - Increases your speed stat by +0.15",
+      "Tears Down - Reduces your tears stat by -0.28",
+      "Tears Up - Increases your tears stat by 0.35",
+      "Telepills - Teleports you to a random room when used. Has a small chance to take you to the I AM ERROR room, and a smaller chance to teleport to a Black Market",
+      "*"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [],
+    "iconPath": "/objects/icons/card-301.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "card-302",
+    "kind": "card",
+    "gameId": 302,
+    "nameZh": "Afterbirth Pills",
+    "nameEn": "Afterbirth Pills",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Addicted - Causes you to take a full heart of damage for all sources for the current room. Unlocked from Challenge #24 - PAY TO PLAY",
+      "Friends till the end - Spawns three friendly blue attack flies",
+      "Infested! - Destroys all poops in the room and spawns a blue attack spider on every destroyed poop",
+      "Infested? - Spawns one blue attack spider for every enemy in the room. If there are no enemies this pill spawns 1-3 blue spiders instead",
+      "One makes you smaller - Reduces Isaac's size and hitbox size",
+      "One makes you larger - Increases Isaac's size, but does not affect the size of his hitbox",
+      "Percs - Causes Isaac to only take half a heart of damage from all sources for the current room (The Wafer effect). Unlocked from Challenge #24 - PAY TO PLAY",
+      "Power Pill - Gives you invulnerability and the ability to damage enemies for a short while (similar to The Gamekid effect)",
+      "Re-Lax - Causes Isaac to spawn poops behind him while he walks for a few seconds. Similar to Explosive Diarrhea but with poop",
+      "Retro Vision - Pixelates the screen for a few seconds, obscuring your vision. Happens a total of 3 times over 30 seconds",
+      "??? - Gives the curse of the maze effect for the current floor. Unlocked from Challenge #25 - Have a Heart",
+      "*"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [],
+    "iconPath": "/objects/icons/card-302.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "card-303",
+    "kind": "card",
+    "gameId": 303,
+    "nameZh": "Afterbirth+ Pills",
+    "nameEn": "Afterbirth+ Pills",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Feels like I'm walking on sunshine! - Turns Isaac invincible for a few seconds (similar to Unicorn Stump). Unlocked from the 'Sin Collector' achievement (collect every Bestiary entry)",
+      "Gulp! - When used will consume your current trinket, destroying it and giving you its effect permanently. Unlocked from the 'Once more with the feeling!' achievement (complete a victory lap, defeating the lamb boss)",
+      "Horf! - When used, shoots an Ipecac explosive shot. Unlocked from the 'Dedication' achievement (participate in 31 dailies in a row)",
+      "I'm Drowsy... - Slows all enemies for the rest of the current room",
+      "I'm excited!!! - Speeds up all enemies for the rest of the room. The effect triggers again 30 seconds after use and again 60 seconds after use",
+      "Something's wrong... - Spawns a pool of black creep beneath Isaac",
+      "Vurp! - Spawns the last pill you used. Spawns another Vurp! pill if no other pills were used yet. Unlocked from the 'U broke it!' achievement (collect 50 items in a single run)",
+      "X-Lax - Spawns a pool of slippery brown creep beneath Isaac",
+      "*"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [],
+    "iconPath": "/objects/icons/card-303.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
     "id": "card-314",
     "kind": "card",
     "gameId": 314,
@@ -24919,6 +26759,28 @@
     ],
     "iconPath": "/objects/icons/card-317.png",
     "sourceName": "IcaCat 以撒图鉴 + Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "card-318",
+    "kind": "card",
+    "gameId": 318,
+    "nameZh": "Bone Heart",
+    "nameEn": "Bone Heart",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Takes three hits to deplete and can be refilled with red hearts, but disappears forever when depleted",
+      "*, bone heart, white heart"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "bone heart",
+      "white heart"
+    ],
+    "iconPath": "/objects/icons/card-318.png",
+    "sourceName": "Platinum God",
     "sourceUrl": "https://tboi.com/"
   },
   {
@@ -25022,6 +26884,32 @@
     "pools": [],
     "tags": [],
     "iconPath": "/objects/icons/card-1006.png",
+    "sourceName": "Platinum God",
+    "sourceUrl": "https://tboi.com/"
+  },
+  {
+    "id": "card-2007",
+    "kind": "card",
+    "gameId": 2007,
+    "nameZh": "Dice Rooms",
+    "nameEn": "Dice Rooms",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "1 Dot - Rerolls all of your items. (Does not change your trinkets, pills or cards)",
+      "2 Dot - Rerolls all pickups in the room. (D20 effect)",
+      "3 Dot - Rerolls all pickups on the entire floor",
+      "4 Dot - Rerolls all pedestal items on the floor. (Does not roll your devil deal items)",
+      "5 Dot - Reroll and restart the current floor (Forget Me Now effect)",
+      "6 Dot - Reroll all of your items and all the pickups on the entire floor (Combined 1 + 3 + 4 rooms)",
+      "* pip"
+    ],
+    "type": "",
+    "pools": [],
+    "tags": [
+      "pip"
+    ],
+    "iconPath": "/objects/icons/card-2007.png",
     "sourceName": "Platinum God",
     "sourceUrl": "https://tboi.com/"
   }

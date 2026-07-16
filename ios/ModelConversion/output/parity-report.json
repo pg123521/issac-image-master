@@ -5,16 +5,16 @@
       "bytes": 5082622
     },
     "MobileCLIPImageEncoderRaw.mlpackage": {
-      "bytes": 23094086
+      "bytes": 23093393
     }
   },
   "searchIndex": {
-    "rows": 943,
+    "rows": 1020,
     "dimensions": 512,
-    "maxQuantizationError": 0.00012201070785522461,
-    "meanQuantizationError": 5.50823688172386e-06,
+    "maxQuantizationError": 0.00012189149856567383,
+    "meanQuantizationError": 5.765664809587179e-06,
     "top1Agreement": 1.0,
-    "top10SetAgreement": 1.0
+    "top10SetAgreement": 0.9998039603233337
   },
   "coreML": {
     "encoderContract": {
@@ -33,7 +33,8 @@
           "shape": [
             1,
             512
-          ]
+          ],
+          "dataType": 65568
         }
       ]
     },
@@ -54,14 +55,31 @@
             1,
             300,
             6
-          ]
+          ],
+          "dataType": 65568
         }
       ]
     },
+    "encoderMetadata": {
+      "input_size": "256x256 RGB",
+      "input_scale": "1/255",
+      "com.github.apple.coremltools.conversion_date": "2026-07-16",
+      "output": "Raw Float32 512-dimensional embedding; normalize in Float32 in the app",
+      "com.github.apple.coremltools.source_dialect": "TorchScript",
+      "model": "MobileCLIP2-S0",
+      "com.github.apple.coremltools.source": "torch==2.13.0",
+      "com.github.apple.coremltools.version": "9.0",
+      "weights": "mobileclip-partial-v2.pt"
+    },
     "runtime": {
       "available": true,
-      "encoderMaxAbsoluteError": 0.02540752850472927,
-      "encoderCosineSimilarity": 0.9925968647003174
+      "embeddingDataType": "float32",
+      "embeddingFinite": true,
+      "embeddingRawNorm": 0.911948025226593,
+      "embeddingRawMin": -0.2109375,
+      "embeddingRawMax": 0.1409912109375,
+      "encoderMaxAbsoluteError": 0.026851598173379898,
+      "encoderCosineSimilarity": 0.9928345680236816
     }
   },
   "detectorBaseline": {

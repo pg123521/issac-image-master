@@ -1,8 +1,11 @@
+import CoreImage
 import CoreGraphics
 import CoreVideo
 import UIKit
 
 enum ImageUtilities {
+  private static let imageContext = CIContext(options: [.cacheIntermediates: false])
+
   static func normalizedCGImage(_ image: UIImage) throws -> CGImage {
     let size = image.size
     let format = UIGraphicsImageRendererFormat()
@@ -116,6 +119,48 @@ enum ImageUtilities {
     let flippedRect = CGRect(x: drawRect.minX, y: targetSize.height - drawRect.maxY, width: drawRect.width, height: drawRect.height)
     context.draw(image, in: flippedRect)
     return (buffer, ImageTransform(scale: scale, paddingX: drawRect.minX, paddingY: drawRect.minY))
+  }
+
+  static func searchInputBuffer(from image: CGImage) throws -> CVPixelBuffer {
+    let (buffer, _) = try pixelBuffer(
+      from: image,
+      width: 256,
+      height: 256,
+      letterbox: false,
+      background: .black
+    )
+    flipVertically(buffer)
+    return buffer
+  }
+
+  static func flipVertically(_ buffer: CVPixelBuffer) {
+    CVPixelBufferLockBaseAddress(buffer, [])
+    defer { CVPixelBufferUnlockBaseAddress(buffer, []) }
+    guard let baseAddress = CVPixelBufferGetBaseAddress(buffer) else { return }
+    let height = CVPixelBufferGetHeight(buffer)
+    let bytesPerRow = CVPixelBufferGetBytesPerRow(buffer)
+    guard height > 1 else { return }
+    let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
+    var temporaryRow = [UInt8](repeating: 0, count: bytesPerRow)
+    temporaryRow.withUnsafeMutableBytes { temporary in
+      guard let temporaryBase = temporary.baseAddress else { return }
+      for top in 0..<(height / 2) {
+        let bottom = height - 1 - top
+        let topRow = bytes.advanced(by: top * bytesPerRow)
+        let bottomRow = bytes.advanced(by: bottom * bytesPerRow)
+        memcpy(temporaryBase, topRow, bytesPerRow)
+        memcpy(topRow, bottomRow, bytesPerRow)
+        memcpy(bottomRow, temporaryBase, bytesPerRow)
+      }
+    }
+  }
+
+  static func image(from buffer: CVPixelBuffer) throws -> UIImage {
+    let input = CIImage(cvPixelBuffer: buffer)
+    guard let cgImage = imageContext.createCGImage(input, from: input.extent) else {
+      throw ImageError.renderFailed
+    }
+    return UIImage(cgImage: cgImage)
   }
 }
 

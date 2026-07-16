@@ -3,6 +3,13 @@ import CoreML
 import OSLog
 import UIKit
 
+struct ItemSearchResult {
+  let matches: [SearchMatch]
+  let modelInputImage: UIImage
+  let modelInputHash: String
+  let savedInputURL: URL
+}
+
 actor ItemSearchEngine {
   private let logger = Logger(subsystem: "com.pg123521.IsaacItemLens", category: "search")
   private let model: MLModel
@@ -15,14 +22,16 @@ actor ItemSearchEngine {
     model = try CoreMLModelLoader.load("MobileCLIPImageEncoderRaw", computeUnits: .cpuOnly)
   }
 
-  func search(image: UIImage, region: DetectionRegion, topK: Int) throws -> [SearchMatch] {
+  func search(image: UIImage, region: DetectionRegion, topK: Int) throws -> ItemSearchResult {
     let requestID = String(UUID().uuidString.prefix(8))
     let source = try ImageUtilities.normalizedCGImage(image)
     let crop = try ImageUtilities.squareCrop(source, normalizedRect: region.rect)
-    let (buffer, _) = try ImageUtilities.pixelBuffer(from: crop, width: 256, height: 256, letterbox: false, background: .black)
+    let buffer = try ImageUtilities.searchInputBuffer(from: crop)
     let input = pixelSummary(buffer)
+    let modelInputImage = try ImageUtilities.image(from: buffer)
+    let savedInputURL = try saveModelInput(modelInputImage, requestID: requestID)
     let regionText = rectDescription(region.rect)
-    let inputText = "region=\(regionText) source=\(source.width)x\(source.height) crop=\(crop.width)x\(crop.height) input=\(input)"
+    let inputText = "region=\(regionText) source=\(source.width)x\(source.height) crop=\(crop.width)x\(crop.height) input=\(input) saved=\(savedInputURL.path)"
     logger.info("search begin id=\(requestID, privacy: .public) \(inputText, privacy: .public)")
     let provider = try MLDictionaryFeatureProvider(dictionary: ["image": MLFeatureValue(pixelBuffer: buffer)])
     let output = try model.prediction(from: provider)
@@ -34,7 +43,24 @@ actor ItemSearchEngine {
     let matches = try topMatches(query: query, count: topK, requestID: requestID)
     let result = matches.prefix(3).map { "\($0.item.id):\(String(format: "%.4f", $0.score))" }.joined(separator: ",")
     logger.info("search complete id=\(requestID, privacy: .public) top=\(result, privacy: .public)")
-    return matches
+    return ItemSearchResult(
+      matches: matches,
+      modelInputImage: modelInputImage,
+      modelInputHash: input,
+      savedInputURL: savedInputURL
+    )
+  }
+
+  private func saveModelInput(_ image: UIImage, requestID: String) throws -> URL {
+    guard let data = image.pngData() else { throw ImageError.renderFailed }
+    let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+      .appendingPathComponent("ModelInputs", isDirectory: true)
+    try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+    let timestampedURL = directory.appendingPathComponent("model-input-\(requestID).png")
+    let latestURL = directory.appendingPathComponent("latest-model-input.png")
+    try data.write(to: timestampedURL, options: .atomic)
+    try data.write(to: latestURL, options: .atomic)
+    return latestURL
   }
 
   private func readEmbedding(_ embedding: MLMultiArray, requestID: String) throws -> [Float] {
