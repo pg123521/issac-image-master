@@ -84,6 +84,17 @@ type BatchVerificationResponse = {
   }>;
 };
 
+type DetectionStage = "idle" | "detecting" | "verifying" | "complete" | "error";
+type ManualBoxSize = "tiny" | "small" | "medium" | "large" | "huge";
+
+const MANUAL_BOX_OPTIONS: Array<{ value: ManualBoxSize; label: string; scale: number }> = [
+  { value: "tiny", label: "超级小", scale: 0.52 },
+  { value: "small", label: "小", scale: 0.76 },
+  { value: "medium", label: "中等", scale: 1 },
+  { value: "large", label: "大", scale: 1.36 },
+  { value: "huge", label: "超级大", scale: 1.78 },
+];
+
 const DETECTOR_CANDIDATE_THRESHOLD = 0.25;
 const EMBEDDING_STRONG_THRESHOLD = 0.76;
 const EMBEDDING_WEAK_THRESHOLD = 0.70;
@@ -102,10 +113,14 @@ export function IsaacLens() {
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
   const [status, setStatus] = useState("等待截图");
   const [manualMode, setManualMode] = useState(false);
-  const [manualBoxSize, setManualBoxSize] = useState(96);
+  const [manualTipVisible, setManualTipVisible] = useState(false);
+  const [manualBoxSize, setManualBoxSize] = useState<ManualBoxSize>("medium");
   const [hasImage, setHasImage] = useState(false);
   const [modelMatches, setModelMatches] = useState<Match[] | null>(null);
-  const [modelStatus, setModelStatus] = useState("模型服务未连接");
+  const [modelStatus, setModelStatus] = useState("选择一个标注查看相似道具");
+  const [detectionStage, setDetectionStage] = useState<DetectionStage>("idle");
+  const [detectionProgress, setDetectionProgress] = useState(0);
+  const [detectedCount, setDetectedCount] = useState(0);
 
   const selectedRegion = regions.find((region) => region.id === selectedRegionId) ?? null;
   const fallbackMatches = useMemo(() => selectedRegion ? getMatches(selectedRegion) : [], [selectedRegion]);
@@ -116,11 +131,11 @@ export function IsaacLens() {
     let cancelled = false;
     setModelMatches(null);
     if (!selectedRegion) {
-      setModelStatus("模型服务未连接");
+      setModelStatus("选择一个标注查看相似道具");
       return;
     }
 
-    setModelStatus("模型识别中...");
+    setModelStatus("正在查找相似道具...");
     fetch("http://127.0.0.1:8766/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -137,12 +152,12 @@ export function IsaacLens() {
           })
           .filter((match): match is Match => Boolean(match));
         setModelMatches(nextMatches.length ? nextMatches : null);
-        setModelStatus(nextMatches.length ? `${payload.model ?? "embedding"} top-k · ${payload.device ?? "local"}` : "模型无结果，已回退旧匹配");
+        setModelStatus(nextMatches.length ? "请选择最符合截图的道具" : "没有找到合适的相似道具");
       })
       .catch(() => {
         if (cancelled) return;
         setModelMatches(null);
-        setModelStatus("模型服务未启动，已回退旧匹配");
+        setModelStatus("暂时无法查找相似道具");
       });
 
     return () => {
@@ -150,12 +165,31 @@ export function IsaacLens() {
     };
   }, [selectedRegion]);
 
+  useEffect(() => {
+    const ceiling = detectionStage === "detecting" ? 58 : detectionStage === "verifying" ? 92 : null;
+    if (ceiling === null) return;
+    const timer = window.setInterval(() => {
+      setDetectionProgress((value) => Math.min(ceiling, value + Math.max(1, Math.ceil((ceiling - value) * 0.14))));
+    }, 260);
+    return () => window.clearInterval(timer);
+  }, [detectionStage]);
+
+  useEffect(() => {
+    if (!manualTipVisible) return;
+    const timer = window.setTimeout(() => setManualTipVisible(false), 4200);
+    return () => window.clearTimeout(timer);
+  }, [manualTipVisible]);
+
   function handleFile(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
+    event.target.value = "";
 
     const uploadId = uploadIdRef.current + 1;
     uploadIdRef.current = uploadId;
+    setDetectionStage("detecting");
+    setDetectionProgress(8);
+    setDetectedCount(0);
     const reader = new FileReader();
     reader.onload = () => {
       const img = new Image();
@@ -163,7 +197,11 @@ export function IsaacLens() {
         imageRef.current = img;
         const canvas = canvasRef.current;
         const ctx = canvas?.getContext("2d", { willReadFrequently: true });
-        if (!canvas || !ctx) return;
+        if (!canvas || !ctx) {
+          setDetectionStage("error");
+          setDetectionProgress(100);
+          return;
+        }
         canvas.width = img.naturalWidth;
         canvas.height = img.naturalHeight;
         ctx.drawImage(img, 0, 0);
@@ -173,8 +211,8 @@ export function IsaacLens() {
         setSelectedItemId(null);
         setModelMatches(null);
         setManualMode(false);
-        setManualBoxSize(defaultManualBoxSize(img.naturalWidth, img.naturalHeight));
-        setStatus(`已载入 ${img.naturalWidth} x ${img.naturalHeight} 截图，正在检测房间道具...`);
+        setManualTipVisible(false);
+        setStatus("正在检查截图中的道具...");
         detectRoomObjects(String(reader.result), canvas, ctx, img, uploadId);
       };
       img.src = String(reader.result);
@@ -208,9 +246,11 @@ export function IsaacLens() {
         ctx,
         image,
         { ...box, count: box.score },
-        `检测 ${index + 1}`,
+        `道具 ${index + 1}`,
       ));
-      setStatus(`检测到 ${candidateRegions.length} 个候选，正在进行向量验证...`);
+      setDetectionStage("verifying");
+      setDetectionProgress((value) => Math.max(value, 64));
+      setStatus("正在核对检测结果...");
       const nextRegions = await verifyDetectedRegions(candidateRegions, uploadId);
       if (uploadId !== uploadIdRef.current) return;
       const selectedId = nextRegions[0]?.id ?? null;
@@ -219,13 +259,18 @@ export function IsaacLens() {
       setSelectedItemId(null);
       setModelMatches(null);
       draw(canvas, ctx, image, nextRegions, selectedId);
+      setDetectedCount(nextRegions.length);
+      setDetectionProgress(100);
+      setDetectionStage("complete");
       setStatus(nextRegions.length
-        ? `标注 ${nextRegions.length} 个房间道具 · 检测 + MobileCLIP 验证 · ${payload.device ?? "local"}`
-        : "未检测到房间道具，可使用“框选道具”手动添加");
+        ? `已找到 ${nextRegions.length} 个可能的道具`
+        : "未自动检测到道具，请手动选取");
     } catch {
       if (uploadId !== uploadIdRef.current) return;
       draw(canvas, ctx, image, [], null);
-      setStatus("目标检测服务未启动，可使用“框选道具”手动添加");
+      setDetectionProgress(100);
+      setDetectionStage("error");
+      setStatus("自动检测暂时不可用，请手动选取");
     }
   }
 
@@ -268,8 +313,14 @@ export function IsaacLens() {
       y: (event.clientY - rect.top) * canvas.height / rect.height,
     };
 
+    const deleteTarget = regions.find((region) => isDeleteButtonHit(point, region, canvas));
+    if (deleteTarget) {
+      removeRegion(deleteTarget.id);
+      return;
+    }
+
     if (manualMode) {
-      const size = Math.max(24, Math.min(Math.min(canvas.width, canvas.height), manualBoxSize));
+      const size = manualBoxPixels(canvas.width, canvas.height, manualBoxSize);
       const box = {
         x: Math.max(0, point.x - size / 2),
         y: Math.max(0, point.y - size / 2),
@@ -277,14 +328,15 @@ export function IsaacLens() {
         h: Math.min(size, canvas.height - point.y + size / 2),
         count: 1,
       };
-      const region = makeRegion(canvas, ctx, image, box, `手动 ${regions.length + 1}`);
+      const region = makeRegion(canvas, ctx, image, box, `道具 ${regions.length + 1}`);
       const nextRegions = [...regions, region];
       setRegions(nextRegions);
       setSelectedRegionId(region.id);
       setSelectedItemId(null);
       setModelMatches(null);
       draw(canvas, ctx, image, nextRegions, region.id);
-      setStatus(`已添加手动候选框 ${size}x${size}`);
+      setStatus("已添加手动标注");
+      setManualTipVisible(false);
       return;
     }
 
@@ -312,41 +364,74 @@ export function IsaacLens() {
     if (canvas && ctx && image) draw(canvas, ctx, image, regions, regionId);
   }
 
+  function removeRegion(regionId: string) {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d", { willReadFrequently: true });
+    const image = imageRef.current;
+    const nextRegions = regions.filter((region) => region.id !== regionId);
+    const nextSelectedId = selectedRegionId === regionId ? nextRegions[0]?.id ?? null : selectedRegionId;
+    setRegions(nextRegions);
+    setSelectedRegionId(nextSelectedId);
+    setSelectedItemId(null);
+    setModelMatches(null);
+    if (canvas && ctx && image) draw(canvas, ctx, image, nextRegions, nextSelectedId);
+    setStatus(nextRegions.length ? `已保留 ${nextRegions.length} 个标注` : "标注已清空，可手动选取");
+  }
+
+  function startManualCorrection() {
+    setDetectionStage("idle");
+    setManualMode(true);
+    setManualTipVisible(true);
+    setStatus("点击截图中的道具进行手动选取");
+  }
+
+  function toggleManualMode() {
+    setManualMode((value) => {
+      const next = !value;
+      setManualTipVisible(next);
+      if (next) setStatus("点击图片中物品进行手动选取");
+      return next;
+    });
+  }
+
   return (
-    <main className="app-shell">
+    <main className={`app-shell${selectedRegion ? "" : " no-selection"}`}>
       <section className="workspace" aria-label="截图识别工作区">
         <header className="topbar">
           <div>
             <h1>Isaac Item Lens</h1>
-            <p>{objects.length} objects · MobileCLIP2-S0 检索版</p>
+            <p>离线道具识别</p>
           </div>
           <div className="actions">
             <label className="file-button">
               <input type="file" accept="image/*" onChange={handleFile} />
-              上传截图
+              {hasImage ? "换一张图" : "上传截图"}
             </label>
             <button
               type="button"
               disabled={!hasImage}
               aria-pressed={manualMode}
-              onClick={() => setManualMode((value) => !value)}
+              onClick={toggleManualMode}
             >
-              框选道具
+              手动选取
             </button>
             {manualMode && (
               <label className="manual-size-control">
-                <span>框 {manualBoxSize}px</span>
-                <input
-                  type="range"
-                  min="32"
-                  max="180"
-                  step="2"
+                <span>检测框大小：</span>
+                <select
                   value={manualBoxSize}
-                  onChange={(event) => setManualBoxSize(Number(event.target.value))}
-                />
+                  onChange={(event) => setManualBoxSize(event.target.value as ManualBoxSize)}
+                >
+                  {MANUAL_BOX_OPTIONS.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
               </label>
             )}
           </div>
+          {manualTipVisible && (
+            <div className="manual-guidance" role="status">点击图片中物品进行手动选取</div>
+          )}
         </header>
 
         <div className="stage-wrap">
@@ -358,48 +443,114 @@ export function IsaacLens() {
           />
           {!hasImage && (
             <div className="empty-state">
-              <strong>上传一张游戏截图</strong>
-              <span>上传后自动检测房间道具，漏检时可手动补框。</span>
+              <label className="empty-upload-button">
+                <input type="file" accept="image/*" onChange={handleFile} />
+                上传截图
+              </label>
+              <span>上传后自动检测房间道具，漏检时可手动选取。</span>
+            </div>
+          )}
+          {detectionStage !== "idle" && (
+            <div className="detection-backdrop" role="presentation">
+              <section className="detection-dialog" role="dialog" aria-modal="true" aria-labelledby="detection-title">
+                <div className={`detection-mark ${detectionStage}`} aria-hidden="true">
+                  {detectionStage === "complete" ? "✓" : detectionStage === "error" ? "!" : ""}
+                </div>
+                <h2 id="detection-title">
+                  {detectionStage === "detecting" && "正在查找道具"}
+                  {detectionStage === "verifying" && "正在核对候选"}
+                  {detectionStage === "complete" && (detectedCount ? `找到 ${detectedCount} 个道具` : "未自动检测到道具，请手动选取")}
+                  {detectionStage === "error" && "自动检测未完成"}
+                </h2>
+                <p>
+                  {detectionStage === "detecting" && "正在扫描房间画面，请稍候。"}
+                  {detectionStage === "verifying" && "正在排除角色、界面与普通拾取物。"}
+                  {detectionStage === "complete" && (detectedCount
+                    ? "请检查自动检测结果。若有遗漏，可以继续手动选取。"
+                    : "请在图片中手动选取需要识别的道具。")}
+                  {detectionStage === "error" && "请在图片中手动选取需要识别的道具。"}
+                </p>
+                <div className="progress-track" aria-label="检测进度" aria-valuemin={0} aria-valuemax={100} aria-valuenow={detectionProgress} role="progressbar">
+                  <span style={{ width: `${detectionProgress}%` }} />
+                </div>
+                {(detectionStage === "complete" || detectionStage === "error") && (
+                  <div className={`dialog-actions${detectionStage === "complete" && detectedCount > 0 ? "" : " single"}`}>
+                    {detectionStage === "complete" && detectedCount > 0 && (
+                      <button type="button" className="secondary-action" onClick={() => setDetectionStage("idle")}>查看自动检测结果</button>
+                    )}
+                    <button type="button" className="primary-action" onClick={startManualCorrection}>手动选取</button>
+                  </div>
+                )}
+              </section>
+            </div>
+          )}
+          {selectedItem && (
+            <div className="item-detail-backdrop" role="presentation">
+              <section className="item-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="item-detail-title">
+                <button
+                  className="delete-detail-window"
+                  type="button"
+                  title="删除窗口"
+                  aria-label="删除道具详情窗口"
+                  onClick={() => setSelectedItemId(null)}
+                >×</button>
+                <div className="item-detail-heading">
+                  <div className="thumb large"><img src={selectedItem.iconPath} alt="" /></div>
+                  <div>
+                    <h2 id="item-detail-title">{selectedItem.nameZh}</h2>
+                    <p>{selectedItem.nameEn}</p>
+                  </div>
+                </div>
+                <div className="tag-row">
+                  {selectedItem.type && <span className="tag">{selectedItem.type}</span>}
+                  {selectedItem.pools.slice(0, 4).map((pool) => <span className="tag" key={pool}>{pool}</span>)}
+                </div>
+                <p className="item-description">{selectedItem.pickup || selectedItem.description}</p>
+                <ul className="effect-list">
+                  {selectedItem.effects.slice(0, 8).map((effect) => <li key={effect}>{effect}</li>)}
+                </ul>
+                <p className="source-line">来源：{selectedItem.sourceName}</p>
+              </section>
             </div>
           )}
         </div>
 
         <footer className="statusbar">
           <span>{status}</span>
-          <span>{manualMode ? `框选道具：当前 ${manualBoxSize}px，点击截图中的道具中心` : "识别在本地完成，不上传图片"}</span>
+          <span>{manualMode ? "手动选取已开启：点击需要识别的道具" : "识别在设备本地完成"}</span>
         </footer>
       </section>
 
-      <aside className="side-panel" aria-label="识别结果">
+      {selectedRegion && <aside className="side-panel" aria-label="识别结果">
         <section>
-          <h2>候选区域</h2>
+          <h2>选中区域</h2>
           <div className="region-list">
-            {regions.length === 0 && <p className="muted">上传后自动检测房间道具；漏检时可用“框选道具”补充。</p>}
+            {regions.length === 0 && <p className="muted">上传后自动检测房间道具；漏检时可手动选取。</p>}
             {regions.map((region) => (
-              <button
-                className={`region-card${region.id === selectedRegionId ? " active" : ""}`}
-                key={region.id}
-                type="button"
-                onClick={() => chooseRegion(region.id)}
-              >
-                <span className="thumb"><img src={region.imageUrl} alt="" /></span>
-                <span>
-                  <span className="card-title">{region.label}</span>
-                  <span className="card-meta">
-                    框 {region.w}x{region.h} · 模型 {region.modelBox.w}x{region.modelBox.h}
+              <div className="region-row" key={region.id}>
+                <button
+                  className={`region-card${region.id === selectedRegionId ? " active" : ""}`}
+                  type="button"
+                  onClick={() => chooseRegion(region.id)}
+                >
+                  <span className="thumb"><img src={region.imageUrl} alt="" /></span>
+                  <span>
+                    <span className="card-title">{region.label}</span>
+                    <span className="card-meta">点击查看相似道具</span>
                   </span>
-                </span>
-              </button>
+                </button>
+                <button className="delete-region" type="button" title="删除标注" aria-label={`删除 ${region.label}`} onClick={() => removeRegion(region.id)}>×</button>
+              </div>
             ))}
           </div>
         </section>
 
         <section>
-          <h2>Top K 相似对象</h2>
+          <h2>相似道具</h2>
           <p className="model-status">{modelStatus}</p>
           <div className="match-list">
-            {matches.length === 0 && <p className="muted">选择一个候选区域后显示相似对象。</p>}
-            {matches.map(({ item, similarity, source }) => (
+            {matches.length === 0 && <p className="muted">选择上方区域后显示相似道具。</p>}
+            {matches.map(({ item }) => (
               <button
                 className={`match-card${item.id === selectedItemId ? " active" : ""}`}
                 key={item.id}
@@ -409,36 +560,14 @@ export function IsaacLens() {
                 <span className="thumb"><img src={item.iconPath} alt="" /></span>
                 <span>
                   <span className="card-title">{item.nameZh}</span>
-                  <span className="card-meta">
-                    #{item.gameId} · {item.nameEn} · {source === "model" ? "置信度" : "相似度"} {similarity}%
-                  </span>
+                  <span className="card-meta">{item.nameEn}</span>
                 </span>
               </button>
             ))}
           </div>
         </section>
 
-        <section className="detail-panel">
-          <h2>对象说明</h2>
-          {!selectedItem && <p className="muted">点击候选区域或相似对象后显示描述。</p>}
-          {selectedItem && (
-            <>
-              <div className="thumb large"><img src={selectedItem.iconPath} alt="" /></div>
-              <h3>{selectedItem.nameZh}</h3>
-              <p className="muted">#{selectedItem.gameId} · {selectedItem.nameEn}</p>
-              <div className="tag-row">
-                {selectedItem.type && <span className="tag">{selectedItem.type}</span>}
-                {selectedItem.pools.slice(0, 4).map((pool) => <span className="tag" key={pool}>{pool}</span>)}
-              </div>
-              <p className="muted">{selectedItem.pickup || selectedItem.description}</p>
-              <ul className="effect-list">
-                {selectedItem.effects.slice(0, 8).map((effect) => <li key={effect}>{effect}</li>)}
-              </ul>
-              <p className="source-line">来源：{selectedItem.sourceName}</p>
-            </>
-          )}
-        </section>
-      </aside>
+      </aside>}
     </main>
   );
 }
@@ -458,8 +587,10 @@ function isInsideRoomFloor(
   );
 }
 
-function defaultManualBoxSize(width: number, height: number) {
-  return Math.max(48, Math.min(140, Math.round(Math.min(width, height) * 0.075)));
+function manualBoxPixels(width: number, height: number, size: ManualBoxSize) {
+  const option = MANUAL_BOX_OPTIONS.find((candidate) => candidate.value === size) ?? MANUAL_BOX_OPTIONS[2];
+  const base = Math.max(48, Math.min(140, Math.round(Math.min(width, height) * 0.075)));
+  return Math.max(24, Math.min(Math.min(width, height), Math.round(base * option.scale)));
 }
 
 function makeRegion(
@@ -923,6 +1054,38 @@ function draw(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, image: H
     ctx.fillRect(region.x, Math.max(0, region.y - 34), metrics.width + 18, 32);
     ctx.fillStyle = "#101113";
     ctx.fillText(region.label, region.x + 9, Math.max(0, region.y - 30));
+    const deleteButton = deleteButtonGeometry(region, canvas);
+    ctx.beginPath();
+    ctx.arc(deleteButton.x, deleteButton.y, deleteButton.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#d84f5f";
+    ctx.fill();
+    ctx.lineWidth = Math.max(3, deleteButton.radius * 0.14);
+    ctx.strokeStyle = "#fff";
+    const cross = deleteButton.radius * 0.38;
+    ctx.beginPath();
+    ctx.moveTo(deleteButton.x - cross, deleteButton.y - cross);
+    ctx.lineTo(deleteButton.x + cross, deleteButton.y + cross);
+    ctx.moveTo(deleteButton.x + cross, deleteButton.y - cross);
+    ctx.lineTo(deleteButton.x - cross, deleteButton.y + cross);
+    ctx.stroke();
     ctx.restore();
   }
+}
+
+function deleteButtonGeometry(region: Region, canvas: HTMLCanvasElement) {
+  const radius = Math.max(24, Math.min(52, Math.min(canvas.width, canvas.height) * 0.035));
+  return {
+    x: Math.max(radius, Math.min(canvas.width - radius, region.x + region.w)),
+    y: Math.max(radius, Math.min(canvas.height - radius, region.y)),
+    radius,
+  };
+}
+
+function isDeleteButtonHit(
+  point: { x: number; y: number },
+  region: Region,
+  canvas: HTMLCanvasElement,
+) {
+  const button = deleteButtonGeometry(region, canvas);
+  return Math.hypot(point.x - button.x, point.y - button.y) <= button.radius * 1.25;
 }

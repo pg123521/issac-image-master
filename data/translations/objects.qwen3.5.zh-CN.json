@@ -1,0 +1,3840 @@
+{
+  "item-011": {
+    "nameZh": "1UP",
+    "pickup": "额外生命",
+    "description": "额外生命",
+    "effects": [
+      "生命+1",
+      "跟随角色的绿蘑菇会在复活时消失，与复活前的心之容器数量相同并回满红心",
+      "在所有给予额外生命的道具中最优先使用（除了嗝屁猫的项圈）",
+      "蘑菇套装部件之一"
+    ]
+  },
+  "item-093": {
+    "nameZh": "The Gamekid",
+    "pickup": "暂时性吃豆人",
+    "description": "暂时性吃豆人",
+    "effects": [
+      "使用后角色将暂时变为吃豆人，使其无敌并且移速提升",
+      "对所有敌人施加恐惧效果",
+      "·不能发射子弹，而是对接触到的敌人造成每咬一口 40 点的接触伤害",
+      "每“吃掉”两个敌人，回复半颗心",
+      "解锁：累计进入赌博房 10 次",
+      "琐事：（仅重生有效）在 GAMEKID 正在生效的情况下通关游戏，Credits 画面的 BGM 会加速 ·灵感来源于任天堂 Gameboy 掌机",
+      "充能数：6"
+    ]
+  },
+  "item-105": {
+    "nameZh": "The D6",
+    "pickup": "重新掷出你的命运",
+    "description": "重新掷出你的命运",
+    "effects": [
+      "特殊道具",
+      "使用后将当前房间所有道具重置为同一道具池的其他道具",
+      "解锁后，Isaac（以撒）将初始携带该道具",
+      "解锁：用???（小蓝人）击败 Isaac（以撒）",
+      "充能数：6"
+    ]
+  },
+  "item-166": {
+    "nameZh": "D20",
+    "pickup": "重置基础掉落",
+    "description": "重置基础掉落",
+    "effects": [
+      "使用后刷新该房间所有掉落物（心，硬币，炸弹，钥匙，宝箱，胶囊，塔罗牌，卢恩符文， 饰品）",
+      "解锁：用Isaac（以撒）击败???（小蓝人）",
+      "充能数：6"
+    ]
+  },
+  "item-258": {
+    "nameZh": "Missing No.",
+    "pickup": "语法错误",
+    "description": "语法错误",
+    "effects": [
+      "在得到该道具时以及每进入新的一层时，角色的所有主被动道具会被全部重置一次",
+      "琐事：灵感来自于GBC《口袋妖怪》初代的bug",
+      "解锁：用Lazarus（拉撒路）通关Bossrush"
+    ]
+  },
+  "item-263": {
+    "nameZh": "空白符文",
+    "pickup": "符文拟态",
+    "description": "符文拟态",
+    "effects": [
+      "使用时会复制你当前持有的符文或灵魂石的效果（如同空白卡牌）",
+      "拾取时会在地板上随机掉落一个符文",
+      "该物品的充能时间取决于你持有的符文/灵魂石：",
+      "1 个房间：拉撒路之魂",
+      "2 个房间：奥索兹符文、贝尔卡诺符文、哈伽拉兹符文、该隐之魂",
+      "3 个房间：阿尔吉兹符文、空白符文、玛格达莱娜之魂、犹大之魂、？？？之魂、失落者之魂",
+      "4 个房间：埃沃兹符文、佩斯罗符文、黑符文、以撒之魂、夏娃之魂、伊甸之魂、被遗忘者之魂、雅各与以扫之魂",
+      "6 个房间：达加兹符文、参孙之魂、阿萨泽勒之魂、阿波利昂之魂、贝塔尼之魂",
+      "12 个房间：耶拉符文、莉莉丝之魂、守护者之魂",
+      "* 秘密房间"
+    ]
+  },
+  "item-283": {
+    "nameZh": "D100",
+    "pickup": "重置！！！！！！！！",
+    "description": "重置！！！！！！！！",
+    "effects": [
+      "特殊道具",
+      "使用后会重置自己身上的所有被动道具和当前房间内的所有主被动道具和掉落（相当于 D4+D6+D20 的效果）",
+      "解锁：用 The Lost 通关 Bossrush",
+      "充能数：6"
+    ]
+  },
+  "item-284": {
+    "nameZh": "D4",
+    "pickup": "重置成其他东西",
+    "description": "重置成其他东西",
+    "effects": [
+      "使用后会重置自己身上的所有被动道具",
+      "被重置掉的道具会从道具池移除，如果道具被重置完将只能重置出 Breakfast（早餐）",
+      "角色特性不会被重置掉（如 Azazel 的短硫磺火，The Lost 的飞行能力）",
+      "解锁：赌爆或炸掉 30 个赌博机",
+      "充能数：6"
+    ]
+  },
+  "item-285": {
+    "nameZh": "D10",
+    "pickup": "重置敌人",
+    "description": "重置敌人",
+    "effects": [
+      "使用后会重置当前房间的所有敌人",
+      "·对 boss 和小 boss 无效",
+      "充能数：1"
+    ]
+  },
+  "item-386": {
+    "nameZh": "D12",
+    "pickup": "重置石头",
+    "description": "重置石头",
+    "effects": [
+      "使用时，D12 会把所有的石头（包括宝箱石头）刷新成随机一种障碍物（如大便、罐子、 TNT、红大便等等）",
+      "解锁：用 Cain（该隐）击败 Hush",
+      "充能数：3"
+    ]
+  },
+  "item-403": {
+    "nameZh": "蜘蛛模组",
+    "pickup": "Mod 小伙伴！",
+    "description": "Mod 小伙伴！",
+    "effects": [
+      "一个到处走的灰色蜘蛛宝宝，赋予角色看到怪物血条和伤害数值化的能力",
+      "会对接触到的敌人施加随机一种异常状态，如减速、缩小、恐惧等等",
+      "有时会掉落一个电池",
+      "为了让玩家看得更直白一些，伤害数值化所呈现的数值都是一个接近于 10 倍实际伤害的数字，真实伤害是显示数值的 1/10（如显示-100 就是造成了10伤害）",
+      "这个道具来源于 Spider853，原版角色的增强 Mod(Spidermod)的创造者，也是重生版本和 afterbirth 版本的核心开发者之一",
+      "蜘蛛套装部件之一"
+    ]
+  },
+  "item-406": {
+    "nameZh": "D8",
+    "pickup": "重置能力值",
+    "description": "重置能力值",
+    "effects": [
+      "使用后，D8 重新分配角色所有的能力值",
+      "解锁：完成挑战 28",
+      "充能数：4"
+    ]
+  },
+  "item-437": {
+    "nameZh": "D7",
+    "pickup": "重置奖励！",
+    "description": "重置奖励！",
+    "effects": [
+      "使用后 D7 会重开当前的房间，重新创造敌人，使角色可以再次清掉房间并获得报酬",
+      "如果在 BOSS 房间或恶魔房使用，会把角色传送出去",
+      "充能数：3"
+    ]
+  },
+  "item-464": {
+    "nameZh": "平衡符",
+    "pickup": "来自上界的礼物",
+    "description": "来自上界的礼物",
+    "effects": [
+      "魂心+2",
+      "其他道具效果未知",
+      "解锁: 使用Maggy（抹大拉）通关Greedier（困难贪婪）模式。"
+    ]
+  },
+  "item-470": {
+    "nameZh": "Hushy",
+    "pickup": "小不点 hush!",
+    "description": "小不点 hush!",
+    "effects": [
+      "给角色一个小hush跟班，围绕房间对接触的敌人造成2点/帧的伤害",
+      "发射眼泪时小hushy将会停止移动，你可以将其固定在某一位置",
+      "解锁：使用Apollyon（亚波伦）击败Hush"
+    ]
+  },
+  "item-476": {
+    "nameZh": "D1",
+    "pickup": "会变成啥?",
+    "description": "会变成啥?",
+    "effects": [
+      "使用后D1会复制房间内随机一件掉落物。",
+      "解锁: 用 Isaac（以撒）通关Greedier Mode（困难贪婪模式）.",
+      "充能数: 4"
+    ]
+  },
+  "item-478": {
+    "nameZh": "暂停",
+    "pickup": "停止！",
+    "description": "停止！",
+    "effects": [
+      "使用后，将房间内所有敌人全部冻结直至你按下开火键",
+      "不像其他主动道具，Boss不免疫这种效果",
+      "碰到被冻住的敌人还会伤害你",
+      "类型：主动",
+      "充能数: 2 rooms",
+      "道具池："
+    ]
+  },
+  "item-482": {
+    "nameZh": "点击器",
+    "pickup": "改变",
+    "description": "改变",
+    "effects": [
+      "使用时将你的角色变成其他一个随机的角色,同时给予相应的属性变化",
+      "当使用时，也有机会（差不多50%）去除掉你最近拿到的一件物品。",
+      "这个物品只会减少你的心之容器，即使你换到一个有高血量的人物也不会增加心之容器. 这意味着你从the lost roll回其他角色只会给你留下半个魂心。",
+      "不能变回没有解锁的角色",
+      "包括Lazarus II (Lazarus复活)和黑Judas (犹大之影效果)",
+      "类型：主动",
+      "充能数: 6 rooms",
+      "道具池："
+    ]
+  },
+  "item-483": {
+    "nameZh": "超级妈妈！",
+    "pickup": "轰！",
+    "description": "轰！",
+    "effects": [
+      "一个一次性物品使用后引爆房间里所有东西(i.e. 石头, 大便)并对当前房间里的所有敌人造成200点伤害,当前层其他房间同样会有效果。",
+      "也可以在妈腿层打开Bossrush房间, 妈心层打开蓝子宫层, 隐藏房和超隐房",
+      "类型：主动",
+      "充能数:0，一次性物品",
+      "道具池："
+    ]
+  },
+  "item-535": {
+    "nameZh": "毯子",
+    "pickup": "感到安全",
+    "description": "感到安全",
+    "effects": [
+      "+1 灵魂之心",
+      "拾取时恢复 1 点红心",
+      "进入 Boss 房间时获得护盾，可抵挡 1 次伤害，随后消失。此护盾可与圣袍叠加，提供 2 次免费受击机会",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加。基于 Ratlah 创建的 Steam 工坊模组",
+      "*,"
+    ]
+  },
+  "item-536": {
+    "nameZh": "祭坛",
+    "pickup": "他要求献祭",
+    "description": "他要求献祭",
+    "effects": [
+      "使用时，此物品将随机献祭最多 2 只眷属，并为每只被献祭的眷属生成一个随机恶魔房间物品",
+      "除了眷属外，任何蓝色的苍蝇或蜘蛛都会转化为 1 枚硬币",
+      "如果献祭的是守护天使、誓死护卫或炽天使，撒旦会格外高兴并奖励你 2 颗黑心",
+      "如果你扮演莉莉丝，魅魔不会被献祭",
+      "如果你没有眷属时使用此物品，它将不会生效且不会消耗物品",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加。基于 Niro 创建的 Steam 工坊模组",
+      "*, sacraficial, sacrafice"
+    ]
+  },
+  "item-537": {
+    "nameZh": "小喷吐者",
+    "pickup": "呕吐伙伴",
+    "description": "呕吐伙伴",
+    "effects": [
+      "一只拥有蓄力攻击的眷属，会在地板上生成一条蠕虫线，踩踏其中的敌人会受到伤害",
+      "拾取时生成 1 个随机药丸",
+      "以撒使用药丸时，眷属及其蠕虫会随机变化",
+      "可能的蠕虫类型包括：绿色（造成伤害）、黑色（减缓敌人）、红色（造成伤害并形成较大的液池）、黄色（造成伤害并形成短距离锥形）和白色（减缓敌人并形成环形）",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加。基于 Strawrat 和 Aczom 创建的 Steam 工坊模组",
+      "*, face"
+    ]
+  },
+  "item-538": {
+    "nameZh": "弹珠",
+    "pickup": "窒息危险",
+    "description": "窒息危险",
+    "effects": [
+      "拾取时生成 3 个随机饰品",
+      "受到伤害时，有随机几率消耗当前持有的一个饰品，永久获得其效果",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加。基于 Amethyst 创建的 Steam 工坊模组",
+      "*,"
+    ]
+  },
+  "item-539": {
+    "nameZh": "神秘蛋",
+    "pickup": "献祭授精",
+    "description": "献祭授精",
+    "effects": [
+      "一只跟随以撒的眷属，受到伤害时会生成一个被魅惑的敌人为你作战",
+      "生成被魅惑的敌人时蛋会破裂，但在下一个房间会再生",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加。基于 Strawrat 和 Aczom 创建的 Steam 工坊模组",
+      "*,"
+    ]
+  },
+  "item-540": {
+    "nameZh": "扁平石头",
+    "pickup": "跳跃眼泪",
+    "description": "跳跃眼泪",
+    "effects": [
+      "扁平石头使你的眼泪在房间内弹跳",
+      "每次眼泪弹跳时，都会对附近敌人造成溅射伤害，伤害值为你的眼泪伤害的 25%",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加。基于 Maddogs 创建的 Steam 工坊模组",
+      "*,"
+    ]
+  },
+  "item-541": {
+    "nameZh": "骨髓",
+    "pickup": "提升 HP？",
+    "description": "提升 HP？",
+    "effects": [
+      "+1 骨心",
+      "拾取时在地面生成 3 颗红心",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加",
+      "*,"
+    ]
+  },
+  "item-542": {
+    "nameZh": "错位肋骨",
+    "pickup": "弹幕护盾",
+    "description": "弹幕护盾",
+    "effects": [
+      "此物品赋予你一个轨道，可将弹幕反射回敌人",
+      "与其他轨道不同，错位肋骨不会与敌人发生接触伤害",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加",
+      "*,"
+    ]
+  },
+  "item-543": {
+    "nameZh": "圣域",
+    "pickup": "移动圣所",
+    "description": "移动圣所",
+    "effects": [
+      "一只跟随以撒的眷属，当你受到伤害时会生成白色粪便",
+      "白色粪便提供光环，将你的眼泪延迟减半（提升射速），并有几率抵挡伤害",
+      "如果粪便被摧毁，光环会消失",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加",
+      "算作达成“哦，糟了”变身所需的 3 个粪便物品中的 1 个",
+      "可通过其他物品效果（如《人类一败涂地》卡牌或放松药丸）产生白色粪便",
+      "忏悔版 - 圣域产生的白色粪便现在更耐久，类似于金色粪便。站在光环中时，以撒的伤害提升 25%，且眼泪获得追踪效果",
+      "*,"
+    ]
+  },
+  "item-544": {
+    "nameZh": "尖刺肋骨",
+    "pickup": "刺击时刻",
+    "description": "刺击时刻",
+    "effects": [
+      "一只可通过火键瞄准的眷属（类似手指物品），对敌人造成等同于你眼泪伤害的接触伤害",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加",
+      "*,"
+    ]
+  },
+  "item-545": {
+    "nameZh": "死亡之书",
+    "pickup": "死而复生",
+    "description": "死而复生",
+    "effects": [
+      "使用时，此物品会为当前房间中击杀的每个敌人生成一个骨轨道或被魅惑的骨怪",
+      "轨道和被魅惑的敌人在穿越房间时持续存在",
+      "骨轨道在造成足够伤害或阻挡过多射击后会破碎",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加",
+      "算作达成“书虫”变身所需的 3 本书类物品中的 1 个",
+      "*,"
+    ]
+  },
+  "item-546": {
+    "nameZh": "爸爸的戒指",
+    "pickup": "父亲的祝福",
+    "description": "父亲的祝福",
+    "effects": [
+      "一个被动物品，在以撒周围生成黄色光环。敌人接触黄色光环时会定身",
+      "接触光环的敌人会永久定身，直到你移开，除非是 Boss，它们接触后只会获得短暂的定身效果",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加",
+      "*, dads ring, dad ring"
+    ]
+  },
+  "item-547": {
+    "nameZh": "离婚协议书",
+    "pickup": "射速提升 + 感到空虚",
+    "description": "射速提升 + 感到空虚",
+    "effects": [
+      "+1 骨心",
+      "+0.7 射速",
+      "拾取此物品时，神秘纸张饰品会在地面生成",
+      "作为 Afterbirth+ 扩充包 #5 的一部分添加",
+      "*,"
+    ]
+  },
+  "item-548": {
+    "nameZh": "颌骨",
+    "pickup": "抓取",
+    "description": "抓取",
+    "effects": [
+      "每隔数秒会飞越房间并射击，对敌人造成伤害（伤害为你的眼泪伤害的 2 倍）",
+      "也可像回旋镖一样拾取地面上的消耗品",
+      "作为 Afterbirth+ 扩充包 #5 的一部分加入",
+      "*,"
+    ]
+  },
+  "item-549": {
+    "nameZh": "脆骨",
+    "pickup": "万物皆痛",
+    "description": "万物皆痛",
+    "effects": [
+      "拾取时，会用 6 个骨头心替换你所有的红心容器",
+      "每损失一个骨头心，就会向四面八方发射大量骨头，击中任何敌人并造成永久 +0.5 射速",
+      "对于失落者和守护者角色，此物品仅提供永久 +0.5 射速",
+      "作为 Afterbirth+ 扩充包 #5 的一部分加入",
+      "*,"
+    ]
+  },
+  "item-550": {
+    "nameZh": "破损铲子",
+    "pickup": "感觉被诅咒",
+    "description": "感觉被诅咒",
+    "effects": [
+      "在 1 分钟内击败地下室 1 的首领，然后轰炸起始房间中央出现的巨大阴影获得",
+      "持有时，妈妈的脚会每隔数秒从上方踩踏你两次，只要你持有此物品，她就会持续踩踏",
+      "使用破损铲子可停止妈妈在当前房间（或在首领冲刺或挑战房间时为当前波次）内对你的踩踏",
+      "在持有此物品的情况下击败首领冲刺，会掉落破损铲子的另一半，两者结合可组成妈妈的铲子，用于解锁遗忘者角色",
+      "若离开房间，丢弃破损铲子会导致其消失",
+      "注意：除非你至少击败过羔羊一次，否则此物品不会掉落",
+      "作为 Afterbirth+ 扩充包 #5 的一部分加入，并用于解锁遗忘者角色的任务",
+      "*,"
+    ]
+  },
+  "item-551": {
+    "nameZh": "破损铲子",
+    "pickup": "失落但未被遗忘",
+    "description": "失落但未被遗忘",
+    "effects": [
+      "在持有另一块破损铲子的情况下击败首领冲刺后掉落（详见上一物品）",
+      "与第一块破损铲子结合组成妈妈的铲子（详见下一物品）",
+      "作为 Afterbirth+ 扩充包 #5 的一部分加入，并用于解锁遗忘者角色的任务",
+      "*,"
+    ]
+  },
+  "item-552": {
+    "nameZh": "妈妈的铲子",
+    "pickup": "失落但未被遗忘",
+    "description": "失落但未被遗忘",
+    "effects": [
+      "使用时，会生成一扇通往下一楼层的活板门",
+      "在地板上有特定物体或标记的地方挖掘，每层可保证生成一个爬行空间",
+      "在暗室楼层的房间中出现的土堆上使用，可解锁遗忘者角色",
+      "通过组合两块破损铲子获得。第一块在 1 分钟内击败首层首领后轰炸首层房间的阴影获得。第二块在持有第一块破损铲子的情况下击败首领冲刺后获得（详见前两个物品以获取完整详情）",
+      "解锁遗忘者角色后，再次在土堆上使用只会随机生成一种类型的宝箱",
+      "作为 Afterbirth+ 扩充包 #5 的一部分加入，并用于解锁遗忘者角色的任务",
+      "*, 妈妈的铲子，妈妈铲子"
+    ]
+  },
+  "item-553": {
+    "nameZh": "毛霉病",
+    "pickup": "孢子射击",
+    "description": "孢子射击",
+    "effects": [
+      "眼泪有机会发射一种粘附在敌人身上的真菌眼泪。它会迅速长大，然后爆炸成一片毒气云，对附近的敌人造成伤害",
+      "爆炸发生时，会有更多追踪型真菌眼泪向随机方向发射。如果这些眼泪击中其他敌人，也会产生相同的效果",
+      "替换你眼泪的效果（如硫磺）也有机会应用此效果",
+      "*,"
+    ]
+  },
+  "item-554": {
+    "nameZh": "2Spooky",
+    "pickup": "4me",
+    "description": "4me",
+    "effects": [
+      "任何靠近以撒的敌人都会被恐惧，从而逃跑",
+      "*,"
+    ]
+  },
+  "item-555": {
+    "nameZh": "金剃刀",
+    "pickup": "痛并快乐着",
+    "description": "痛并快乐着",
+    "effects": [
+      "拾取时获得 +5 金币",
+      "使用时，此物品会扣除你 5 个金币，并提供持续当前房间的 +1.2 伤害",
+      "可无限叠加。若金币不足 5 个则无效",
+      "*,"
+    ]
+  },
+  "item-556": {
+    "nameZh": "硫磺",
+    "pickup": "临时恶魔形态",
+    "description": "临时恶魔形态",
+    "effects": [
+      "使用时，在当前房间赋予使用硫磺的能力",
+      "若在同一房间使用两次，硫磺激光会变得巨大，并额外造成 +1.8 伤害",
+      "在同一房间使用超过两次，每次都会增加伤害",
+      "算作向利维坦形态转变所需的 3 个邪恶物品中的 1 个",
+      "*,"
+    ]
+  },
+  "item-557": {
+    "nameZh": "幸运饼干",
+    "pickup": "可重复使用的预言",
+    "description": "可重复使用的预言",
+    "effects": [
+      "使用时显示随机预言，并有几率掉落灵魂心、卡牌（包括骰子碎片）、符文/灵魂石或饰品",
+      "灵魂心和塔罗牌比饰品常见得多",
+      "*,"
+    ]
+  },
+  "item-558": {
+    "nameZh": "眼疾",
+    "pickup": "更多眼睛",
+    "description": "更多眼睛",
+    "effects": [
+      "每次发射眼泪时，都有几率向随机方向额外发射 1-3 个眼泪",
+      "额外眼泪的规模随你的其他伤害提升物品而成长",
+      "与其他替换眼泪的物品（如硫磺或科技）产生协同效应",
+      "发射额外眼泪的几率不受幸运影响",
+      "*,"
+    ]
+  },
+  "item-559": {
+    "nameZh": "120 伏特",
+    "pickup": "电击！",
+    "description": "电击！",
+    "effects": [
+      "此物品会向附近的敌人发射电流，快速造成约为你眼泪伤害 x0.75 的伤害",
+      "如果敌人足够靠近，电流最多可传导至 4 个敌人",
+      "在有水的楼层（暴雨、淹没洞穴、渣滓），此效果会传导至比平时更远的敌人",
+      "*,"
+    ]
+  },
+  "item-560": {
+    "nameZh": "很痛",
+    "pickup": "不痛...",
+    "description": "不痛...",
+    "effects": [
+      "受到伤害时，以撒会发射一圈 10 个眼泪围绕自身，每个造成 10 点伤害",
+      "受到伤害后，你还会在当前房间剩余时间内获得 +1.2 射速。随后的每次命中都会提供 +0.4 射速，并忽略正常的射速上限",
+      "*,"
+    ]
+  },
+  "item-561": {
+    "nameZh": "杏仁奶",
+    "pickup": "伤害降低 + 射速提升 + 感觉有点怪",
+    "description": "伤害降低 + 射速提升 + 感觉有点怪",
+    "effects": [
+      "大幅提升射速（x4 射速）",
+      "大幅降低伤害（x0.33 伤害倍率）",
+      "单个眼泪获得随机的蠕虫效果（例如钩虫、扭动虫等）",
+      "*,"
+    ]
+  },
+  "item-562": {
+    "nameZh": "谷底",
+    "pickup": "从此只能向上",
+    "description": "从此只能向上",
+    "effects": [
+      "防止你的属性在剩余跑图中被进一步降低",
+      "例如，属性降低药丸无效，而实验性治疗等物品可增加属性但不会降低任何属性",
+      "此效果适用于应用负面属性修饰符的物品，如豆奶",
+      "此效果适用于提供任何临时增益的东西，如恶魔/力量卡牌，或击杀奖励如嗜血",
+      "如果你以某种方式丢失了谷底，你的属性将恢复正常",
+      "*,"
+    ]
+  },
+  "item-563": {
+    "nameZh": "南希炸弹",
+    "pickup": "随机爆炸 +5 炸弹",
+    "description": "随机爆炸 +5 炸弹",
+    "effects": [
+      "+5 炸弹",
+      "炸弹现在会以随机效果爆炸（例如中毒、追踪、奖品炸弹）",
+      "在初生中，这被称为谜之炸弹",
+      "*,"
+    ]
+  },
+  "item-564": {
+    "nameZh": "一块肥皂",
+    "pickup": "射速 + 眼泪速度提升",
+    "description": "射速 + 眼泪速度提升",
+    "effects": [
+      "+0.5 眼泪速度",
+      "+0.2 射速",
+      "*,"
+    ]
+  },
+  "item-565": {
+    "nameZh": "血狗",
+    "pickup": "多么可爱的小家伙！",
+    "description": "多么可爱的小家伙！",
+    "effects": [
+      "生成一条红色蠕虫伙伴，在房间内追逐附近的敌人，每 tick 造成 2 点接触伤害",
+      "击杀 15 个敌人后，血狗会转变为具有攻击性的形态，会冲撞以攻击以撒。对攻击性的血狗造成伤害最终会使其恢复常态",
+      "处于攻击性状态时，血狗造成 7.5 伤害，每击杀 10 个敌人掉落半个红心",
+      "再击杀 25 个敌人后，它将再次转变，造成 15 伤害并摧毁冲撞到的障碍物。若被血狗伤害，以撒会损失一个完整红心，且每击杀 10 个敌人掉落一个完整红心",
+      "*,"
+    ]
+  },
+  "item-566": {
+    "nameZh": "捕梦网",
+    "pickup": "做个好梦",
+    "description": "做个好梦",
+    "effects": [
+      "在楼层过渡期间，此物品会显示物品房间内即将生成的物品预览，以及即将出现的 Boss",
+      "即使拥有“盲眼诅咒”，此效果依然有效，但进入物品房间时物品仍会显示为问号",
+      "拾取后，每开始新楼层时提供 +1 灵魂红心",
+      "在 XL 楼层中，两项物品均会显示",
+      "目前此效果在贪婪模式中不起作用 - 它会显示 2 个物品，但物品房间内的物品会不同",
+      "*,"
+    ]
+  },
+  "item-567": {
+    "nameZh": "复活节蜡烛",
+    "pickup": "让火焰长明",
+    "description": "让火焰长明",
+    "effects": [
+      "每完成一个房间且未受到伤害时，提供 +0.4 眼泪速度，上限为 +2.0 眼泪速度",
+      "受到伤害时，眼泪速度加成会被重置",
+      "拾取此物品本身也计入并赋予临时的 +0.4 眼泪速度",
+      "*,"
+    ]
+  },
+  "item-568": {
+    "nameZh": "神圣干预",
+    "pickup": "双击护盾",
+    "description": "双击护盾",
+    "effects": [
+      "允许双击射击键生成持续 1 秒的神圣护盾，将敌人推开，若敌人触碰则造成 10 点伤害",
+      "护盾还会反射敌人的射击和光束，造成额外伤害",
+      "每 3 秒可激活一次一次（由白光和滴答声指示）",
+      "算作向“炽天使”形态转变所需的 3 个天使物品中的 1 个",
+      "*,"
+    ]
+  },
+  "item-569": {
+    "nameZh": "血誓",
+    "pickup": "放干我的血",
+    "description": "放干我的血",
+    "effects": [
+      "每新楼层开始时，此物品会刺向以撒，将你的红心血量降至最低限度而不致死。作为交换，每移除半个红心，提供 +0.05 速度加成和伤害加成",
+      "伤害加成计算公式为：(0.15 * 移除完整红心数 ^ 2)",
+      "若被刺时以撒已处于半个红心状态，则不会获得伤害或速度加成",
+      "可通过无敌状态避免被刺伤害，但若如此则不会获得伤害或属性加成",
+      "*,"
+    ]
+  },
+  "item-570": {
+    "nameZh": "橡皮泥饼干",
+    "pickup": "美味的彩虹",
+    "description": "美味的彩虹",
+    "effects": [
+      "你的每滴眼泪都会随机获得以下效果之一：中毒、恐惧、减速、冰冻、魅惑、燃烧、追踪、流血、双倍伤害或伤害降低",
+      "*,"
+    ]
+  },
+  "item-571": {
+    "nameZh": "孤儿袜",
+    "pickup": "速度提升 + 双脚更有力量",
+    "description": "速度提升 + 双脚更有力量",
+    "effects": [
+      "+2 灵魂红心",
+      "+0.3 速度",
+      "允许你在有害的地面效果上行走而不受到伤害（例如尖刺、蠕虫）。不包括诅咒房间的门或带刺岩石",
+      "*,"
+    ]
+  },
+  "item-572": {
+    "nameZh": "神秘之眼",
+    "pickup": "伤害提升 + 射程提升 + 可控眼泪",
+    "description": "伤害提升 + 射程提升 + 可控眼泪",
+    "effects": [
+      "眼泪在空中飞行时可通过方向键进行控制",
+      "+1 伤害",
+      "+2.0 射程",
+      "-0.16 射速",
+      "算作向“利维坦”形态转变所需的 3 个邪恶物品中的 1 个",
+      "*,"
+    ]
+  },
+  "item-573": {
+    "nameZh": "无瑕之心",
+    "pickup": "眼泪光环",
+    "description": "眼泪光环",
+    "effects": [
+      "除了常规眼泪外，以撒有时会发射额外的环绕其周围的幽灵眼泪",
+      "+1 生命",
+      "+20% 伤害倍率 (x1.2)",
+      "完全治愈所有红心容器",
+      "算作向“炽天使”形态转变所需的 3 个天使物品中的 1 个",
+      "*,"
+    ]
+  },
+  "item-574": {
+    "nameZh": "圣体盒",
+    "pickup": "净化之光",
+    "description": "净化之光",
+    "effects": [
+      "以撒现在会发出大范围的光晕，触碰光晕的附近敌人每秒受到 5 次伤害",
+      "视觉效果类似于“神头”物品赋予眼泪的效果",
+      "光晕对中心的伤害更高，范围从最大射程的 0.75 到触碰以撒时的 4 点伤害",
+      "*,"
+    ]
+  },
+  "item-575": {
+    "nameZh": "入侵者",
+    "pickup": "入侵的朋友",
+    "description": "入侵的朋友",
+    "effects": [
+      "除了常规眼泪外，以撒现在还会发射一组带有减速效果的 4 连发眼泪",
+      "4 连发眼泪每滴造成 1.5 伤害，且不随你的伤害加成而提升",
+      "受到伤害时，你有几率将脸上的蜘蛛震落。它会跃向敌人，造成接触伤害并在整个房间内持续发射 4 连发",
+      "算作向“蜘蛛宝宝”形态转变所需的 3 个蜘蛛物品中的 1 个",
+      "*, 呃，好恶心，脸上有蜘蛛"
+    ]
+  },
+  "item-576": {
+    "nameZh": "肮脏的头脑",
+    "pickup": "肮脏的朋友",
+    "description": "肮脏的朋友",
+    "effects": [
+      "每摧毁一次粪便，此物品会生成 1-4 个友好的 Dip 伙伴跟随你，阻挡射击并攻击附近敌人",
+      "不同类型的粪便会生成不同类型的 Dip，每种都有其独特的效果",
+      "金色粪便生成的 Dip 可以石化敌人，将其变为金色数秒。若敌人在此状态下死亡，将掉落 1-4 枚硬币",
+      "玉米粪便生成的 Dip 死亡时会生成 1 只蓝色苍蝇",
+      "彩虹粪便生成的 Dip 会魅惑敌人，死亡时有几率生成 1/2 个红心",
+      "黑色粪便生成的 Dip 会留下蠕虫轨迹",
+      "白色粪便生成的 Dip 拥有小型的神圣领域光环效果，站在其中会增加你的伤害和射速",
+      "由“污秽的？？？”和 IBS 生成的粪便也有特殊效果：石头 Dip 造成额外 3.5 伤害且需承受 6 次攻击才会死亡。剧毒 Dip 移动或死亡时会释放毒云。火焰 Dip 燃烧敌人并在死亡时留下火焰",
+      "所有敌对 Dip 都会变为友好",
+      "算作向“哦，糟了”形态转变所需的 3 个粪便物品中的 1 个",
+      "*,"
+    ]
+  },
+  "item-578": {
+    "nameZh": "免费柠檬水",
+    "pickup": "派对时间！",
+    "description": "派对时间！",
+    "effects": [
+      "使用后，生成一大滩柠檬水，任何触碰它的敌人都每秒受到 8 点伤害",
+      "持续约 19 秒",
+      "效果类似于柠檬派对药丸",
+      "*,"
+    ]
+  },
+  "item-579": {
+    "nameZh": "灵剑",
+    "pickup": "神圣之刃",
+    "description": "神圣之刃",
+    "effects": [
+      "你的眼泪被替换为剑，可挥动造成伤害（伤害 * 3 + 基础伤害）",
+      "按住射击键可蓄力旋转攻击（伤害 * 8 + 10）。蓄力时间基于你的眼泪属性",
+      "当处于满红心状态时，每次挥动还会向房间内发射一个投射物，造成当前伤害 + 2（类似于塞尔达传说中的大师之剑）",
+      "*,"
+    ]
+  },
+  "item-580": {
+    "nameZh": "红钥匙",
+    "pickup": "探索另一侧",
+    "description": "探索另一侧",
+    "effects": [
+      "持有时，某些墙壁上会出现红色门框轮廓。在附近使用红钥匙会生成红色房间",
+      "该房间会从多种类型中随机选择，包括但不限于该楼层的任何常规房间、宝藏房、诅咒房、恶魔房、天使房、I AM ERROR 房间等",
+      "在有多个门框轮廓的房间中，会打开最近的一个",
+      "尝试在地图最大边界（13 x 13 房间）之外创建房间会将你带入 I AM ERROR 房间。无法使用红钥匙离开此房间",
+      "红钥匙可用于打开主楼层的秘密房间，这是解锁替代“污秽”角色的方法",
+      "*,"
+    ]
+  },
+  "item-581": {
+    "nameZh": "精神苍蝇",
+    "pickup": "华丽护盾",
+    "description": "华丽护盾",
+    "effects": [
+      "Gives Isaac an orbital fly, that will rapidly charge around and deflect any incoming tears that would hit Isaac.",
+      "It isn't 100% effective but the effect is very strong and will deflect most shots under a bullet hell situation.",
+      "Deflected tears turn into homing tears and fire back at enemies, dealing 2 damage.",
+      "After reflecting a certain number of projectiles, Psy Fly enters a brief cooldown period",
+      "Counts as 1 of 3 fly items needed towards the Beelzebub transformation.",
+      "*,"
+    ]
+  },
+  "item-582": {
+    "nameZh": "波浪帽",
+    "pickup": "射速提升。一次改变心智的体验！",
+    "description": "射速提升。一次改变心智的体验！",
+    "effects": [
+      "Every time you use Wavy Cap, it gives +0.75 Tears Up and -0.03 Speed Down",
+      "Also when used, this item will distort the screen and sound slightly, stacking every time you use it",
+      "All of these effects stack for the rest of the floor, meaning if used too many times the screen will be distorted so much it becomes unplayable",
+      "Each room you clear removes one use worth of effect - reducing the screen distortion slightly and giving +0.06 Speed Up and -0.3 Tears Down",
+      "This item was called Black Mushroom in Antibirth",
+      "Counts as 1 of 3 mushroom items needed towards the Fun Guy transformation.",
+      "*,"
+    ]
+  },
+  "item-583": {
+    "nameZh": "罐装火箭",
+    "pickup": "火箭推进 +5 炸弹",
+    "description": "火箭推进 +5 炸弹",
+    "effects": [
+      "+5 Bombs",
+      "Placing a bomb while pressing a fire button will fire an explosive rocket in that direction",
+      "Placing a bomb while standing still will place a regular bomb",
+      "*,"
+    ]
+  },
+  "item-584": {
+    "nameZh": "美德之书",
+    "pickup": "精神伴侣",
+    "description": "精神伴侣",
+    "effects": [
+      "Upon use, spawns a flame familiar that fires spectral tears and deals contact damage to enemies. After taking two hits, the fire will be extinguished",
+      "The Book can be held at the same time as another active item. When used, this will combine with your other active item, creating a unique flame and possibly giving special effects",
+      "The recharge time of this item is based on your 2nd active item, otherwise it's 4 rooms",
+      "While held, guarantees the first Devil/Angel Room encountered to be an Angel Room, and increases the overall chance of getting one",
+      "A maximum of 16 flames can be active at one time around Isaac",
+      "Counts as 1 of 3 book items needed towards the Bookworm transformation",
+      "*,"
+    ]
+  },
+  "item-585": {
+    "nameZh": "白垩盒",
+    "pickup": "神圣供品",
+    "description": "神圣供品",
+    "effects": [
+      "A single use active item that will spawn 3 soul hearts and 2 items from the Angel Room pool",
+      "Starts fully uncharged and gains charges only through picking up soul and black. (6 full hearts to fully charge)",
+      "Unless fully charged, hearts picked up are consumed by the Alabaster Box, instead of being added to your life total",
+      "If a devil deal was already taken this run, it spawns 2 soul hearts and 1 Angel Room item instead.",
+      "Picking up Bone Hearts while at 12 hearts will remove charges from the Box",
+      "*,"
+    ]
+  },
+  "item-586": {
+    "nameZh": "天梯",
+    "pickup": "通往天堂的阶梯",
+    "description": "通往天堂的阶梯",
+    "effects": [
+      "Spawns a ladder in the starting room of all future floors, which leads to an Angel Room",
+      "Angel rooms accessed by The Stairway are different - They sell angel room items and soul hearts for money, similar to the Shop",
+      "Pedestal items cost 15c, all other items (eternal/soul hearts, keys and holy cards) cost 5c. Sales can be randomly applied just like regular shops",
+      "The ladder disappears after leaving the starting room, even if you haven't used it yet",
+      "In Antibirth this was called Jacob's Ladder, which had to be renamed as Afterbirth+ already had an item with this name",
+      "*,"
+    ]
+  },
+  "item-588": {
+    "nameZh": "太阳",
+    "pickup": "光辉胜利",
+    "description": "光辉胜利",
+    "effects": [
+      "Permanently shows the location of the boss room on the map",
+      "After defeating the shown boss fight, this item will activate a use of the Sun card (full heal and map reveal), fully recharge your active item, remove curses from the floor, gives +3 Damage Up and +1 Luck up for the rest of the floor",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "In The Void floor it shows a random boss room, which isn't necessarily Delirium's room",
+      "*,"
+    ]
+  },
+  "item-589": {
+    "nameZh": "月亮",
+    "pickup": "更多秘密",
+    "description": "更多秘密",
+    "effects": [
+      "Adds one extra secret room and one extra super secret room to each floor",
+      "Each secret room contains a beam of light, that gives half a soul heart, and a Tears Up for the rest of the floor. These stack with multiple secret rooms - The first one gives +1.00 Tears Up, then all future ones give +0.5.",
+      "Reveals the location of one secret room on the minimap.",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*, moon, loona, lunar,"
+    ]
+  },
+  "item-590": {
+    "nameZh": "水星",
+    "pickup": "加速 + 身法飘忽",
+    "description": "加速 + 身法飘忽",
+    "effects": [
+      "+0.40 Speed Up",
+      "Doors remain open when entering a room with enemies in it. This means you can leave rooms before defeating the enemies inside",
+      "Doesn't open locked doors, or the door that leads to the Boss Room",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-591": {
+    "nameZh": "金星",
+    "pickup": "生命提升 + 容光焕发",
+    "description": "生命提升 + 容光焕发",
+    "effects": [
+      "+1 HP Up",
+      "Heals one red heart container when picked up",
+      "This item causes nearby enemies to be affected by the charm effect, causing them to attack other nearby enemies",
+      "The charm effect will wear off very quicky when enemies move away from Isaac",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-592": {
+    "nameZh": "土星",
+    "pickup": "摇滚生来注定",
+    "description": "摇滚生来注定",
+    "effects": [
+      "This item causes your tears to become rocks, which have increased knockback and can break other rocks and objects. This includes key blocks and secret room doors",
+      "+1.0 Damage Up, but each rock tear has a random damage modifier that can go up or down (x0.5 to x2)",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-593": {
+    "nameZh": "火星",
+    "pickup": "双击冲刺",
+    "description": "双击冲刺",
+    "effects": [
+      "Allows Isaac to charge by double tapping the same direction, dealing damage to any enemies caught",
+      "You are invincible while charging (doesn't include self-damage like Blood Donation machines)",
+      "Can be used multiple times per room",
+      "The dash deals x4 your current tear damage + 8",
+      "Doesn't have to be in a straight line, you can hold another button to curve it",
+      "Has a 3 second cooldown before it can be used again",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-594": {
+    "nameZh": "木星",
+    "pickup": "你是气态巨行星！",
+    "description": "你是气态巨行星！",
+    "effects": [
+      "+2 HP Up (only half a heart is filled)",
+      "-0.3 Speed Down",
+      "While not moving your speed rapidly increases up to a bonus of +0.5",
+      "While you have this +0.5 bonus, moving will cause Isaac to fart around the room, spawning poison gas clouds",
+      "The farts stop spawning once you reach your regular movement speed",
+      "Poison deals damage equal to half your tears per tick",
+      "Isaac is immune to Poison from enemies, such as Gasbag",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-595": {
+    "nameZh": "土星",
+    "pickup": "泪滴光环",
+    "description": "泪滴光环",
+    "effects": [
+      "Gives you a wide circle halo which grants 7 orbital tears upon entering a new room",
+      "The tears orbit for 13 seconds before dropping off",
+      "Has a chance to absorb any enemy tears and add them to the orbiting tears. They can be used to damage enemies",
+      "Saturnus tears can't break objects such as poop and TNT barrels",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-596": {
+    "nameZh": "天王星",
+    "pickup": "冰泪",
+    "description": "冰泪",
+    "effects": [
+      "Isaac now shoots ice tears that slow enemies. Enemies that are killed by the ice tears will become frozen",
+      "Frozen enemies never unfreeze and are considered dead by the game. Kicking a frozen enemy will push it into the wall, where it shatters and fires ice shards everywhere (these can then freeze other enemies)",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-597": {
+    "nameZh": "海王星",
+    "pickup": "开闸泄洪",
+    "description": "开闸泄洪",
+    "effects": [
+      "Isaac will now automatically charge up tears, allowing you to store them up and fire them rapidly for a short time",
+      "Any time you aren't firing tears, the charge bar will start filling up, for up to 3 seconds. Holding down the fire button again will quickly release all stored teared",
+      "The charge time and max tears stored scales with your current tears stat",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-598": {
+    "nameZh": "冥王星",
+    "pickup": "体型缩小",
+    "description": "体型缩小",
+    "effects": [
+      "+0.7 Tears Up",
+      "Greatly reduce Isaac's size, to an extent where some enemy tears will now travel straight over him without dealing damage if they are high off the ground. Tears can still hit Isaac if gravity applies for too long",
+      "Allows Isaac to squeeze between some objects",
+      "Only available inside a Planetarium - a room that has a base 1% chance to appear, which increases by +20% every time you skip an Item Room (Must not enter to count as skipped)",
+      "*,"
+    ]
+  },
+  "item-599": {
+    "nameZh": "巫毒头",
+    "pickup": "额外诅咒房间",
+    "description": "额外诅咒房间",
+    "effects": [
+      "This item has a chance to spawn an additional curse room on each future floor",
+      "Causes a penny to spawn in all future Curse Rooms",
+      "Improves curse room layouts and rewards",
+      "*,"
+    ]
+  },
+  "item-600": {
+    "nameZh": "眼药水",
+    "pickup": "射速提升",
+    "description": "射速提升",
+    "effects": [
+      "Tears fired from your left eye gain roughly +28% fire rate increase",
+      "Causes your tears to be fired at staggered rates",
+      "*, bottle container dropper medicine"
+    ]
+  },
+  "item-601": {
+    "nameZh": "悔罪书",
+    "pickup": "射速提升，你感到被宽恕",
+    "description": "射速提升，你感到被宽恕",
+    "effects": [
+      "+1 Eternal Heart",
+      "+0.7 Tears Up",
+      "Allows Angel Rooms to appears even if a Devil deal has been taken before",
+      "*,"
+    ]
+  },
+  "item-602": {
+    "nameZh": "会员卡",
+    "pickup": "专属通道！",
+    "description": "专属通道！",
+    "effects": [
+      "All shops now contain a trapdoor with a ladder, which leads down to a special shop",
+      "The special shop contains various consumables and items at a higher price from the Devil/Angel room, Boss room and Secret room pools.",
+      "Items cost 15-30c, trinkets cost 15c, cards/runes cost 6-8c, black/bone hearts 8c, eternal hearts 15c, rotten hearts 5c",
+      "*, gold"
+    ]
+  },
+  "item-603": {
+    "nameZh": "电池组",
+    "pickup": "瞬间充能！",
+    "description": "瞬间充能！",
+    "effects": [
+      "When picked up, this item fully recharges your currently held active item and drops between 2-4 battery pickups. These can be smaller or big batteries",
+      "*,"
+    ]
+  },
+  "item-604": {
+    "nameZh": "妈妈的镯子",
+    "pickup": "母亲的力量",
+    "description": "母亲的力量",
+    "effects": [
+      "Upon use, Mom's Bracelet allows you to grab objects in the room and throw them, damaging any enemies which are hit for 40 damage",
+      "Most objects can be thrown including pots, rocks, poops, tnt etc",
+      "Pressing the activate button again will drop the object where you stand, which doesn't consume a charge of use",
+      "Allows you to remove the skull on top of Host enemies, turning them into the red version",
+      "Counts as 1 of 3 mom items needed towards the Mom transformation",
+      "*, arm, moms, ring, bracers, zelda, gold band, golden band, power bracelet"
+    ]
+  },
+  "item-605": {
+    "nameZh": "勺子",
+    "pickup": "噗通！",
+    "description": "噗通！",
+    "effects": [
+      "When used, this item spawns a Peeper familiar for the current room, which deals 12 contact damage per tick to enemies and leaves red creep in its path",
+      "Using this item removes Isaac's right eye, causing tears from this eye to deal x1.5 your normal tear damage",
+      "Using it more than once in the same room will spawn multiple Peeper familiars",
+      "*,"
+    ]
+  },
+  "item-606": {
+    "nameZh": "眼裂",
+    "pickup": "凝视深渊",
+    "description": "凝视深渊",
+    "effects": [
+      "Fired tears now have a chance to summon a rift when they land on the ground",
+      "The spawned rift sucks in enemies, projectiles and pickups and deals damage to enemies caught inside for 2 seconds",
+      "The chance to fire the rift tear can improve based on your luck stat. At +0 Luck theres a ~2.5% chance for this effect to activate",
+      "The size of the rift scales with your tear damage",
+      "Rifts deal half your damage per tick",
+      "In Antibirth this item was called Oculus Rift",
+      "*,"
+    ]
+  },
+  "item-607": {
+    "nameZh": "水煮婴儿",
+    "pickup": "邋遢朋友",
+    "description": "邋遢朋友",
+    "effects": [
+      "A familiar boil that randomly fires bursts of tears, similar to the Boil enemy",
+      "Tears either deal 5.3 or 3.5 damage",
+      "Counts as 1 of 3 familiar items needed towards the Conjoined transformation.",
+      "*,"
+    ]
+  },
+  "item-608": {
+    "nameZh": "冷冻婴儿",
+    "pickup": "冰镇冰镇婴儿",
+    "description": "冰镇冰镇婴儿",
+    "effects": [
+      "A familiar baby that fires tears which have a chance to freeze or petrify enemies",
+      "Frozen enemies never unfreeze and are considered dead by the game. Kicking a frozen enemy will push it into the wall, where it shatters and fires ice shards everywhere (these can then freeze other enemies)",
+      "Counts as 1 of 3 familiar items needed towards the Conjoined transformation",
+      "*,"
+    ]
+  },
+  "item-609": {
+    "nameZh": "永恒 D6",
+    "pickup": "???",
+    "description": "???",
+    "effects": [
+      "When used, rerolls all items in the room into another random item from the current room's item pool, however the item also has a 30% chance to disappear",
+      "The chance associated with this item does NOT scale with your Luck stat - it's always 30%",
+      "In the game files this item is called 'Florians Dice', which is a reference to the Eternal update for the original Binding of Isaac game, which changed the D6 to act as this item does",
+      "*,"
+    ]
+  },
+  "item-610": {
+    "nameZh": "鸟笼",
+    "pickup": "胖伙伴",
+    "description": "胖伙伴",
+    "effects": [
+      "Taking damage for the first time in a room spawns a familiar which targets an enemy and jumps on them, releasing a rock wave outwards",
+      "For the remainder of the room the familiar then continues to attack enemies similar to the Dead Bird item dealing 3 contact damage per tick",
+      "Deals 45 damage to enemies it lands on. The rock wave deals 10 damage.",
+      "*,"
+    ]
+  },
+  "item-611": {
+    "nameZh": "喉结",
+    "pickup": "聆听我的痛苦",
+    "description": "聆听我的痛苦",
+    "effects": [
+      "When used, this item does a shout-type attack, with its effect increasing in damage and size the more charges you have",
+      "Larynx can be used with any number of charges. At 1 charge it deals 48 damage to any enemies close to Isaac. At the full 12 charges Isaac does a massive shout, dealing 356 damage to all enemies on the screen",
+      "Larynx gains 1 charge every time you take damage (also charges as normal)",
+      "*,"
+    ]
+  },
+  "item-612": {
+    "nameZh": "迷失灵魂",
+    "pickup": "保护他",
+    "description": "保护他",
+    "effects": [
+      "This item gives you a familiar version of The Lost character which dies instantly upon hit",
+      "If the familiar survives an entire floor you get one of: 3 soul hearts, 2 eternal hearts or a random item/angel room item",
+      "Regenerates at the start of each floor if dead",
+      "*,"
+    ]
+  },
+  "item-614": {
+    "nameZh": "血弹",
+    "pickup": "血色爆炸 + 生命提升",
+    "description": "血色爆炸 + 生命提升",
+    "effects": [
+      "+1 HP Up",
+      "Restores 5 empty red heart containers",
+      "Bombs now spawn a puddle of red creep upon explosion, dealing 2 damage per tick to enemies touching it",
+      "While at 0 bombs, you can also place further bombs now at the cost of 1/2 of a heart (kills The Lost if used like this). Placing a bomb this way will not affect your devil/angel room chances",
+      "*,"
+    ]
+  },
+  "item-615": {
+    "nameZh": "小胖子",
+    "pickup": "胖乎乎伙伴",
+    "description": "胖乎乎伙伴",
+    "effects": [
+      "Lil Dumpy follows Isaac and produces a Butter Bean fart when a projectile or enemy is about to hit Isaac, pushing the enemy back and preventing the damage",
+      "After it farts, it flies away, stops following Isaac and has to be picked up again before it will follow again",
+      "He also has a second larger detection radius that can randomly trigger from enemy projectiles",
+      "The effect only works if Lil Dumpy is following and near Isaac",
+      "*, round, ball, eyes, lil' dumpy"
+    ]
+  },
+  "item-616": {
+    "nameZh": "鸟眼",
+    "pickup": "灼烧",
+    "description": "灼烧",
+    "effects": [
+      "You have a chance alongside each tear to shoot a red flame, which deals damage to enemies that come in contact with it",
+      "Damage starts at x4 your current tear damage, and scales down each time an enemy touches the fire",
+      "The chance to create a fire scales with your Luck stat, at +11 Luck you have a 50% chance to shoot one",
+      "The flames from this item can destroy shopkeepers, which is handy since doing this once per floor increases your devil/angel room chances slightly",
+      "*, pepper, chili, face, birds"
+    ]
+  },
+  "item-617": {
+    "nameZh": "磁石",
+    "pickup": "磁化眼泪",
+    "description": "磁化眼泪",
+    "effects": [
+      "Tears now have a chance to cause enemies to be magnetized",
+      "Magnetized enemies attract other enemies, tears (including Isaac's) and enemy projectiles, causing them to be pulled in towards them",
+      "Enemy tears that get pulled into other enemies will hurt them",
+      "*,"
+    ]
+  },
+  "item-618": {
+    "nameZh": "烂番茄",
+    "pickup": "真美味！",
+    "description": "真美味！",
+    "effects": [
+      "You have a chance to fire a tear that marks enemies red and slow them",
+      "Marked enemies will be attacked by other enemies either until it is killed or it kills all the other enemies attacking it",
+      "Chance to fire a marking tear scales with your luck stat",
+      "*,"
+    ]
+  },
+  "item-619": {
+    "nameZh": "继承权",
+    "pickup": "???",
+    "description": "???",
+    "effects": [
+      "This item has a different effect for each character. See next icon for Tainted character effects",
+      "Isaac - All new pedestal items cycle through two options",
+      "Maggy - +1 HP up. Increases the maximum heart limit to 18.",
+      "Cain - +1 Luck. All floors guaranteed to have an Arcade except the Chest & Dark Room floors",
+      "Judas - Gives a passive Book of Belial item similar to Book of Virtues. Using active items gives a damage up that scales with the charge time",
+      "??? - Every HP upgrade is now worth 2 soul hearts. Health down effects still only remove 1 heart",
+      "Eve - Whore of Babylon and Dead Bird effects are always active",
+      "Samson - Bloody Lust can gain 4 more damage boosts, for a new max total of +14 Damage",
+      "Azazel - His beam becomes much wider, no effect on damage",
+      "Lazarus - Every time Lazarus dies, gives +21.6 temporary Damage Up, gradually fading over 1 minute.",
+      "Eden - Spawns 3 items from any pools, you can only take 1",
+      "The Lost - Useless items like HP upgrades, spectral tears or flight are removed from the item pools",
+      "Lilith - Causes all your offensive familiars to stack tightly infront of Lilith for more controlled damage",
+      "Keeper - +1 HP up. Increases HP cap by 1",
+      "Apollyon - Void has a chance to spawn a previously destroyed item as well. More items consumed = more chance for this effect",
+      "The Forgotten - Your Soul is now unchained and free to move.",
+      "Bethany - Activating an item using soul charges is sometimes free",
+      "Jacob & Esau - The character who picks up Birthright gains copies of three of the other character's passive items",
+      "*,"
+    ]
+  },
+  "item-621": {
+    "nameZh": "红烩菜",
+    "pickup": "满血 + 临时伤害提升",
+    "description": "满血 + 临时伤害提升",
+    "effects": [
+      "Fully heals all red heart containers",
+      "Significantly increases damage by +21.6, however the damage boost wears off slowly over time at a rate of roughly -0.04 per second",
+      "Every enemy you kill adds +0.02 Damage to the timed effect of Red Stew",
+      "*, bowl, soup, broth"
+    ]
+  },
+  "item-622": {
+    "nameZh": "创世纪",
+    "pickup": "起初",
+    "description": "起初",
+    "effects": [
+      "When used, removes all your passive items and teleports you to Isaac's Bedroom",
+      "For every passive item removed, you are given a choice of 3 random pedestal items from any item pool. Essentially you are rerolling all your items, but each new item you get to choose between 3 random options",
+      "The bedroom also contains a random trinket, 2 chests, 2 sacks and Isaac's bed, which can be used to full heal your red heart health",
+      "The only way to exit Isaac's bedroom is teleporting out or via the trapdoor, which takes you to the next floor. This will deviate you from the alt path if you are currently on it",
+      "Since this item resets your stats, this item can remove Broken Hearts",
+      "*,"
+    ]
+  },
+  "item-623": {
+    "nameZh": "利刃钥匙",
+    "pickup": "开启你的敌人",
+    "description": "开启你的敌人",
+    "effects": [
+      "+5 Keys",
+      "Upon use, allows you to consume 1 key and fire it at an enemy, piercing enemies and dealing significant damage",
+      "The damage done by the key projectile pierces through enemies and scales with your damage upgrades (x5 damage + 30)",
+      "Keys fired by this item can open locked doors/chests, secret rooms and destroy objects in the room, such as rocks",
+      "Cannot be used if you don't have any keys",
+      "Enemies killed by Sharp Key have a ~10% chance to spawn random items that appear in a chests. This can be anything that would normally drop from a chest including pedestal items",
+      "*,"
+    ]
+  },
+  "item-624": {
+    "nameZh": "补充包",
+    "pickup": "全部收集！",
+    "description": "全部收集！",
+    "effects": [
+      "Spawns 5 random cards",
+      "*,"
+    ]
+  },
+  "item-625": {
+    "nameZh": "巨型蘑菇",
+    "pickup": "我现在是个大男孩了！",
+    "description": "我现在是个大男孩了！",
+    "effects": [
+      "When used, this item causes Isaac to become humongous for 30 seconds",
+      "While huge, Isaac is invincible and can crush objects, doors and enemies",
+      "For the duration of the effect this gives you a x4 Damage Multiplier and +2.0 Range Up, but your rate of fire goes way down",
+      "Deals significant contact damage to enemies while active (1600 dps).",
+      "Counts as 1 of 3 mushroom items needed towards the Fun Guy transformation.",
+      "*,"
+    ]
+  },
+  "item-626": {
+    "nameZh": "刀片 1",
+    "pickup": "???",
+    "description": "???",
+    "effects": [
+      "Combine with Knife Piece 2 to create a Knife which can be fired across the room, dealing 25 damage to any enemies it comes into contact with",
+      "In the Downpour/Dross II, you will find a white flame somewhere, and a room with a mirror in it. Touching the white flame temporarily turns you into The Lost, but allows you to walk through the mirror into a mirrored version of this floor. You have the Holy Mantle effect to prevent one hit per room, but taking another hit will kill you. The Knife Piece 1 is located in the Item Room in the mirrored area. Returning back through the mirror door returns you back to normal again",
+      "If you haven't unlocked Holy Mantle for The Lost yet, you won't gain the effect after touching a white fire so be careful!",
+      "The mirrored floor rooms have respawned enemies, and allows you to optionally fight the Boss a second time for an extra item",
+      "When combined with Knife Piece 2, can be used to stab the fleshy door in the Mausoleum II, which then leads to the Corpse floor and the Mother boss",
+      "*,"
+    ]
+  },
+  "item-627": {
+    "nameZh": "刀片 2",
+    "pickup": "???",
+    "description": "???",
+    "effects": [
+      "Combine with Knife Piece 1 to create a Knife which can be fired across the room, dealing 25 damage to any enemies it comes into contact with",
+      "In the Mines/Ashpit II, there's a room with a minecart and a broken track. Pressing 3 yellow buttons on the floor causes the minecart to be rideable. Following the path takes you to an abandoned mineshaft, which leads you to a pedestal with the Knife Piece. Taking it will cause Mom's Shadow to spawn and chase you. You must make it back through the path solving a few bomb puzzles while avoiding her, to get back to the regular floor. All your items and consumables are temporarily removed while in the abandoned mine",
+      "The room to access Knife Piece 2 only appears if you have Knife Piece 1 already",
+      "You can skip pressing the 3 yellow buttons if you have the ability to fly and have 2 bombs to force open the door",
+      "When combined with Knife Piece 1, can be used to stab the fleshy door in the Mausoleum II, which then leads to the Corpse floor and the Mother boss",
+      "*,"
+    ]
+  },
+  "item-628": {
+    "nameZh": "死亡证明",
+    "pickup": "我在哪？",
+    "description": "我在哪？",
+    "effects": [
+      "This is a one time use item that teleports you to an alternate floor, which contains every single item in the game",
+      "The items are spread between several different rooms all on pedestals. You may take only one of the items, before being teleported back to where you were",
+      "It's literally every item, that includes items not in item pools like Knife Pieces",
+      "*,"
+    ]
+  },
+  "item-629": {
+    "nameZh": "无人机",
+    "pickup": "防御无人机",
+    "description": "防御无人机",
+    "effects": [
+      "Gives you a robot fly familar that orbits around Isaac and fires shielded tears at incoming projectiles",
+      "Deals contact damage to enemies it touches",
+      "Counts as 1 of 3 fly items needed towards the Beelzebub transformation",
+      "*,"
+    ]
+  },
+  "item-631": {
+    "nameZh": "屠夫刀",
+    "pickup": "切肉不切骨",
+    "description": "切肉不切骨",
+    "effects": [
+      "When used, the Meat Cleaver will split all enemies in the room into 2 smaller versions with ~40% health each",
+      "For enemies that have multiple parts to them (e.g. Larry Jr.) it will split them into 2 smaller enemies with half the number of sections they used to have",
+      "If the enemy normally has a mechanic that splits it (e.g. Teratoma, Envy) then Meat Cleaver will deal a lot of damage and trigger the splitting effect",
+      "If the split enemy has low enough health, it will just die instead of splitting",
+      "Doesn't work on end-game bosses except Delirium, where it will deal a chunk of damage and spawn a 2nd Delirium to deal with",
+      "*,"
+    ]
+  },
+  "item-632": {
+    "nameZh": "邪恶护身符",
+    "pickup": "运气提升 + 获得保护感",
+    "description": "运气提升 + 获得保护感",
+    "effects": [
+      "+2 Luck Up",
+      "You no longer take damage from poison/toxic gas/burn effects, and become immune to fear/confusion",
+      "*,"
+    ]
+  },
+  "item-633": {
+    "nameZh": "教条",
+    "pickup": "飞升",
+    "description": "飞升",
+    "effects": [
+      "This item isn't available in any item pools - you are automatically given it after defeating Dogma, just before The Beast sequence",
+      "+0.1 Speed Up",
+      "+2.0 Damage Up",
+      "Grants you the ability to fly",
+      "Grants a one-time use of the Holy Mantle effect",
+      "On normal mode this grants The Wafer effect, causing all damage to do a maximum of half a heart each time",
+      "Sets your health to 6 hearts if you have fewer than 6. This will heal red hearts and then give soul hearts up to a total of 6. This doesn't work with The Lost characters",
+      "*, godma"
+    ]
+  },
+  "item-634": {
+    "nameZh": "炼狱",
+    "pickup": "来自彼岸的援手",
+    "description": "来自彼岸的援手",
+    "effects": [
+      "While in a room with enemies, red cracks will appear on the floor in random locations",
+      "Walking over the crack spawns a white soul familiar, that launches itself into the nearest enemy, exploding and dealing double your tear damage to everything near it",
+      "Cracks will keep appearing but only one can exist in the room at a time",
+      "*, ghost"
+    ]
+  },
+  "item-635": {
+    "nameZh": "缝合",
+    "pickup": "调包计",
+    "description": "调包计",
+    "effects": [
+      "While held, this item spawns a familiar that can be moved around using the arrow keys and deals 1.5 damage per tick to any enemies it touches",
+      "When activated, you teleport, swapping places with wherever Stitches was positioned",
+      "Teleporting next to fires will extinguish them (including blue fires) and on top of shopkeepers will destroy them (gives +10% devil/angel room chance as normal)",
+      "If used while stitches is on top of an enemy, it can be used to telefrag enemies, dealing x3.5 your damage + 40",
+      "Can be used to enter/exit Curse Rooms for free by teleporting infront of the door while holding the direction key to move in immediately. Also works for opening Spiked Chests and Mimic Chests without taking damage",
+      "*,"
+    ]
+  },
+  "item-636": {
+    "nameZh": "R 键",
+    "pickup": "重新开始的时候到了",
+    "description": "重新开始的时候到了",
+    "effects": [
+      "When used, this item restarts the game and places you back on the first floor with all your currently collected items, similar to doing a Victory Lap",
+      "The game timer does not reset",
+      "Allows angel rooms to be found in the new run if a devil deal was taken in the first run",
+      "In Greed Mode and while playing as Tainted Keeper, this item costs 99 coins instead of 15",
+      "When used in the backwards path after picking up Dad's Note, R key will skip you to the Basement 1 version of this path, which leads directly to the Home floor. This may cause you to skip floors where you left a trinket to spawn a Cracked Key.",
+      "Donation machines become fixed if they were jammed before using the R Key",
+      "*,"
+    ]
+  },
+  "item-637": {
+    "nameZh": "击倒液",
+    "pickup": "它们拳力十足！",
+    "description": "它们拳力十足！",
+    "effects": [
+      "Isaac now has a chance to fire a fist instead of normal tears, which have a much higher knockback effect and confuse enemies for a few seconds",
+      "Enemies that are knocked back will take 10 damage and knock back any enemy they are knocked into, dealing damage to them as well",
+      "*,"
+    ]
+  },
+  "item-638": {
+    "nameZh": "橡皮擦",
+    "pickup": "抹去你的敌人",
+    "description": "抹去你的敌人",
+    "effects": [
+      "An active item that allows you to throw an eraser at any enemy, which will kill it and prevent it from appearing for the rest of the run",
+      "Enemies that are erased create a puff of smoke instead of spawning",
+      "Works on bosses, except it doesn't kill them it just deals 15 damage",
+      "Can only be used once per floor - batteries also cannot be used to recharge it to bypass this restriction",
+      "The first use will raise it above your head, then by pressing the fire button it will be thrown in that direction",
+      "*,"
+    ]
+  },
+  "item-639": {
+    "nameZh": "恶心之心",
+    "pickup": "太恶心了！",
+    "description": "太恶心了！",
+    "effects": [
+      "When used, this item will give you +1 Rotten Heart",
+      "Rotten Hearts act as red hearts and each one you currently have spawns 2 blue flies upon successfully clearing a room",
+      "*,"
+    ]
+  },
+  "item-640": {
+    "nameZh": "灵魂瓮",
+    "pickup": "释放他们的悲伤",
+    "description": "释放他们的悲伤",
+    "effects": [
+      "Enemies now create a soul upon death, which is automatically sucked into the Urn giving it +1 charge. Mini-bosses and bosses create 2-3 souls",
+      "When activated, the urn can be fired as a high damage flamethrower in any direction",
+      "A charge is consumed roughly every 0.5 seconds of use",
+      "Multi-part enemies such as Envy or Teratoma create a soul per each part killed",
+      "A maximum of 20 souls can be held in the urn at one time",
+      "*,"
+    ]
+  },
+  "item-641": {
+    "nameZh": "亚各达玛",
+    "pickup": "倾吐你的内脏",
+    "description": "倾吐你的内脏",
+    "effects": [
+      "With each shot fired, another bloody tear will spawn behind Isaac",
+      "Spawning multiple tears will form a trail of tears that follow Isaac as he moves, bursting and dealing damage upon contact with enemies",
+      "The effect from this item will only work while in a hostile room that contains at least 1 enemy",
+      "*,"
+    ]
+  },
+  "item-642": {
+    "nameZh": "魔法皮肤",
+    "pickup": "所有欲望皆已满足",
+    "description": "所有欲望皆已满足",
+    "effects": [
+      "Upon use, this item consumes 1 heart container or 2 soul hearts and spawns one item pedestal from the current room's pool",
+      "Every use gives a broken heart, meaning that slot is permanently broken and the maximum health limit is reduced by 1 for the rest of the run",
+      "If Isaac has 12 broken hearts, he dies instantly (this also applies to The Lost despite having no health)",
+      "Magic Skin will continue to appear after finding it once if you are not still holding it - the chance for it to replace an item is 1 ÷ (12 - number of times used) up to a maximum of 50%",
+      "Broken hearts are empty heart containers that cannot be removed or refilled and will override other types of hearts when you reach 12 total. Replacing all 12 containers with broken hearts will kill you instantly. The only way to remove broken hearts is by donating to a Confessional Machine",
+      "*, blood"
+    ]
+  },
+  "item-643": {
+    "nameZh": "启示",
+    "pickup": "唤醒你的信仰",
+    "description": "唤醒你的信仰",
+    "effects": [
+      "+2 Soul Hearts",
+      "Grants you the ability to fly",
+      "Holding the fire button charges up a light beam attack similar to Brimstone",
+      "The light beam deals damage equal to your current tear damage per tick to any enemies touching it",
+      "Counts as 1 of 3 angel items needed towards the Seraphim transformation.",
+      "*,"
+    ]
+  },
+  "item-644": {
+    "nameZh": "安慰奖",
+    "pickup": "最低属性 +1",
+    "description": "最低属性 +1",
+    "effects": [
+      "When picked up, this item gives you a stat increase, based on which is currently the lowest. Stat options are: +1.0 Damage, +0.6 Tears, +0.2 Speed, +5.25 Range",
+      "Also drops either a bomb, a key or 3 coins on the ground. This is decided by whatever you have the least of. Keys and bombs are equal to 3 coins for deciding which to give",
+      "*,"
+    ]
+  },
+  "item-645": {
+    "nameZh": "小番茄",
+    "pickup": "渴望复仇",
+    "description": "渴望复仇",
+    "effects": [
+      "Grants a large orbital that rotates around Isaac",
+      "When the orbital takes a few hits, they split into two smaller ones",
+      "After the smaller orbitals take another hit, they explode into 2 blue spiders",
+      "This item will respawn after a period of time",
+      "*,"
+    ]
+  },
+  "item-646": {
+    "nameZh": "硫磺炸弹",
+    "pickup": "恶魔爆破 +5 炸弹",
+    "description": "恶魔爆破 +5 炸弹",
+    "effects": [
+      "+5 Bombs",
+      "Your bombs now explode and fire 4 Brimstone lasers in all cardinal directions",
+      "Each brimstone laser deals 8 damage per tick for 13 total hits",
+      "*,"
+    ]
+  },
+  "item-647": {
+    "nameZh": "4.5 伏特",
+    "pickup": "榨干他们的电量！",
+    "description": "榨干他们的电量！",
+    "effects": [
+      "Active items no longer charge up as normal from clearing rooms",
+      "Enemies taking damage now charges your item instead. This includes damage you deal, and environmental damage they take e.g. from Fireplaces",
+      "60 damage dealt = 1 charge",
+      "*,"
+    ]
+  },
+  "item-649": {
+    "nameZh": "水果李子",
+    "pickup": "弹跳伙伴",
+    "description": "弹跳伙伴",
+    "effects": [
+      "Gives you a familiar which is a smaller version of the Plum boss, which sprays tears and propels itself around the room",
+      "Deals 2 contact damage per tick to enemies, and the tears deal 3 damage each",
+      "Deals contact damage to any enemies it runs into",
+      "Counts as 1 of 3 fly items needed towards the Beelzebub transformation.",
+      "*, extremely cute omg, plum smug"
+    ]
+  },
+  "item-650": {
+    "nameZh": "李子笛",
+    "pickup": "演奏时间！",
+    "description": "演奏时间！",
+    "effects": [
+      "When used, this item calls a friendly version of the Plum boss to fight for you for 10 seconds",
+      "It will jump to the nearest enemy, slam on the ground and fire tears around it, then propel itself around the room, dealing contact damage to any enemies it touches before disappearing",
+      "It's possible to get a guaranteed spawn of this item by encountering the Baby Plum boss and not damaging her. After a minute or so of not hurting her she will fly away and spawn Plum Flute",
+      "Counts as 1 of 3 fly items needed towards the Beelzebub transformation.",
+      "*, extremely cute omg :plumsmug:"
+    ]
+  },
+  "item-651": {
+    "nameZh": "伯利恒之星",
+    "pickup": "追随光芒",
+    "description": "追随光芒",
+    "effects": [
+      "Spawns a star with a white aura around it, that floats very slowly through each room on the floor, making its way towards the boss room",
+      "While standing inside the aura, you gain a big Tears Up (x2.5 fire rate), Damage Up (damage * 1.2 + 1) and homing tears",
+      "The star continues to make its way through the floor, even if you aren't in the same room as it, moving faster if you are a long distance ahead of it",
+      "On The Void floor, it will move towards the boss room containing Delirium",
+      "Doesn't travel into the Hush or Mega Satan boss room",
+      "It may travel through secret/curse rooms on its route to the boss room",
+      "Counts as 1 of 3 astrology items needed in the same run to unlock Planetariums",
+      "*,"
+    ]
+  },
+  "item-652": {
+    "nameZh": "方块宝宝",
+    "pickup": "踢它！",
+    "description": "踢它！",
+    "effects": [
+      "Gives you a baby in an ice cube, which can be kicked around the room by walking into it",
+      "Enemies take damage from Cube Baby depending on how fast it was travelling when it hit them. Having a higher movement speed allows you to kick it harder",
+      "Enemies hit by the cube while moving have a high chance to become frozen. Frozen enemies never unfreeze and are considered dead by the game. Kicking a frozen enemy will push it into the wall, where it shatters and fires ice shards everywhere (these can then freeze other enemies)",
+      "Enemies touching the cube while it's not moving or moving slowly will become slowed for a few seconds, and take a small amount of damage",
+      "Cube Baby and enemies frozen will block enemy shots",
+      "Cube Baby can be launched across the room if you have a melee weapon",
+      "Counts as 1 of 3 familiar items needed towards the Conjoined transformation.",
+      "*,"
+    ]
+  },
+  "item-653": {
+    "nameZh": "退散",
+    "pickup": "滚开！",
+    "description": "滚开！",
+    "effects": [
+      "Enemies that die now spawn a red ghost, that floats in place of where the enemy died",
+      "Activating the item causes all red ghosts in the room to explode, dealing damage to any enemies near them",
+      "The explosion doesn't deal damage to Isaac",
+      "Damage dealt by each ghost is 3 + 0.04x the HP of the enemy it spawned from",
+      "Larger enemies such as minibosses will spawn a larger red ghost that causes 3 explosions",
+      "The red ghosts can be moved around slightly by firing tears through them",
+      "Using the item will instantly kill any enemy or boss that has the 'ghost' tag and is at 50% or less HP. Enemies include Candler, Lil' Haunt, Polty, Red Ghost, Wizoob and The Forsaken, The Haunt, The Heretic and The Rainmaker bosses. This effect also works on Delirium if it is currently transformed into The Haunt while below half health",
+      "*,"
+    ]
+  },
+  "item-654": {
+    "nameZh": "假博士",
+    "pickup": "更糟糕的药丸 + 邪恶提升",
+    "description": "更糟糕的药丸 + 邪恶提升",
+    "effects": [
+      "Identified all pills on pickup, and converts them to their worse counterparts (e.g. Stat Up becomes Stat Down)",
+      "Any 'Stat down' pills you take give you a permanent +0.6 Damage Up (Horse pills +1.2)",
+      "Most other pills spawn a black heart when used, including R U A Wizard?, Amnesia, Bad Trip, ???, Paralysis, Retro Vision, I'm Excited",
+      "+1 Black Heart when picked up",
+      "*, p.h.d ph.d p.hd paper blood"
+    ]
+  },
+  "item-655": {
+    "nameZh": "幸运转盘",
+    "pickup": "全力旋转！",
+    "description": "全力旋转！",
+    "effects": [
+      "While held, gives you an orbital that blocks enemy shots and deals contact damage equal to 3.5 per tick",
+      "While the active key is held down, Isaac gains +0.5 Speed and all of your orbitals spin faster and deal more damage",
+      "Orbital damage is equal to 1.5 x OrbitalDamage + 6 while this effect is active",
+      "*,"
+    ]
+  },
+  "item-657": {
+    "nameZh": "血管炎",
+    "pickup": "堵塞的敌人",
+    "description": "堵塞的敌人",
+    "effects": [
+      "On death enemies now fire tears in random directions, which can damage other enemies",
+      "The amount of tears created by this effect depends on the total health of the enemy killed. Smaller enemies spawn 2-3 tears, and bosses spawn a maximum of 16",
+      "Tears from this effect maintain tear modifiers and status effects that Isaac currently has",
+      "Isaac doesn't take damage from the tears created by this item",
+      "*,"
+    ]
+  },
+  "item-658": {
+    "nameZh": "巨细胞",
+    "pickup": "微观朋友",
+    "description": "微观朋友",
+    "effects": [
+      "Every time you take damage, a tiny Isaac familiar will spawn, which follows you and shoots tears at nearby enemies that deal 1.3 Damage",
+      "The mini-Isaacs stay with you between floors, but can die if they take too much damage",
+      "Maximum number of mini-Isaacs is 16 at one time",
+      "Mini-Isaac's keep some of the abilities and appearance that Isaac has - e.g. the ability to fly. As Azazel they fire brimstone and as The Forgotten they use a bone club",
+      "*,"
+    ]
+  },
+  "item-659": {
+    "nameZh": "妥卡米德",
+    "pickup": "眼泪大小 + 射程提升",
+    "description": "眼泪大小 + 射程提升",
+    "effects": [
+      "+1.5 Range Up",
+      "Tear Size Up",
+      "*,"
+    ]
+  },
+  "item-660": {
+    "nameZh": "读心术",
+    "pickup": "通往未来的链接",
+    "description": "通往未来的链接",
+    "effects": [
+      "At the beginning of all future floors, two portals will appear, that can take you to either the Boss room (Red portal), Item room (Yellow portal) or Secret room (Blue portal)",
+      "After Chapter 3 (The Depths floors) only one portal will spawn",
+      "Portals disappear if you leave the starting room",
+      "Counts as 1 of 3 astrology items needed in the same run to unlock Planetariums",
+      "*, paper, tarot card"
+    ]
+  },
+  "item-661": {
+    "nameZh": "五胞胎",
+    "pickup": "它们潜伏在内",
+    "description": "它们潜伏在内",
+    "effects": [
+      "Every time an enemy dies, a random familiar spawns where it was killed for the rest of the room",
+      "The familiar cannot move, but continues to do its usual abilities",
+      "Possible familiars include: Abel, Boiled Baby, Brother Bobby, Sister Maggy, Little Steven, Demon Baby, Multidimensional Baby, Freezer Baby, Rotten Baby, Harlequin Baby, Ghost Baby, Guardian Angel, Lil Brimstone, Robo-Baby and Seraphim",
+      "Counts as 1 of 3 familiar items needed towards the Conjoined transformation.",
+      "*,"
+    ]
+  },
+  "item-663": {
+    "nameZh": "牙与爪",
+    "pickup": "你感到扎手",
+    "description": "你感到扎手",
+    "effects": [
+      "Every 5 seconds you become spiky for a second, becoming immune and dealing 40 contact damage to any enemies that touch you",
+      "The effect is indicated by 4 white flashes, where the item activates on the 4th flash",
+      "If timed well, can be used to enter curse rooms and open spiky chests without taking damage. You still take damage however when using Blood Donation machines and Devil Beggars",
+      "*, spikes, spikey, spike rock, greyhost, grey host"
+    ]
+  },
+  "item-664": {
+    "nameZh": "暴食者",
+    "pickup": "自助餐",
+    "description": "自助餐",
+    "effects": [
+      "Causes all pedestal items to show up as rotating items, that swap every 1 second between the original spawned item and a HP up item. This allows you to choose between the item that originally spawned and a HP upgrade every time",
+      "This effect applies to most items, including those in the shop and devil room. Doesn't apply to progress items like The Polaroid",
+      "When you pick up an item that increases your maximum HP, you gain 2 permanent stat increases, and a temporary damage boost that slowly goes down over time. Starts at +3.6 damage and goes to 0 after 30 seconds",
+      "While this temporary damage boost is active, each enemy you kill increases your damage slightly, allowing you to quickly kill multiple enemies and chain the effect for longer",
+      "This item also gives a -0.03 Speed Down for every food item held",
+      "The 2 permanent stat increases depend on the item taken:",
+      "A Snack = +0.2 shot speed, +1 luck. Breakfast = +0.2 shot speed, +1.5 Range. Dessert = +1 Flat Damage, +0.2 shot speed. Dinner = +0.5 tears, +0.2 shot speed.",
+      "Lunch = +0.5 tears, +1.5 range. Midnight Snack = +1 flat damage, +1 luck. Rotten Meat = +1 flat damage, +1.5 range. Supper = +0.5 tears, +1 luck.",
+      "*, dog, food,"
+    ]
+  },
+  "item-665": {
+    "nameZh": "小斗鱼之眼",
+    "pickup": "洞察秘密之眼",
+    "description": "洞察秘密之眼",
+    "effects": [
+      "Shows you to see the contents of chests, sacks, shopkeepers and items that will drop from fires before you destroy them",
+      "Doesn't work on tinted rocks and other obstacles (e.g. poop, pots)",
+      "Counts as 1 of 3 cat items needed towards the Guppy transformation",
+      "*, guppys eye, guppy eye"
+    ]
+  },
+  "item-667": {
+    "nameZh": "稻草人",
+    "pickup": "援手",
+    "description": "援手",
+    "effects": [
+      "Spawns a Keeper familiar, that shoots triple tears and follows your exact movements as you walk",
+      "The keeper has 3 health coins and can die if it takes enough damage. He can pick up coins to restore health",
+      "Similar to other familiars of this kind, you can hold the drop key to cause him to stand still",
+      "If he dies, his corpse turns into a few blue spiders. He won't respawn even if you move to a new floor",
+      "Will always match your current movement speed",
+      "+1 Bomb",
+      "*,"
+    ]
+  },
+  "item-668": {
+    "nameZh": "父亲的笔记",
+    "pickup": "...",
+    "description": "...",
+    "effects": [
+      "Only found in the Mausoleum/Gehenna II boss room",
+      "The item itself has no effect, but triggers the ascent through the backwards path towards the Home floor",
+      "Once you've beaten Mother once, a door will appear at the starting room in Depths II, which leads to the Mausoleum/Gehenna floors. The door can only be opened if you have The Polaroid, The Negative or Faded Polaroid (the item/trinket is taken away when it opens). This means you need a way to teleport out of the Mom's Foot boss fight. If you didn't find one before this point, there will be a tinted Skull somewhere on Depths II, which contains a Fool card when blown up.",
+      "Cannot be rerolled by 4-pip dice rooms and Spindown Dice",
+      "*, dads note, dad note, paper,"
+    ]
+  },
+  "item-669": {
+    "nameZh": "香肠",
+    "pickup": "全属性提升",
+    "description": "全属性提升",
+    "effects": [
+      "+1 HP",
+      "+0.2 Speed Up",
+      "+0.5 Tears Up",
+      "+0.5 Damage Up",
+      "+1.5 Range Up",
+      "+0.16 Shot Speed Up",
+      "+1 Luck Up",
+      "+6.9% Devil/Angel Room chance",
+      "+6.9% Planetarium chance",
+      "*, sosig, meat, food,"
+    ]
+  },
+  "item-670": {
+    "nameZh": "选项？",
+    "pickup": "也许有选项",
+    "description": "也许有选项",
+    "effects": [
+      "Clearing a room will spawn an extra reward, however only one can be picked up - the other one will disappear",
+      "*,"
+    ]
+  },
+  "item-671": {
+    "nameZh": "心形糖果",
+    "pickup": "爱的力量",
+    "description": "爱的力量",
+    "effects": [
+      "Every half red heart you pick up gives a small but permanent stat increase",
+      "Randomly picks between +0.10 Damage Up, +0.05 Tears Up, +0.15 Range Up, +0.02 Speed Up, +0.1 Luck Up, +0.02 Shot Speed Up per half red heart",
+      "Spawns 1 Red Heart when picked up",
+      "*,"
+    ]
+  },
+  "item-672": {
+    "nameZh": "一磅血肉",
+    "pickup": "血汗钱",
+    "description": "血汗钱",
+    "effects": [
+      "This item causes Devil deals to cost money instead of hearts, and shop items to cost hearts instead of money",
+      "Shop items cost heart containers, and pickups have spikes around them",
+      "The Devil deal conversion rate is 1 heart container to 15 coins",
+      "Devil deal items can be on discount similar to the shop, making it 1 heart container = 7 coins instead",
+      "*,"
+    ]
+  },
+  "item-673": {
+    "nameZh": "救赎",
+    "pickup": "引我脱离罪恶",
+    "description": "引我脱离罪恶",
+    "effects": [
+      "Every time you enter a devil room and choose not to take an item, you get +1 Damage Up upon entering the next floor",
+      "The effect is shown via a cross above Isaac's head. Taking a Devil deal breaks the cross and prevents the damage up next floor",
+      "Taking free pickups such as Black hearts in the Devil room also count",
+      "*,"
+    ]
+  },
+  "item-674": {
+    "nameZh": "灵之枷锁",
+    "pickup": "未竟之事",
+    "description": "未竟之事",
+    "effects": [
+      "When you die, you turn into a ghost with 1/2 a red heart and flying, that is chained to your body for 10 seconds. This allows you to stay alive as long as you don't get hit during this 10 second period",
+      "After this effect occurs, it cannot activate again until Isaac gains a half or full Soul Heart or a Black Heart. Soul Hearts that are used to charge Spirit Shackles will not be added to your health as normal",
+      "*,"
+    ]
+  },
+  "item-675": {
+    "nameZh": "破碎宝珠",
+    "pickup": "知识碎片",
+    "description": "知识碎片",
+    "effects": [
+      "Taking damage reveals a random room on the minimap, and automatically opens certain doors in the current room. Possible doors include any needing a key to open (Item Room, Shop, Alt Path doors), secret rooms and crawl spaces",
+      "Cracked Orb can also reveal the location of the red room that contains a pedestal item. The Red Key item is required to access it, but it shows the direction to get there",
+      "*,"
+    ]
+  },
+  "item-676": {
+    "nameZh": "空之心",
+    "pickup": "倍增",
+    "description": "倍增",
+    "effects": [
+      "Upon entering each new floor, if you have one red heart or less, another one is added",
+      "This effect works while moving up floors in the backwards path",
+      "This item has no effect for characters with non-red health i.e. ???, Keeper and The Forgotten",
+      "*, blood"
+    ]
+  },
+  "item-677": {
+    "nameZh": "灵体投射",
+    "pickup": "真正的离体体验！",
+    "description": "真正的离体体验！",
+    "effects": [
+      "The first time you take damage in a room, Isaac will become a ghost and time will stop for 3 seconds",
+      "During this ghost effect, you gain flight, spectral tears and the damage from the next hit you take is negated",
+      "Isaac returns to his body if you either clear the room or take damage while in ghost form",
+      "Only happens once per room - taking damage a second time does not turn you into a ghost again",
+      "*,"
+    ]
+  },
+  "item-678": {
+    "nameZh": "剖腹产",
+    "pickup": "胎儿射击",
+    "description": "胎儿射击",
+    "effects": [
+      "Your tears are replaced with a charge attack that fires a homing, spectral fetus",
+      "The fetus tears deal damage equal to 75% of your current tear damage while in contact with enemies, roughly 5 times per second",
+      "Can't be held down like normal charge attacks, they will release automatically at full charge",
+      "*,"
+    ]
+  },
+  "item-679": {
+    "nameZh": "小亚伯顿",
+    "pickup": "深渊之友",
+    "description": "深渊之友",
+    "effects": [
+      "Gives you a familiar that can be charged up to release a black ring, that damages any enemies that touch it with rapid hits (similar to Maw of the Void / Athame effects)",
+      "The effect does a decent amount of damage, but doesn't scale with your damage upgrades",
+      "Counts as 1 of 3 familiar items needed towards the Conjoined transformation.",
+      "*,"
+    ]
+  },
+  "item-680": {
+    "nameZh": "蒙特祖玛的复仇",
+    "pickup": "哦不……",
+    "description": "哦不……",
+    "effects": [
+      "While firing tears, you now charge up a poop attack for 3 seconds that when released, fires from Isaac's behind",
+      "The poop attack deals your current tear damage to any enemies caught in the blast",
+      "Counts as 1 of 3 poop items needed towards the Oh Crap transformation",
+      "*, Montezumas revenge"
+    ]
+  },
+  "item-681": {
+    "nameZh": "小传送门",
+    "pickup": "它很饥饿",
+    "description": "它很饥饿",
+    "effects": [
+      "Gives Isaac a little portal familiar, that moves across the screen as you're firing",
+      "The portal will suck up any consumables and trinkets it travels over, causing it to become larger and deal more contact damage",
+      "When the portal sucks up 4 pickups, it turns into a portal that can be used to teleport to unexplored rooms around the floor. It can take you to rooms that require bombs/keys, e.g. the Secret Room or the Shop",
+      "Every time the portal sucks up an item, it spawns a blue attack fly for you",
+      "Once every room has been explored, the portal does nothing",
+      "Cannot take you to rooms that aren't a part of the floor structure e.g. Devil Rooms / I AM ERROR rooms",
+      "*,"
+    ]
+  },
+  "item-682": {
+    "nameZh": "蠕虫朋友",
+    "pickup": "粘人的伙伴",
+    "description": "粘人的伙伴",
+    "effects": [
+      "You gain a familiar that lives under the floor. Every so often it will come up and attempt to grab onto a random enemy in the room, holding them in place and dealing damage",
+      "The Worm Friend deals 4 damage for 8 ticks total",
+      "If the enemy moves quickly enough it can miss its attack",
+      "*,"
+    ]
+  },
+  "item-683": {
+    "nameZh": "骨刺",
+    "pickup": "击碎敌人",
+    "description": "击碎敌人",
+    "effects": [
+      "Enemies that die will leave behind 1-2 floating bone shards where they die, until you leave the room",
+      "Other enemies that touch the bone shards will take 3.5 damage, with a chance to either bounce off them or cause it to break and disappear",
+      "*,"
+    ]
+  },
+  "item-684": {
+    "nameZh": "饥饿之魂",
+    "pickup": "嗜血",
+    "description": "嗜血",
+    "effects": [
+      "Each time an enemy dies, a friendly red soul appears. It will hunt down other enemies, dealing contact damage which scales with your tear damage",
+      "After 5 seconds the red soul explodes (Isaac doesn't take damage from this effect)",
+      "*, this item is irrelevant 99.94% of you wont kill the beast as the lost me included :("
+    ]
+  },
+  "item-685": {
+    "nameZh": "鬼火罐",
+    "pickup": "信仰增长",
+    "description": "信仰增长",
+    "effects": [
+      "When used, gives you number of blue flame orbitals based on the number shown over this item",
+      "It starts at 1, and increments each activation, giving you more familiars each time you use it",
+      "The flames fire tears at the same time Isaac does, that deal a flat 3 damage",
+      "If a flame touches an enemy, it deals contact damage equal to double your current tear damage and then disappears",
+      "You can have a maximum of 24 flame orbitals at once",
+      "Each flame has a chance to spawn as one of many variants, such as green flames that poison enemies, or a crucifix flame that spawns a random horseman familiar + Locusts when it is extinguished",
+      "*,"
+    ]
+  },
+  "item-686": {
+    "nameZh": "魂吊坠",
+    "pickup": "信仰之力",
+    "description": "信仰之力",
+    "effects": [
+      "Spawns 1 soul heart on the floor",
+      "Soul hearts give you small permanent stat increases when picked up",
+      "Possible stats include +0.3 Range Up, +0.2 Luck Up, +0.2 Damage Up, +0.1 Tears Up, +0.04 Speed Up",
+      "*,"
+    ]
+  },
+  "item-687": {
+    "nameZh": "寻友器",
+    "pickup": "永远是最好的朋友！",
+    "description": "永远是最好的朋友！",
+    "effects": [
+      "Spawns a random charmed enemy which fights by your side and copies your exact movements, similar to how Jacob & Esau work",
+      "The familiars fire tears at the same time as Isaac, and have a visible health bar showing how much damage they can take before dying",
+      "*,"
+    ]
+  },
+  "item-688": {
+    "nameZh": "内心孩童",
+    "pickup": "释放他",
+    "description": "释放他",
+    "effects": [
+      "Gives you an extra life",
+      "You respawn as a tiny version of Isaac, with a greatly reduced hitbox and +0.2 Speed Up",
+      "When the effect activates you deal 35 damage to nearby enemies",
+      "Once unlocked, if you have already unlocked the tainted version of the character you're playing as, Inner Child is guaranteed to spawn in the hidden closet on the Home floor",
+      "*,"
+    ]
+  },
+  "item-689": {
+    "nameZh": "故障王冠",
+    "pickup": "?????",
+    "description": "?????",
+    "effects": [
+      "Item pedestals now cycle between 5 random items",
+      "*,"
+    ]
+  },
+  "item-690": {
+    "nameZh": "腹中水母",
+    "pickup": "弹开！",
+    "description": "弹开！",
+    "effects": [
+      "Enemies that touch Isaac will now bounce off him and fly off in the opposite direction",
+      "Bounced enemies will take 10 damage if they slam into the wall",
+      "This item also gives a random chance for enemy shots to bounce off you without taking damage",
+      "*,"
+    ]
+  },
+  "item-691": {
+    "nameZh": "圣宝珠",
+    "pickup": "注定伟大",
+    "description": "注定伟大",
+    "effects": [
+      "Increases the quality of generated items",
+      "Rerolls items with a quality of 0 or 1",
+      "33% chance to reroll items with a quality of 2",
+      "Quality is a hidden mechanic in Repetance for all items and ranges from 0-4. Certain items consider Quality for picking what item to spawn, allowing better items to spawn under certain conditions",
+      "Counts as 1 of 3 angel items needed towards the Seraphim transformation.",
+      "*,"
+    ]
+  },
+  "item-692": {
+    "nameZh": "血之羁绊",
+    "pickup": "他在等待你的供奉",
+    "description": "他在等待你的供奉",
+    "effects": [
+      "Spawns a special set of spikes in the Devil Room",
+      "Taking damage from the spikes has a chance to spawn a reward",
+      "Nothing - 37.5% chance",
+      "6 Pennies - 17% chance",
+      "+0.5 Damage Up - 27.5% chance",
+      "2 Black Hearts - 9.5% chance",
+      "Random Item - 5.5% chance",
+      "Leviathan trasformation - 3% chance",
+      "*,"
+    ]
+  },
+  "item-693": {
+    "nameZh": "虫群",
+    "pickup": "寄生",
+    "description": "寄生",
+    "effects": [
+      "When picked up, this gives you 9 orbital flies",
+      "Each time a fly blocks an enemy shot, it will turn into a blue fly and attack nearby enemies, leaving you with one less orbital",
+      "Every room clear gives you +1 orbital fly, up to a maximum of 9",
+      "Counts as 1 of 3 fly items needed towards the Beelzebub transformation.",
+      "*,"
+    ]
+  },
+  "item-694": {
+    "nameZh": "心碎",
+    "pickup": "永恒的悲伤",
+    "description": "永恒的悲伤",
+    "effects": [
+      "Gives you +0.25 Damage Up for every broken heart you have",
+      "Gives 3 broken hearts when picked up",
+      "Every hit of damage that would kill you, instead adds 2 more broken hearts and deal 40 damage to all enemies in the room",
+      "Heartbreak cannot kill you on pickup",
+      "Broken hearts are empty heart containers that cannot be removed or refilled and will override other types of hearts when you reach 12 total. Replacing all 12 containers with broken hearts will kill you instantly. The only way to remove broken hearts is by donating to a Confessional Machine",
+      "*,"
+    ]
+  },
+  "item-695": {
+    "nameZh": "血风",
+    "pickup": "愿你的愤怒带来迅捷",
+    "description": "愿你的愤怒带来迅捷",
+    "effects": [
+      "Every time you take damage, you gain a Speed Up and a Tears Up",
+      "The stat increases start small, and scale up each time you take damage (+0.25 Tears Up for the first hit, +0.75 Tears Up for the 6th hit)",
+      "The effect maxes out at +3 Tears Up and +1 Speed Up after taking damage 6 times. This brings you to the maximum possible speed",
+      "The effect lasts for the rest of the current floor",
+      "*,"
+    ]
+  },
+  "item-696": {
+    "nameZh": "救赎",
+    "pickup": "神圣庇护",
+    "description": "神圣庇护",
+    "effects": [
+      "Isaac gains a halo of light around him. When an enemy touches the halo for couple of seconds, a beam of light will come down and deal a burst of damage to it",
+      "The triggered beam also fires in all 4 cardinal directions, dealing damage to anything it touches",
+      "Every time Isaac takes damage, the halo grows slightly bigger up to a maximum of 10 times. The size resets when leaving the floor",
+      "Counts as 1 of 3 angel items needed towards the Seraphim transformation.",
+      "*,"
+    ]
+  },
+  "item-697": {
+    "nameZh": "消失的双生子",
+    "pickup": "他想要复仇",
+    "description": "他想要复仇",
+    "effects": [
+      "A fetus familiar follows Isaac, and upon entering the Boss room on each floor, it will transform into a copy of the boss",
+      "This makes bosses a lot harder, however you now get 2 boss item drops",
+      "*,"
+    ]
+  },
+  "item-698": {
+    "nameZh": "扭曲双生",
+    "pickup": "双重麻烦！",
+    "description": "双重麻烦！",
+    "effects": [
+      "You gain two familiar demons, that stay by Isaac's side and fire shots in the same direction as you",
+      "The familiars deal roughly 40% of Isaac's damage, scaling with damage upgrades you get",
+      "They sit near and rotate around Isaac depending on which way you're firing tears. They do not block enemy shots",
+      "Counts as 1 of 3 familiar items needed towards the Conjoined transformation.",
+      "*,"
+    ]
+  },
+  "item-699": {
+    "nameZh": "阿萨泽尔的怒火",
+    "pickup": "古老的力量",
+    "description": "古老的力量",
+    "effects": [
+      "Isaac builds rage each time you clear a new room. This is shown by the Azazel skin spreading on Isaac's face",
+      "After 4 rooms, Isaac's face will flash red. The next room you enter he will automatically fire a massive red brimstone laser for 4 seconds, dealing huge damage",
+      "The rage resets back to zero, and the cycle continues every 5 rooms cleared",
+      "*, azazels rage, azazel rage"
+    ]
+  },
+  "item-700": {
+    "nameZh": "回声室",
+    "pickup": "我能看见未来未来未来",
+    "description": "我能看见未来未来未来",
+    "effects": [
+      "When using a card, pill, or rune, you also use a copy of the last 3 cards/pills/runes you used after picking up Echo Chamber",
+      "Counts as 1 of 3 astrology items needed in the same run to unlock Planetariums",
+      "*,"
+    ]
+  },
+  "item-701": {
+    "nameZh": "以撒的坟墓",
+    "pickup": "被埋葬的记忆",
+    "description": "被埋葬的记忆",
+    "effects": [
+      "Spawns an Old chest at the start of all future floors",
+      "Old Chests work the same as Golden Chests, requiring a key to open but contain different items",
+      "The Old chest can contain: 3 trinkets (42% chance), 1-3 soul hearts (43% chance), a random item from the Old Chest pool (10% chance) or an angel room item (5% chance)",
+      "Spawns a second chest in the mirrored floor of Downpour II or Dross II, but only if you had this item before entering the floor",
+      "*, isaacs tomb, isaac tomb"
+    ]
+  },
+  "item-702": {
+    "nameZh": "复仇之魂",
+    "pickup": "热血",
+    "description": "热血",
+    "effects": [
+      "Each time you take damage, a red flame orbital will appear around Isaac for the remainder of the floor, up to a maximum of 6",
+      "The flames deal contact damage which scales with your tear damage",
+      "Upon reaching 6 flames, they will also start to fire tears along with Isaac, dealing a flat 3.2 damage per tear",
+      "When entering a new floor, all the flames disappear",
+      "*,"
+    ]
+  },
+  "item-703": {
+    "nameZh": "小以扫",
+    "pickup": "失散的兄弟",
+    "description": "失散的兄弟",
+    "effects": [
+      "Using this item swaps you between the character you started as, and Esau, which has 3 black hearts, +2 base damage and the ability to fly",
+      "This character keeps its own separate health and items. Items picked up are not shared between the two characters",
+      "If either character dies it's game over",
+      "*,"
+    ]
+  },
+  "item-704": {
+    "nameZh": "狂暴！",
+    "pickup": "撕咬与撕裂",
+    "description": "撕咬与撕裂",
+    "effects": [
+      "When activated, Isaac's tears are replaced by a bone sword and he goes on a killing rampage, gaining +0.4 Speed, +3 Flat Damage Up for 5 seconds",
+      "The sword deals x3 damage if used at close range, or x1.5 damage if charged up and thrown",
+      "Clearing rooms doesn't charge this item - charge is added equal to damage taken by enemies. This includes all sources of damage, including environmental damage to enemies",
+      "Killing an enemy while berserk will increase the duration of the effect by 1 second",
+      "You don't die while in Berserk mode, but taking lethal damage will kill you after the effect wears off",
+      "The bone sword from this item is similar to Donkey Jawbone from Antibirth",
+      "Tainted Samson starts with a passive version of this item",
+      "*, berzerk, bamson"
+    ]
+  },
+  "item-705": {
+    "nameZh": "黑暗艺术",
+    "pickup": "与阴影合一",
+    "description": "与阴影合一",
+    "effects": [
+      "When used, Isaac turns into a ghost for 1 second and his speed goes up to maximum (2.0). During this time he can walk over enemies to mark them for death. When the effect wears off, Isaac quickly runs between each marked enemy, dealing high damage to each one rapidly (roughly x2.5 your tear damage)",
+      "The damage caused by this effect scales up with every target it hits in a row",
+      "Tainted Judas starts with this item",
+      "*, budas, jubas, sword, blood, omae wa mou shindeiru"
+    ]
+  },
+  "item-706": {
+    "nameZh": "深渊",
+    "pickup": "从深处现身",
+    "description": "从深处现身",
+    "effects": [
+      "When used, Abyss consumes all pedestal items in the current room and converts them into Red attack flies",
+      "Red attack flies will charge across the room in the same direction Isaac is shooting, dealing contact damage to enemies equal to Isaac's tear damage",
+      "The flies don't block enemy shots, but this also means they never die and stay with Isaac forever",
+      "Tainted Apollyon starts with this item",
+      "*,"
+    ]
+  },
+  "item-707": {
+    "nameZh": "晚餐",
+    "pickup": "生命值提升",
+    "description": "生命值提升",
+    "effects": [
+      "+1 HP Up",
+      "*,"
+    ]
+  },
+  "item-708": {
+    "nameZh": "订书机",
+    "pickup": "伤害提升",
+    "description": "伤害提升",
+    "effects": [
+      "+1.0 Damage Up",
+      "Staples one of Isaac's eyes shut, meaning he only shoots tears from one eye. This means some effects such as R U A WIZARD pills only fire tears in one direction",
+      "*,"
+    ]
+  },
+  "item-709": {
+    "nameZh": "过肩摔！",
+    "pickup": "天使终结",
+    "description": "天使终结",
+    "effects": [
+      "When used, you charge forwards for a second. If you touch an enemy in that time, Isaac will pick it up and slam it on the ground, killing it and sending a shockwave around the impact",
+      "In the brief period while holding the enemy you can move a target to decide where it lands",
+      "Actually does work on bosses! However after the attack you end up near the boss, which puts you in danger of taking damage too",
+      "Scales in damage and area of effect with the player's size",
+      "*,"
+    ]
+  },
+  "item-710": {
+    "nameZh": "合成袋",
+    "pickup": "塑造命运",
+    "description": "塑造命运",
+    "effects": [
+      "When used will do a swipe attack in any direction. Can be used to store up to 8 consumables in, such as hearts, coins, keys, bombs, cards etc",
+      "When the bag has 8 items you can hold down the activate button for 2 seconds to craft yourself a brand new random item",
+      "Bag of Crafting's recipes are based on your current seed, but there are some fixed recipes that exist in every run, e.g. 8 coins = Slot Machine",
+      "While playing as Tainted Cain you get a visual interface to see what items are in the bag, allowing you to see what item will be created and swap out specific consumables",
+      "Has other uses - Will deal 3 damage to enemies it hits, and can be used to quickly push bombs and objects across rooms",
+      "Tainted Cain starts with this item, but can be used by any character after unlocking it and finding it in the item room",
+      "Cannot be used to craft another Bag of Crafting!",
+      "*, Bain"
+    ]
+  },
+  "item-711": {
+    "nameZh": "翻转",
+    "pickup": "生死逆转",
+    "description": "生死逆转",
+    "effects": [
+      "While holding flip, a ghost item will appear behind item pedestals upon entering Item Rooms and Shop that cannot be interacted with",
+      "When activated, all real items in the room will be swapped with the ghost items behind them",
+      "The ghost item stays there even if you take the regular item, allowing you to use Flip to get both of them",
+      "Does nothing with item pedestals that don't have a ghost item behind them",
+      "When playing as Tainted Lazarus, activating Flip also changes you between Lazarus and Dead Lazarus",
+      "Tainted Lazarus starts with this item, but can be used by any character after unlocking it and finding it in the item room",
+      "*, Bazarus"
+    ]
+  },
+  "item-712": {
+    "nameZh": "所罗门之钥",
+    "pickup": "物品召唤",
+    "description": "物品召唤",
+    "effects": [
+      "When used, gives you an orbital flame which represents another random passive item in the game. While you have this flame you also have that item's effect",
+      "The flame deals double your tear damage to any enemies that touch it, but if it takes too much damage the flame will disappear and you lose the item's effect",
+      "Tainted Bethany starts with this item",
+      "Wisps are randomly chosen from Item Room, Boss Room and Shop item pools, with a 25% chance to pick the same pool as the current room",
+      "Counts as 1 of 3 book items needed towards the Bookworm transformation.",
+      "*,"
+    ]
+  },
+  "item-713": {
+    "nameZh": "盛宴厅",
+    "pickup": "回归",
+    "description": "回归",
+    "effects": [
+      "When used, removes half a heart of health and creates a clot familiar",
+      "Clot familiars follow Isaac's exact movements including flight, firing tears and tear effects",
+      "Holding down the swap button will cause all your clots to stay in place",
+      "Works differently as Tainted Eve - instead clots are created by firing for 2 seconds, down to a minimum of half a red heart. Using Sumptorium as her will then cause all Clots to be consumed and return your hearts back to you. Clots returning back to Eve deal 3x damage as they suck back in",
+      "The type of heart consumed to create a clot will give it different abilities: Soul Hearts = More health, Black Hearts = Dark Matter effect, Eternal Hearts = Sacred Heart effect, Gold Hearts = Midas Touch effect, Bone Hearts = Compound Fracture effect, Rotten Hearts = Less health",
+      "Tainted Eve starts with this item, but can be used by any character after unlocking it and finding it in the item room",
+      "This item comes along with Tainted Eve. The achievement 'Sumptorium' is unlocked by defeating Delirium as Tainted Eve",
+      "*,"
+    ]
+  },
+  "item-714": {
+    "nameZh": "召回",
+    "pickup": "回来吧",
+    "description": "回来吧",
+    "effects": [
+      "When used, this will retreive the Tainted Forgotten's skeleton back to its owner's hands from any distance",
+      "Tainted Forgotten's Birthright effect. Cannot be obtained and has no use for any other character",
+      "Birthright is a Shop item that has unique effects depending on what character you're playing as",
+      "*,"
+    ]
+  },
+  "item-715": {
+    "nameZh": "暂存",
+    "pickup": "留待后用",
+    "description": "留待后用",
+    "effects": [
+      "This is the item Tainted Blue Baby (???) uses as his main mechanic",
+      "Killing or damaging enemies spawns various poops, which add to his collection. Pressing the bomb button will put the next poop into the 'Hold' jar. Pressing it again allows you to throw it at enemies. Each poop has random effects like Butt Bombs, Fire Poops etc",
+      "Tainted Blue Baby starts with this item, and is the only one who can use it",
+      "*,"
+    ]
+  },
+  "item-716": {
+    "nameZh": "守门人麻袋",
+    "pickup": "消费之力",
+    "description": "消费之力",
+    "effects": [
+      "Spawns 3 random coins and a key when picked up",
+      "Buying items from the shop gives you random stat upgrades. The more you spend the higher the stat increase",
+      "Possible stats include Speed, Damage and Range",
+      "15c items give all 3 stats: +1 Damage Up, +0.03 or +0.06 Speed Up, +0.25 or +0.5 Range Up",
+      "5c items give 1 or 2 stats: +0.5 Damage Up **OR** +0.25 Range and +0.03 Speed Up",
+      "*, keepers sack, keeper sack"
+    ]
+  },
+  "item-717": {
+    "nameZh": "守门人眷属",
+    "pickup": "躲在石头下",
+    "description": "躲在石头下",
+    "effects": [
+      "While in a room with enemies, blue spiders will randomly spawn from objects in the room (e.g. rocks, pots, stone blocks)",
+      "All rocks spawn 0-2 blue spiders when destroyed",
+      "Counts as 1 of 3 spider items needed towards the Spider Baby transformation.",
+      "*, keepers kin, keeper kin"
+    ]
+  },
+  "item-719": {
+    "nameZh": "守门人箱子",
+    "pickup": "移动商店",
+    "description": "移动商店",
+    "effects": [
+      "When used, spawns a random shop item or consumable, however you have to pay the relevant cost to pick it up",
+      "Can include anything that would appear in the shop",
+      "*, keepers box, keeper box"
+    ]
+  },
+  "item-720": {
+    "nameZh": "万物罐",
+    "pickup": "万物皆有可能",
+    "description": "万物皆有可能",
+    "effects": [
+      "With every bar of charge this item has, a different consumable is shown inside the Jar. 1 = poop, 2 = penny, 3 = bomb, 4 = key, 5 = red heart, 6 = pill, 7 = card, 8 = soul heart, 9 = gold heart, 10 = gold key, 11 = gold bomb",
+      "At the full 12 charges, a completely random effect will happen. It can be anything including spawning a bunch of consumables, spawning a glitched pedestal item, creating a bunch of light beams, spawning troll bombs or nothing at all",
+      "*,"
+    ]
+  },
+  "item-721": {
+    "nameZh": "TMTRAINER",
+    "pickup": "以撒和他母亲独自住在一座小山上的小房子里",
+    "description": "以撒和他母亲独自住在一座小山上的小房子里",
+    "effects": [
+      "When picked up, all future items become 'glitched', causing them to become random combinations of 2-3 effects based on other items",
+      "Glitched items can be passive or active and are completely randomly generated with infinite possibilities (similar to other 'Randomizer' games)",
+      "The ratio of active to passive item effects given is 1/4",
+      "Random effects combine effects that exist on other items, and assign them to a random event (e.g. on enemy death, on room clear, on damage taken etc.)",
+      "*, tm trainer, glitched items, glitch item, tmt trainer, tmelt, t melt"
+    ]
+  },
+  "item-722": {
+    "nameZh": "灵魂独舞",
+    "pickup": "忏悔",
+    "description": "忏悔",
+    "effects": [
+      "When used, it puts the closes enemy in chains for 5 seconds, preventing it from moving. You can release the enemy early by using it again",
+      "Tainted Jacob starts with this item. While playing as him Anima Sola will always target Dark Esau. Releasing Dark Esau will cause him to charge directly at Jacob and deal damage to anything in his path. If used in a room with no enemies, Dark Esau will instantly spawn",
+      "Will chain up to two targets if you have Car Battery, if only one valid target is present it will be chained for twice the duration",
+      "*, Bacob"
+    ]
+  },
+  "item-723": {
+    "nameZh": "倒计时骰子",
+    "pickup": "-1",
+    "description": "-1",
+    "effects": [
+      "Rerolls all pedestal items, lowering all their internal item IDs by 1",
+      "For example: Brimstone's ID = 118, so it would be rerolled into Dead Bird (ID = 117)",
+      "Sad Onion (ID = 1) will reroll into nothing",
+      "There are some gaps in item IDs which are skipped if no item exists, or will reroll into unexpected items if hidden items are present at that ID. For example rerolling Plan C (ID = 475) changes it into the Broken Glass Cannon, which is a hidden item with ID = 474",
+      "Items that are yet to be unlocked will also be skipped over, preventing you from getting items you don't have access to yet",
+      "*,"
+    ]
+  },
+  "item-724": {
+    "nameZh": "超凝集",
+    "pickup": "血浓于水",
+    "description": "血浓于水",
+    "effects": [
+      "Upon taking damage you have a chance to drop the heart that you just lost. It gives you 2 seconds to pick it up again to re-heal, before it disappears",
+      "*,"
+    ]
+  },
+  "item-725": {
+    "nameZh": "肠易激综合征",
+    "pickup": "肚子咕咕叫",
+    "description": "肚子咕咕叫",
+    "effects": [
+      "Whenever you deal damage to an enemy, has a chance to give the effect of one of Tainted ???'s unique poops",
+      "Corn poop - Spawns a blue fly every 2 seconds",
+      "Flaming poop - Leaves behind fire that damages enemies",
+      "Stinky poop - Emits a toxic cloud",
+      "Black poop - Creates slowing black creep. Confuses all enemies briefly when destroyed",
+      "White poop - Same effect as Hallowed Ground",
+      "Stone poop - Deals extra thrown damage, can hit multiple enemies. Takes more shots before breaking",
+      "Bomb poop - Throws a butt bomb that explodes after 2 seconds",
+      "*,"
+    ]
+  },
+  "item-726": {
+    "nameZh": "咯血",
+    "pickup": "双击喷嚏",
+    "description": "双击喷嚏",
+    "effects": [
+      "Allows you to quickly double tap a shoot button to sneeze on nearby enemies, dealing x1.5 your tear damage and pushing them back slightly",
+      "If an enemy is pushed into a wall or object it takes 10 damage",
+      "*,"
+    ]
+  },
+  "item-727": {
+    "nameZh": "幽灵炸弹",
+    "pickup": "鬼火爆炸 +5 炸弹",
+    "description": "鬼火爆炸 +5 炸弹",
+    "effects": [
+      "+5 Bombs",
+      "Bombs become spectral and can now pass through objects",
+      "Bombs spawn a friendly white soul, which will hunt down other enemies, dealing contact damage which scales with your tear damage",
+      "After 10 seconds the white soul explodes dealing 7 damage to nearby enemies. Isaac doesn't take damage from this effect",
+      "*,"
+    ]
+  },
+  "item-728": {
+    "nameZh": "格洛",
+    "pickup": "恶魔孕育",
+    "description": "恶魔孕育",
+    "effects": [
+      "Spawns a familiar that's attached via an Umbilical Cord, but will move and shoot in the same direction Isaac is shooting",
+      "When activated you first need to throw the familiar, which deals x3 your tear damage to any enemies it touches",
+      "Gello's tears deal x0.75 your tear damage (x1.0 if Lilith)",
+      "Can be used multiple times per room to spawn more familiars, however they only last for the current room",
+      "*,"
+    ]
+  },
+  "item-729": {
+    "nameZh": "斩首攻击",
+    "pickup": "扔出去！",
+    "description": "扔出去！",
+    "effects": [
+      "When used, this item allows you to throw your head where it will sit as a stationary sentry firing bullets until you walk over and pick it up again",
+      "Throwing Isaac's head deals 24 damage to anything it hits while being thrown",
+      "Your hitbox remains with the body. Enemies touching the head don't hurt Isaac",
+      "*,"
+    ]
+  },
+  "item-730": {
+    "nameZh": "玻璃眼",
+    "pickup": "伤害 + 运气提升",
+    "description": "伤害 + 运气提升",
+    "effects": [
+      "+0.75 Damage Up",
+      "+1 Luck Up",
+      "*,"
+    ]
+  },
+  "item-731": {
+    "nameZh": "麦粒肿",
+    "pickup": "伤害 + 射程提升",
+    "description": "伤害 + 射程提升",
+    "effects": [
+      "+28% Damage Up (right eye only)",
+      "+7 Range Up (right eye only)",
+      "-0.3 Shot Speed Down (right eye only)",
+      "*,"
+    ]
+  },
+  "item-732": {
+    "nameZh": "妈妈的戒指",
+    "pickup": "伤害提升",
+    "description": "伤害提升",
+    "effects": [
+      "+1 Damage Up",
+      "Drops 1 random rune or soul stone when picked up",
+      "Counts as 1 of 3 mom items needed towards the Mom transformation",
+      "*,"
+    ]
+  },
+  "trinket-10012": {
+    "nameZh": "扁平虫",
+    "pickup": "咕噜咕噜！",
+    "description": "咕噜咕噜！",
+    "effects": [
+      "子弹变扁，碰撞体积增加",
+      "子弹的击退效果增加"
+    ]
+  },
+  "trinket-10075": {
+    "nameZh": "错误",
+    "pickup": "未找到效果？",
+    "description": "未找到效果？",
+    "effects": [
+      "TrinketID: 75",
+      "Gives a different trinket effect per room, randomly choosing between any of the other available trinkets in the game",
+      "Each room is locked to a specific trinket effect, meaning if you exit and re-enter a room, that specific room will always have the same effect",
+      "*, 404, red"
+    ]
+  },
+  "trinket-10129": {
+    "nameZh": "硬糖",
+    "pickup": "别咬它",
+    "description": "别咬它",
+    "effects": [
+      "TrinketID: 129",
+      "Tears have a chance to become a tooth, dealing x3.2 damage, similar to Tough Love",
+      "The chance to fire a tooth with this trinket is affected by your Luck stat",
+      "At +0 luck you have ~12% chance for this effect to activate",
+      "At +9 luck every tear you fire will be a tooth",
+      "*,"
+    ]
+  },
+  "trinket-10130": {
+    "nameZh": "咬过的笔",
+    "pickup": "它漏墨了",
+    "description": "它漏墨了",
+    "effects": [
+      "TrinketID: 130",
+      "Tears have a chance to slow enemies",
+      "*,"
+    ]
+  },
+  "trinket-10131": {
+    "nameZh": "圣币",
+    "pickup": "纯净的财富",
+    "description": "纯净的财富",
+    "effects": [
+      "TrinketID: 131",
+      "Chance to spawn half a soul heart when picking up a coin",
+      "The chance scales up based on the coin's worth: Penny = 16.66%, Double Penny = 30.5%, Nickel = 59.7%, Dime = 83.3%",
+      "*,"
+    ]
+  },
+  "trinket-10132": {
+    "nameZh": "破损注射器",
+    "pickup": "神秘药物",
+    "description": "神秘药物",
+    "effects": [
+      "TrinketID: 132",
+      "Gives you a random syringe effect every room",
+      "The effect can be The Virus, Roid Rage, Speed Ball, Experimental Treatment, Synthoil, Euthanasia or Growth Hormones",
+      "*,"
+    ]
+  },
+  "trinket-10133": {
+    "nameZh": "短引线",
+    "pickup": "爆炸更快",
+    "description": "爆炸更快",
+    "effects": [
+      "TrinketID: 133",
+      "Placed bombs explode after 0.66 seconds instead of the usual 1.5 seconds",
+      "This was called Exploded Firecracker in Antibirth",
+      "*,"
+    ]
+  },
+  "trinket-10134": {
+    "nameZh": "巨豆",
+    "pickup": "超级放屁",
+    "description": "超级放屁",
+    "effects": [
+      "TrinketID: 134",
+      "Farts produced by Isaac or familiars will be twice as large",
+      "*,"
+    ]
+  },
+  "trinket-10135": {
+    "nameZh": "打火机",
+    "pickup": "看世界燃烧",
+    "description": "看世界燃烧",
+    "effects": [
+      "TrinketID: 135",
+      "Chance for enemies to burn when entering a room",
+      "The chance for this effect to activate is effected by your Luck stat",
+      "*,"
+    ]
+  },
+  "trinket-10136": {
+    "nameZh": "坏掉的挂锁",
+    "pickup": "炸弹是关键",
+    "description": "炸弹是关键",
+    "effects": [
+      "TrinketID: 136",
+      "Explosions can open locked doors",
+      "This includes key blocks and golden chests",
+      "*,"
+    ]
+  },
+  "trinket-10137": {
+    "nameZh": "勿忘我",
+    "pickup": "勿忘我……",
+    "description": "勿忘我……",
+    "effects": [
+      "TrinketID: 137",
+      "Pickups left on current floor will appear in the starting room of the next floor, up to a maximum of 4 pickups",
+      "*, flower, blue, petal, leaf, mysotis"
+    ]
+  },
+  "trinket-10138": {
+    "nameZh": "'M",
+    "pickup": "t 坏了 9 重掷你的命运",
+    "description": "t 坏了 9 重掷你的命运",
+    "effects": [
+      "TrinketID: 138",
+      "Active items will be rerolled upon using them",
+      "Using with Book of Virtues will only reroll the item the book is holding",
+      "Has no effect with Notched Axe due to how its durability works",
+      "*,"
+    ]
+  },
+  "trinket-10139": {
+    "nameZh": "泪滴护身符",
+    "pickup": "感觉幸运",
+    "description": "感觉幸运",
+    "effects": [
+      "TrinketID: 139",
+      "Random luck-based tear effects have an extra chance of occurring",
+      "The additional chance is effectively +3 Luck Up",
+      "*,"
+    ]
+  },
+  "trinket-10140": {
+    "nameZh": "所多玛之果",
+    "pickup": "感觉空虚",
+    "description": "感觉空虚",
+    "effects": [
+      "TrinketID: 140",
+      "Picking up red hearts now has a high chance to spawn 1-4 blue attack spiders, instead of giving you health back",
+      "This effect also works while fully healed, giving a guaranteed chance of getting spiders",
+      "While missing any red health the chance for spiders is less",
+      "Works for characters that don't use red health, which always gives you spiders",
+      "Hearts in Shops can be converted into spiders for free",
+      "*,"
+    ]
+  },
+  "trinket-10141": {
+    "nameZh": "遗忘的摇篮曲",
+    "pickup": "为朋友歌唱",
+    "description": "为朋友歌唱",
+    "effects": [
+      "TrinketID: 141",
+      "Gives your familiars improved rate of fire while held",
+      "In Antibirth this trinket was called Song of the Siren",
+      "*,"
+    ]
+  },
+  "trinket-10142": {
+    "nameZh": "贝丝的信仰",
+    "pickup": "我的信仰保护我",
+    "description": "我的信仰保护我",
+    "effects": [
+      "TrinketID: 142",
+      "While held at the start of each floor, this trinket spawns four wisp familiar orbitals around Isaac",
+      "These wisps are the same as the ones created by the Book of Virtues item",
+      "*, beths faith"
+    ]
+  },
+  "trinket-10143": {
+    "nameZh": "旧电容器",
+    "pickup": "电压饥饿",
+    "description": "电压饥饿",
+    "effects": [
+      "TrinketID: 143",
+      "Your active item no longer gains charges, but battery drops become much more common",
+      "*,"
+    ]
+  },
+  "trinket-10144": {
+    "nameZh": "脑虫",
+    "pickup": "叮！",
+    "description": "叮！",
+    "effects": [
+      "TrinketID: 144",
+      "Tears that miss enemies will redirect themselves and travel 90 degrees towards enemies",
+      "Tears must be roughly 2 tiles or closer to activate this effect",
+      "*,"
+    ]
+  },
+  "trinket-10145": {
+    "nameZh": "完美",
+    "pickup": "运气爆棚，千万别弄丢！",
+    "description": "运气爆棚，千万别弄丢！",
+    "effects": [
+      "TrinketID: 145",
+      "+10 Luck while held, but the trinket is destroyed when damage is taken",
+      "Blood donation machines, Curse Rooms and Sacrifice Rooms wont destroy it",
+      "Taking a hit and activating Holy Mantle won't destroy it",
+      "Can be dropped in order to avoid breaking it",
+      "This trinket is automatically given to you after clearing 3 bosses without taking damage",
+      "*,"
+    ]
+  },
+  "trinket-10146": {
+    "nameZh": "恶魔皇冠",
+    "pickup": "他的专属顾客",
+    "description": "他的专属顾客",
+    "effects": [
+      "TrinketID: 146",
+      "Treasure Rooms are replaced with Red Treasure Rooms, which contain a deal with the devil in place of a regular item pedestal",
+      "If an item room has not yet been entered, it can be transformed to either a regular or Red Treasure Room by picking up or dropping this trinket before entering",
+      "Does not affect the mirrored treasure room in Downpour II",
+      "*, devils crown"
+    ]
+  },
+  "trinket-10147": {
+    "nameZh": "充能硬币",
+    "pickup": "力量的财富",
+    "description": "力量的财富",
+    "effects": [
+      "TrinketID: 147",
+      "Every time you pick up a coin, you have a small chance to gain 1 bar of charge on your active item",
+      "The chance for this effect to happen is 1/6th of the value of the coin picked up",
+      "Can only activate once per coin collected",
+      "In Antibirth this trinket was called Electric Penny",
+      "*,"
+    ]
+  },
+  "trinket-10148": {
+    "nameZh": "友谊项链",
+    "pickup": "聚拢过来",
+    "description": "聚拢过来",
+    "effects": [
+      "TrinketID: 148",
+      "While held, your familiars will now orbit around Isaac instead of following behind him",
+      "*,"
+    ]
+  },
+  "trinket-10149": {
+    "nameZh": "恐慌按钮",
+    "pickup": "紧急情况时按下",
+    "description": "紧急情况时按下",
+    "effects": [
+      "TrinketID: 149",
+      "Activates your active item just before damage would be taken",
+      "It doesn't activate for free - the charges are used up as normal if this effect activates. This means the trinket does nothing if your active item isn't fully charged",
+      "Single-use active items are consumed as normal",
+      "*,"
+    ]
+  },
+  "trinket-10150": {
+    "nameZh": "蓝钥匙",
+    "pickup": "留意房间之间",
+    "description": "留意房间之间",
+    "effects": [
+      "TrinketID: 150",
+      "Doors can be opened without using up a key",
+      "However, when entering the door you are taken to a blue womb room with enemies to defeat. This room will always drop a reward at the end, then allow you to exit back to the real floor",
+      "*,"
+    ]
+  },
+  "trinket-10151": {
+    "nameZh": "扁平文件",
+    "pickup": "不再受尖刺困扰",
+    "description": "不再受尖刺困扰",
+    "effects": [
+      "TrinketID: 151",
+      "While held this trinket causes spikes to retract into the floor",
+      "Works for curse rooms - you no longer take damage entering or leaving",
+      "Allows you to open spiked chests without taking damage",
+      "*,"
+    ]
+  },
+  "trinket-10152": {
+    "nameZh": "望远镜镜片",
+    "pickup": "追寻星辰",
+    "description": "追寻星辰",
+    "effects": [
+      "TrinketID: 152",
+      "+9% chance for a Planetarium to spawn",
+      "Allows Planetariums to spawn in the Womb/Utero floors",
+      "Planetarium have a base 1% chance to appear, which increases by +20% whenever you skip an Item Room (Must not enter to count as skipped)",
+      "After entering a Planetarium the chance goes back to 1%. Holding this trinket increase that chance by +15%",
+      "Does not drop in Greed Mode",
+      "*,"
+    ]
+  },
+  "trinket-10153": {
+    "nameZh": "妈妈的锁",
+    "pickup": "她的一点爱意",
+    "description": "她的一点爱意",
+    "effects": [
+      "TrinketID: 153",
+      "Has a high chance to give you the effect of a random Mom item every room",
+      "*, moms lock"
+    ]
+  },
+  "trinket-10154": {
+    "nameZh": "骰子袋",
+    "pickup": "额外投掷",
+    "description": "额外投掷",
+    "effects": [
+      "TrinketID: 154",
+      "Every time you enter a brand new room, you have a chance to get a random one-time use Dice (e.g. D6, D20 etc.)",
+      "*,"
+    ]
+  },
+  "trinket-10155": {
+    "nameZh": "圣冠",
+    "pickup": "踏上圣徒之路",
+    "description": "踏上圣徒之路",
+    "effects": [
+      "TrinketID: 155",
+      "Causes Item rooms and Shops to appear in the Cathedral",
+      "*,"
+    ]
+  },
+  "trinket-10156": {
+    "nameZh": "母亲之吻",
+    "pickup": "生命值提升",
+    "description": "生命值提升",
+    "effects": [
+      "TrinketID: 156",
+      "While held you get +1 HP Up",
+      "The first time you pick this trinket up, the heart container will be filled. This effect can't be abused - next time it will be empty if dropped",
+      "*, mothers kiss"
+    ]
+  },
+  "trinket-10157": {
+    "nameZh": "撕裂的卡牌",
+    "pickup": "死亡在等待",
+    "description": "死亡在等待",
+    "effects": [
+      "TrinketID: 157",
+      "Every 15 shots you will shoot an Ipecac + My Reflection shot",
+      "The tear will fly in the air for about 3 seconds and follows Isaac until it falls and explodes. You need to move out of the way or it will hurt Isaac, but can be used to open anything requiring a bomb e.g. Secret Rooms",
+      "*,"
+    ]
+  },
+  "trinket-10158": {
+    "nameZh": "撕裂的口袋",
+    "pickup": "口袋上的破洞",
+    "description": "口袋上的破洞",
+    "effects": [
+      "TrinketID: 158",
+      "Every time you take damage, you drop up to 2 different types of consumables on the ground",
+      "Dropped consumables can be any variant of its kind - e.g. a bomb can become a troll bomb, or a dropped coin can become a dime",
+      "Does nothing if you have no consumables",
+      "*,"
+    ]
+  },
+  "trinket-10159": {
+    "nameZh": "镀金钥匙",
+    "pickup": "少即是多",
+    "description": "少即是多",
+    "effects": [
+      "TrinketID: 159",
+      "All new chests become locked Golden chests",
+      "*,"
+    ]
+  },
+  "trinket-10160": {
+    "nameZh": "幸运袋",
+    "pickup": "免费好物！",
+    "description": "免费好物！",
+    "effects": [
+      "TrinketID: 160",
+      "Spawns a sack at the start of each new floor",
+      "*,"
+    ]
+  },
+  "trinket-10161": {
+    "nameZh": "邪冠",
+    "pickup": "踏上邪恶之路",
+    "description": "踏上邪恶之路",
+    "effects": [
+      "TrinketID: 161",
+      "Causes an Item Room and Shop to appear in Sheol",
+      "*,"
+    ]
+  },
+  "trinket-10162": {
+    "nameZh": "阿萨泽尔的树桩",
+    "pickup": "释放你内心的恶魔",
+    "description": "释放你内心的恶魔",
+    "effects": [
+      "TrinketID: 162",
+      "When entering a new room, gives a small chance to gain Azazel's short-range Brimstone laser for the current room and the ability to fly",
+      "*, azazels stump"
+    ]
+  },
+  "trinket-10163": {
+    "nameZh": "单颗浆果",
+    "pickup": "哎呀！",
+    "description": "哎呀！",
+    "effects": [
+      "TrinketID: 163",
+      "Spawns 2 friendly Dips upon clearing a room",
+      "Dips that spawn after killing a Squirt turn friendly",
+      "*,"
+    ]
+  },
+  "trinket-10164": {
+    "nameZh": "戒指帽",
+    "pickup": "双倍威力！",
+    "description": "双倍威力！",
+    "effects": [
+      "TrinketID: 164",
+      "Drops 2 bombs at once (only 1 bomb is removed from your total)",
+      "*,"
+    ]
+  },
+  "trinket-10165": {
+    "nameZh": "不！",
+    "pickup": "不要！",
+    "description": "不要！",
+    "effects": [
+      "TrinketID: 165",
+      "Beyond the womb floor, replaces all coin and key spawns with a random pickup as follows:",
+      "Bomb - 26.6% chance. Heart - 26.6% chance",
+      "Pill - 16.6% chance. Card - 16.6% chance",
+      "Trinket - 6.6% chance. Battery - 6.6% chance",
+      "Also adds a 20% chance to spawn a fly if the original drop was a coin",
+      "Doesn't spawn in Greed Mode",
+      "*,"
+    ]
+  },
+  "trinket-10166": {
+    "nameZh": "塑形粘土",
+    "pickup": "???",
+    "description": "???",
+    "effects": [
+      "TrinketID: 166",
+      "Each brand new room, this trinket has a chance to transform into a copy of a random passive item, which gives you the effect for the duration of this room",
+      "*,"
+    ]
+  },
+  "trinket-10167": {
+    "nameZh": "抛光骨头",
+    "pickup": "来自彼岸的友人",
+    "description": "来自彼岸的友人",
+    "effects": [
+      "TrinketID: 167",
+      "Gives a small chance to spawn a friendly Bony when clearing a room, which will throw bones at enemies until it takes enough damage to die",
+      "Can be either the regular white Bony or the black variant",
+      "*,"
+    ]
+  },
+  "trinket-10168": {
+    "nameZh": "空心之心",
+    "pickup": "脆弱的祝福",
+    "description": "脆弱的祝福",
+    "effects": [
+      "TrinketID: 168",
+      "Gives you +1 Bone Heart every time you enter a new floor",
+      "*,"
+    ]
+  },
+  "trinket-10169": {
+    "nameZh": "孩子的画作",
+    "pickup": "看起来很熟悉……",
+    "description": "看起来很熟悉……",
+    "effects": [
+      "TrinketID: 169",
+      "Counts as 1 of 3 cat items needed towards the Guppy transformation",
+      "Dropping this trinket again removes the transformation if you dont have 3 other Guppy items",
+      "*, kids drawing"
+    ]
+  },
+  "trinket-10170": {
+    "nameZh": "水晶钥匙",
+    "pickup": "呼唤彼岸",
+    "description": "呼唤彼岸",
+    "effects": [
+      "TrinketID: 170",
+      "Each time you clear a room there is a chance a Red Room will spawn at one of the walls.",
+      "The chance for a Red Room to unlock increases as you pick up more Crystal Keys.",
+      "While in a regular room, the chances to spawn a Red Room are: 1 Key = 33.33% chance. 2 keys = 50% chance. 3 or more keys = 100% chance.",
+      "While in a Red room, the chances to spawn a Red Room are: 1 Key = 12.5% chance. 2 keys = 16.6% chance. 3 keys = 25% chance. 4 keys = 50% chance. 5 keys = 100% chance.",
+      "Passive rooms with no enemies don't have a chance to spawn Red Rooms.",
+      "It's possible to hold more than one trinket by taking Mom's Purse, Belly Button or using the Smelter to convert them into passive items. Having a golden version of this trinket counts as 2 keys.",
+      "Doesn't spawn in Greed Mode",
+      "*,"
+    ]
+  },
+  "trinket-10171": {
+    "nameZh": "守门人的交易",
+    "pickup": "金钱万能",
+    "description": "金钱万能",
+    "effects": [
+      "TrinketID: 171",
+      "Has a decent chance for Devil Deals to cost money instead of Health",
+      "The conversion rate is 1 heart container to 15 coins",
+      "Items can be on discount similar to the shop, making it 1 heart container = 7 coins instead",
+      "No effect on Lost or Tainted Lost",
+      "Can be dropped to disable this effect while in the room",
+      "*, keepers bargain, keeper bargain"
+    ]
+  },
+  "trinket-10172": {
+    "nameZh": "诅咒硬币",
+    "pickup": "苦难的财富",
+    "description": "苦难的财富",
+    "effects": [
+      "TrinketID: 172",
+      "While held, you will be teleported to a random room everytime you pick up a coin",
+      "*,"
+    ]
+  },
+  "trinket-10173": {
+    "nameZh": "你的灵魂",
+    "pickup": "交给我吧",
+    "description": "交给我吧",
+    "effects": [
+      "TrinketID: 173",
+      "Allows you to pay for a devil deal with this trinket",
+      "*,"
+    ]
+  },
+  "trinket-10174": {
+    "nameZh": "数字磁铁",
+    "pickup": "6",
+    "description": "6",
+    "effects": [
+      "TrinketID: 174",
+      "+10% devil room chance while held",
+      "Changes Devil Room layouts. The new rooms contain 0-3 Devil Deal Items, 1-3 Black Hearts and random enemies from the Sheol floor",
+      "Prevents Krampus from appearing",
+      "*,"
+    ]
+  },
+  "trinket-10175": {
+    "nameZh": "奇异钥匙",
+    "pickup": "它能打开什么？",
+    "description": "它能打开什么？",
+    "effects": [
+      "TrinketID: 175",
+      "Opens the door to the Blue Womb, regardless of whether you meet the 30 minute speed timer",
+      "Opening Pandora's Box while holding this item will ignore the normal effect and instead spawn 6 item pedestals from random item pools. Both the box and trinket are consumed when this happens",
+      "*,"
+    ]
+  },
+  "trinket-10176": {
+    "nameZh": "小血块",
+    "pickup": "迷你伙伴",
+    "description": "迷你伙伴",
+    "effects": [
+      "TrinketID: 176",
+      "A small clot friend will hug Isaac, following his exact movements (similar to how Jacob & Esau work) and shooting tears when he does",
+      "The clot can be moved around by collision with an object/wall, allowing you to re-position it",
+      "The clot's damage is roughly 1/3 of your tear damage",
+      "If it takes a few hits it will die, and respawn in the next room",
+      "*, mini clot"
+    ]
+  },
+  "trinket-10177": {
+    "nameZh": "临时纹身",
+    "pickup": "你感觉更勇敢了",
+    "description": "你感觉更勇敢了",
+    "effects": [
+      "TrinketID: 177",
+      "Spawns a random chest after completing a regular Challenge Room",
+      "Spawns a pedestal item after completing a boss Challenge Room",
+      "Doesn't spawn in Greed Mode",
+      "*,"
+    ]
+  },
+  "trinket-10178": {
+    "nameZh": "吞下的 M80",
+    "pickup": "砰！",
+    "description": "砰！",
+    "effects": [
+      "TrinketID: 178",
+      "When taking damage you have a chance to explode and deal 185 damage to all enemies around you (Same damage as a Mr. Mega bomb)",
+      "*,"
+    ]
+  },
+  "trinket-10179": {
+    "nameZh": "遥控车",
+    "pickup": "可控的伙伴！",
+    "description": "可控的伙伴！",
+    "effects": [
+      "TrinketID: 179",
+      "Familiars follow Isaac's exact movements, (similar to how Jacob & Esau work) instead of following loosely like they usually do",
+      "Holding the drop button (Ctrl on Steam version) causes them to stop moving",
+      "Doesn't affect some familiars with specific movement patterns, e.g. Abel",
+      "*,"
+    ]
+  },
+  "trinket-10180": {
+    "nameZh": "寻获的灵魂",
+    "pickup": "终于！",
+    "description": "终于！",
+    "effects": [
+      "TrinketID: 180",
+      "Gives you a familiar that follows Isaac's exact movements (similar to how Jacob & Esau work) and shoots spectral tears",
+      "Similar to Jacob and Esau, positions can be altered by running it into objects, or holding the drop button (Ctrl on Steam version)",
+      "When you place a bomb, the Found Soul will drop one too",
+      "If it takes any damage, it will die and not respawn until the next floor",
+      "Will always match your current movement speed",
+      "*,"
+    ]
+  },
+  "trinket-10181": {
+    "nameZh": "扩展包",
+    "pickup": "有趣的额外内容",
+    "description": "有趣的额外内容",
+    "effects": [
+      "TrinketID: 181",
+      "Everytime you use your active item, you have a chance to activate another random active item",
+      "Glowing Hourglass effect is blocked from this item",
+      "*,"
+    ]
+  },
+  "trinket-10182": {
+    "nameZh": "贝丝的精华",
+    "pickup": "美德的奖赏",
+    "description": "美德的奖赏",
+    "effects": [
+      "TrinketID: 182",
+      "Taking damage gives you a chance to spawn a flame orbital, similar to the ones created by Book of Virtues",
+      "Entering an Angel Room gives you +5 flame orbitals. The angel room spawned by The Stairway item also counts",
+      "Giving money to a beggar gives a flame orbital",
+      "*, beths essence"
+    ]
+  },
+  "trinket-10183": {
+    "nameZh": "双胞胎",
+    "pickup": "我好像看双影了……",
+    "description": "我好像看双影了……",
+    "effects": [
+      "TrinketID: 183",
+      "Upon entering each new room, this trinket has a chance to copy one of your current familiars",
+      "If you have no familiars instead it will spawn either Brother Bobby or Sister Maggy",
+      "Only lasts for the current room",
+      "*,"
+    ]
+  },
+  "trinket-10184": {
+    "nameZh": "收养文件",
+    "pickup": "给他们一个家",
+    "description": "给他们一个家",
+    "effects": [
+      "TrinketID: 184",
+      "All shops only sell familiars while holding this trinket",
+      "If you enter a shop while holding this trinket, the effect won't undo by dropping it until you move to a new floor",
+      "*,"
+    ]
+  },
+  "trinket-10185": {
+    "nameZh": "板球腿",
+    "pickup": "被感染",
+    "description": "被感染",
+    "effects": [
+      "TrinketID: 185",
+      "Every time an enemy dies you have a chance to gain a random Locust",
+      "Different color Locusts correspond to the horsemen. Each of them deal double your tear damage, similar to how standard blue flies work",
+      "War (Red) - Explodes when touching the enemy. The actual explosion deals flat 60 damage",
+      "Pestilence (Green) - Poisons the enemy it attacks",
+      "Famine (Brown) - Applies a slowing effect",
+      "Death (Black) - Deals x4 damage instead of x2",
+      "Conquest (White) - Spawns 2-5 at once",
+      "*,"
+    ]
+  },
+  "trinket-10186": {
+    "nameZh": "阿波利安的挚友",
+    "pickup": "攻击伙伴",
+    "description": "攻击伙伴",
+    "effects": [
+      "TrinketID: 186",
+      "Gives you a red attack fly, that will charge at enemies in the same direction you are shooting",
+      "Deals damage equal to your current tear damage",
+      "Stops charging once it hits an enemy and returns to Isaac's side",
+      "*, apollyons best friend"
+    ]
+  },
+  "trinket-10187": {
+    "nameZh": "破碎的眼镜",
+    "pickup": "双重视野？",
+    "description": "双重视野？",
+    "effects": [
+      "TrinketID: 187",
+      "Gives a 33% chance to spawn an extra blind pedestal item in all future item rooms. This one will be a hidden question mark",
+      "Allows you to see what both items are on alternative path floors (Downpour/Dross, Mines/Ashpit, Gehenna/Mausoleum)",
+      "*,"
+    ]
+  },
+  "trinket-10188": {
+    "nameZh": "冰块",
+    "pickup": "保持冷静",
+    "description": "保持冷静",
+    "effects": [
+      "TrinketID: 188",
+      "Gives a small chance when entering a room for enemies to be petrified for 4 seconds. Killing a petrified enemy will freeze it.",
+      "The chance for this effect to activate depends on your Luck stat.",
+      "Frozen enemies can be pushed into obstacles where they shatter on contact and fire ice shards around them. Any other enemies hit by these shards will become frozen too",
+      "Frozen enemies are considered dead by the game, and won't unfreeze or move again. The room doors will open if only frozen enemies remain",
+      "*,"
+    ]
+  },
+  "trinket-10189": {
+    "nameZh": "巴风特的徽记",
+    "pickup": "沉溺于死亡",
+    "description": "沉溺于死亡",
+    "effects": [
+      "TrinketID: 189",
+      "Every time you kill an enemy you get an invincibility shield for 1 second",
+      "While shielded, each enemy killed adds +1 seconds to the duration",
+      "*,"
+    ]
+  },
+  "card-032": {
+    "nameZh": "哈伽拉兹之符",
+    "pickup": "毁灭",
+    "description": "毁灭",
+    "effects": [
+      "CardID: 32",
+      "When used, this rune will destroy all breakable objects in the current room, such as poop, rocks, secret room entrances",
+      "This includes Key Blocks",
+      "*, purple, glow"
+    ]
+  },
+  "card-033": {
+    "nameZh": "耶拉之符",
+    "pickup": "丰饶",
+    "description": "丰饶",
+    "effects": [
+      "CardID: 33",
+      "When used this rune will double all pickups on the floor in the room",
+      "Creates copies of pickups in the Shop which can be taken for free, even if you haven't purchased them yet",
+      "Can be used to double the number of item chests in the first room of the final Chest / Dark Room floors",
+      "Cloned chests have the same types of items as the first one",
+      "Cannot be used to clone trinkets or other Jera runes",
+      "*, purple, glow"
+    ]
+  },
+  "card-034": {
+    "nameZh": "埃瓦兹之符",
+    "pickup": "通路",
+    "description": "通路",
+    "effects": [
+      "CardID: 34",
+      "Creates a trapdoor on the floor",
+      "Digging in certain spots with objects or markings on the floor will guarantee a crawlspace once per floor",
+      "*, purple, glow"
+    ]
+  },
+  "card-035": {
+    "nameZh": "达加兹之符",
+    "pickup": "纯净",
+    "description": "纯净",
+    "effects": [
+      "CardID: 35",
+      "Removes the curse which is in effect on the current floor (except Curse of the Labyrinth)",
+      "Can also cure the effect of the Amnesia pill",
+      "+1 Soul Heart",
+      "*, purple, glow"
+    ]
+  },
+  "card-036": {
+    "nameZh": "安苏兹之符",
+    "pickup": "视野",
+    "description": "视野",
+    "effects": [
+      "CardID: 36",
+      "When used, reveals the entire map including all the secret room locations and other icon rooms",
+      "*, purple, glow"
+    ]
+  },
+  "card-037": {
+    "nameZh": "佩尔thro之符",
+    "pickup": "变化",
+    "description": "变化",
+    "effects": [
+      "CardID: 37",
+      "Rerolls all pedestal items in the current room (One time use of the D6)",
+      "*, purple, glow"
+    ]
+  },
+  "card-038": {
+    "nameZh": "伯卡诺之符",
+    "pickup": "陪伴",
+    "description": "陪伴",
+    "effects": [
+      "CardID: 38",
+      "Summons 3 blue friendly spiders and 3 blue flies",
+      "*, purple, glow"
+    ]
+  },
+  "card-039": {
+    "nameZh": "阿尔吉兹之符",
+    "pickup": "抵抗",
+    "description": "抵抗",
+    "effects": [
+      "CardID: 39",
+      "When used, gives you an invincibility effect which lasts for 20 seconds",
+      "*, purple, glow"
+    ]
+  },
+  "card-041": {
+    "nameZh": "黑符",
+    "pickup": "虚空",
+    "description": "虚空",
+    "effects": [
+      "CardID: 41",
+      "When used, this rune deals 40 damage to all enemies in the room and consumes all pedestal items in the room, giving you a random stat increase for each item consumed",
+      "Also consumes all pickups in the room and turns them into blue flies and spiders",
+      "*, rock, black"
+    ]
+  },
+  "card-055": {
+    "nameZh": "符片",
+    "pickup": "它仍散发着微光",
+    "description": "它仍散发着微光",
+    "effects": [
+      "CardID: 55",
+      "Activates a random rune effect. The effect is weaker than normal runes.",
+      "These only appear if not all runes have been unlocked yet.",
+      "*, shart"
+    ]
+  },
+  "card-056": {
+    "nameZh": "O - 愚人？",
+    "pickup": "放手前行",
+    "description": "放手前行",
+    "effects": [
+      "CardID: 56",
+      "When used, this card drops all of your hearts (including non-red hearts), coins, keys and bombs on the floor",
+      "This effect is done in the most efficient way possible - e.g. if you have 99 coins it will create 3 x Quarters, 2 Dimes and 4 Pennies. If you have 40 bombs it will spawn 4 x Boom! pedestal items",
+      "Picking up all dropped items leaves you with the same health and consumables you had before",
+      "This allows you to manipulate your consumables in lots of different ways, for example by rerolling them with the D6/D20, re-arrange your Bone heart containers and more",
+      "If you have the Tarot Cloth item, this card will also drop all your passive items on the floor as pedestals",
+      "*, tarot, card, green"
+    ]
+  },
+  "card-057": {
+    "nameZh": "I - 魔术师？",
+    "pickup": "愿你免受伤害",
+    "description": "愿你免受伤害",
+    "effects": [
+      "CardID: 57",
+      "Gives you a blue aura that repels enemy projectiles, causing them to slowly curve away from Isaac and avoid hitting him",
+      "Lasts for 60 seconds",
+      "*, tarot, card, yellow"
+    ]
+  },
+  "card-058": {
+    "nameZh": "II - 女祭司？",
+    "pickup": "快跑",
+    "description": "快跑",
+    "effects": [
+      "CardID: 58",
+      "Causes Mom's Foot to keep stomping down randomly for 60 seconds where Isaac is standing",
+      "*, tarot, card, red"
+    ]
+  },
+  "card-059": {
+    "nameZh": "III - 女皇？",
+    "pickup": "愿你的爱带来庇护",
+    "description": "愿你的爱带来庇护",
+    "effects": [
+      "CardID: 59",
+      "Gives 2 HP Up and +1.5 Tears Up for 60 seconds",
+      "* speed up, tarot, card, blue, red"
+    ]
+  },
+  "card-060": {
+    "nameZh": "IV - 皇帝？",
+    "pickup": "愿你找到 worthy 的对手",
+    "description": "愿你找到 worthy 的对手",
+    "effects": [
+      "CardID: 60",
+      "Teleports you to an extra boss room, that drops a Boss room item as normal. This room isn't part of the actual floor, and leaving it returns you to where you teleported from",
+      "The boss isn't necessarily from the current floor - e.g. you could find a caves boss in the basement",
+      "*, tarot, card, yellow"
+    ]
+  },
+  "card-061": {
+    "nameZh": "V - 教皇？",
+    "pickup": "为被遗忘者祈祷两次",
+    "description": "为被遗忘者祈祷两次",
+    "effects": [
+      "CardID: 61",
+      "Spawns 2 Bone hearts on the floor",
+      "*, the lost item pool, tarot, card, blue, red"
+    ]
+  },
+  "card-062": {
+    "nameZh": "VI - 恋人？",
+    "pickup": "愿你的心碎成碎片",
+    "description": "愿你的心碎成碎片",
+    "effects": [
+      "CardID: 62",
+      "Spawns a random pedestal item from the current room's item pool",
+      "In exchange, turns one heart container or 2 soul hearts into a broken heart. Broken hearts permanently subtract from your total possible health containers",
+      "* , the lost item pool, tarot, card, red"
+    ]
+  },
+  "card-063": {
+    "nameZh": "VII - 战车？",
+    "pickup": "愿万物无法经过你",
+    "description": "愿万物无法经过你",
+    "effects": [
+      "CardID: 63",
+      "Isaac turns to stone and can't move for 10 seconds, but your tear rate goes up significantly for the duration",
+      "*, tarot, card, yellow"
+    ]
+  },
+  "card-064": {
+    "nameZh": "VIII - 正义？",
+    "pickup": "愿你的罪孽归来折磨你",
+    "description": "愿你的罪孽归来折磨你",
+    "effects": [
+      "CardID: 64",
+      "Spawns 2-4 locked gold chests",
+      "*, tarot, card, red"
+    ]
+  },
+  "card-065": {
+    "nameZh": "IX - 隐士？",
+    "pickup": "愿你看清世间万物的价值",
+    "description": "愿你看清世间万物的价值",
+    "effects": [
+      "CardID: 65",
+      "When used, all items and pickups in the current room are turned into money. Everything is sold for its shop price, e.g. Items for 15c, hearts for 3c, sacks for 7c",
+      "*, tarot, card, blue"
+    ]
+  },
+  "card-066": {
+    "nameZh": "X - 命运之轮？",
+    "pickup": "掷出命运的骰子",
+    "description": "掷出命运的骰子",
+    "effects": [
+      "CardID: 66",
+      "Activates a random effect from a Dice room",
+      "See the dice icon above for each possible effect",
+      "*, tarot, card, pink"
+    ]
+  },
+  "card-067": {
+    "nameZh": "XI - 力量？",
+    "pickup": "愿你击溃他们的意志",
+    "description": "愿你击溃他们的意志",
+    "effects": [
+      "CardID: 67",
+      "All enemies in the current room are slowed and take double damage",
+      "*, tarot, card, pink"
+    ]
+  },
+  "card-068": {
+    "nameZh": "XII - 倒吊人？",
+    "pickup": "愿你的贪婪无止境",
+    "description": "愿你的贪婪无止境",
+    "effects": [
+      "CardID: 68",
+      "You turn into the Keeper, gaining triple shot, -0.1 Speed Down for 30 seconds",
+      "Enemies drop random coins while this effect is active",
+      "* , the lost item pool, tarot, card, grey, gray"
+    ]
+  },
+  "card-069": {
+    "nameZh": "XIII - 死神？",
+    "pickup": "愿生命从逝者中萌发",
+    "description": "愿生命从逝者中萌发",
+    "effects": [
+      "CardID: 69",
+      "Activates the Book of the Dead effect, spawning a bone orbital or charmed Bony for each enemy killed in the current room",
+      "*, tarot, card, grey, gray"
+    ]
+  },
+  "card-070": {
+    "nameZh": "XIV - 节制？",
+    "pickup": "愿你的饥饿得到满足",
+    "description": "愿你的饥饿得到满足",
+    "effects": [
+      "CardID: 70",
+      "When used, this card activates 5 random pill effects one after the other",
+      "* , the lost item pool, tarot, card, red, blue"
+    ]
+  },
+  "card-071": {
+    "nameZh": "XV - 恶魔？",
+    "pickup": "沐浴在你仁慈的光芒中",
+    "description": "沐浴在你仁慈的光芒中",
+    "effects": [
+      "CardID: 71",
+      "Activates The Bible effect (granting flight) and gives a Seraphim familiar for 30 seconds",
+      "* damage up, tarot, card, red"
+    ]
+  },
+  "card-072": {
+    "nameZh": "XVI - 高塔？",
+    "pickup": "创造带来毁灭",
+    "description": "创造带来毁灭",
+    "effects": [
+      "CardID: 72",
+      "Spawns 6 clusters of rocks and objects that normally appear on this floor",
+      "It won't block any doors that exist",
+      "Rocks have a pretty good chance to become tinted rocks",
+      "*, tarot, card, purple"
+    ]
+  },
+  "card-073": {
+    "nameZh": "XVII - 星星？",
+    "pickup": "愿你的损失带来好运",
+    "description": "愿你的损失带来好运",
+    "effects": [
+      "CardID: 73",
+      "Removes your oldest item and spawns 2 pedestal items from the current room's pool",
+      "Can remove either passive or active items",
+      "Doesn't remove your character's starting items",
+      "*, tarot, card, blue"
+    ]
+  },
+  "card-074": {
+    "nameZh": "XVIII - 月亮？",
+    "pickup": "愿你记起逝去的记忆",
+    "description": "愿你记起逝去的记忆",
+    "effects": [
+      "CardID: 74",
+      "Teleports you to the ultra secret room on the floor",
+      "The ultra secret room is a red room containing an item from the angel room item pool. Can only be accessed via the Red Key, Crystal Key or Cracked Key. Using this card will also open a pathway of red rooms back to the regular floor",
+      "*, tarot, card, blue"
+    ]
+  },
+  "card-075": {
+    "nameZh": "XIX - 太阳？",
+    "pickup": "愿黑暗吞噬你周围的一切",
+    "description": "愿黑暗吞噬你周围的一切",
+    "effects": [
+      "CardID: 75",
+      "When used, grants +1.5 Damage Up, turns your hearts to Bone hearts and the Spirit of the Night effect (Spectral tears and the ability to fly) for the current floor",
+      "Also gives the Curse of Darkness effect that can't be removed for the current floor",
+      "*, tarot, card, yellow"
+    ]
+  },
+  "card-076": {
+    "nameZh": "XX - 审判？",
+    "pickup": "愿你救赎那些不配者",
+    "description": "愿你救赎那些不配者",
+    "effects": [
+      "CardID: 76",
+      "Spawns a Restock machine",
+      "*, tarot, card, blue"
+    ]
+  },
+  "card-077": {
+    "nameZh": "XXI - 世界？",
+    "pickup": "踏入深渊",
+    "description": "踏入深渊",
+    "effects": [
+      "CardID: 77",
+      "Creates a trapdoor to a guaranteed crawl space",
+      "*, tarot, card, pink"
+    ]
+  },
+  "card-078": {
+    "nameZh": "裂痕钥匙",
+    "pickup": "???",
+    "description": "???",
+    "effects": [
+      "CardID: 78",
+      "This is a one-time use of the Red Key item.",
+      "The main purpose of the Cracked Key is to unlock Tainted character in the Home floor without needing to find the Red Key. You can force spawn a cracked key by droping any trinket in a Boss Room or Item room, on any floor on your way down to Depths II. When you take the reverse path back up to Home, the trinket will turn into Cracked Key in the same floor/room you dropped it before.",
+      "*, Red Key Shard"
+    ]
+  },
+  "card-079": {
+    "nameZh": "红心皇后",
+    "pickup": "<3",
+    "description": "<3",
+    "effects": [
+      "CardID: 79",
+      "Drops 1-20 full red hearts on the floor",
+      "*,"
+    ]
+  },
+  "card-080": {
+    "nameZh": "万能牌",
+    "pickup": "再来一次",
+    "description": "再来一次",
+    "effects": [
+      "CardID: 80",
+      "When used, this copies the effect of the card, pill, rune, soul stone or active item you used most recently",
+      "*, Uno Card"
+    ]
+  },
+  "card-081": {
+    "nameZh": "以撒之魂",
+    "pickup": "重掷……或不",
+    "description": "重掷……或不",
+    "effects": [
+      "CardID: 81",
+      "Turns all pedestal items in the current room into rotating items, which cycle between the old item and a random new item every second",
+      "This allows you to effectively reroll items like with The D6, but choose the old item as well if you want",
+      "Tainted Isaac has this effect passively for all items",
+      "If you use more than one in the same room, each pedestal item will cycle through +1 random item",
+      "Items are chosen from the item pool related to the current item",
+      "* Soul Stone"
+    ]
+  },
+  "card-082": {
+    "nameZh": "玛格达莱娜之魂",
+    "pickup": "赐予我你的爱！",
+    "description": "赐予我你的爱！",
+    "effects": [
+      "CardID: 82",
+      "When used, all enemies in the current room drop half a red heart that will disappear after 2 seconds if not picked up",
+      "* Soul Stone"
+    ]
+  },
+  "card-083": {
+    "nameZh": "该隐之魂",
+    "pickup": "开启不可开启之物",
+    "description": "开启不可开启之物",
+    "effects": [
+      "CardID: 83",
+      "When used, this Soul Stone creates Red rooms for every possible exit in the current room",
+      "Red outlines of doors appear where this Soul Stone will create exits for",
+      "See the Red Key item description for more information about these Red rooms behave",
+      "* Soul Stone"
+    ]
+  },
+  "card-084": {
+    "nameZh": "犹大之魂",
+    "pickup": "就在你身后",
+    "description": "就在你身后",
+    "effects": [
+      "CardID: 84",
+      "Activates the Dark Arts item effect, which turns Isaac into a ghost for a few seconds. While in this form you can walk over enemies to mark them for death. After a few seconds, he will quickly attack each target, chaining higher damage for each enemy it hits",
+      "* Soul Stone"
+    ]
+  },
+  "card-085": {
+    "nameZh": "？？？之魂",
+    "pickup": "化学战",
+    "description": "化学战",
+    "effects": [
+      "CardID: 85",
+      "When used this will cause 8 poison farts that leave a brown creep behind, and then drop 7 Butt Bombs very quickly",
+      "Standing in the creep gives you +1 Damage Up and +1.35 Tears Up",
+      "* Soul of Blue Baby"
+    ]
+  },
+  "card-086": {
+    "nameZh": "夏娃之魂",
+    "pickup": "你亲手犯下的谋杀",
+    "description": "你亲手犯下的谋杀",
+    "effects": [
+      "CardID: 86",
+      "For the current room, 14 Dead Birds fly in from off the screen and attack all enemies, dealing low but frequent damage",
+      "* Soul Stone"
+    ]
+  },
+  "card-087": {
+    "nameZh": "参孙之魂",
+    "pickup": "斩杀千人",
+    "description": "斩杀千人",
+    "effects": [
+      "CardID: 87",
+      "Isaac gains the Berserk! effect for 10 seconds. This gives Isaac a bone sword and he goes on a killing rampage, gaining +0.4 Speed, +3 Flat Damage Up",
+      "* Soul Stone"
+    ]
+  },
+  "card-088": {
+    "nameZh": "亚萨泽尔之魂",
+    "pickup": "恶魔之怒！",
+    "description": "恶魔之怒！",
+    "effects": [
+      "CardID: 88",
+      "Activates the Mega Blast item effect, which gives you a giant laser that deals x5 your tear damage per tick to anything in its path and pushing Isaac back by the force",
+      "The effect lasts for 8 seconds but does persist between rooms",
+      "* Soul Stone"
+    ]
+  },
+  "card-089": {
+    "nameZh": "拉撒路之魂",
+    "pickup": "死后的生命",
+    "description": "死后的生命",
+    "effects": [
+      "CardID: 89",
+      "When used this kills Isaac and revives him with 1/2 a red heart. You get a couple of seconds of invincibility to move away after",
+      "The main benefit of this Soul Stone is that it automatically activates if you die, meaning it is effectively an extra passive life while held",
+      "* Soul Stone"
+    ]
+  },
+  "card-090": {
+    "nameZh": "伊甸之魂",
+    "pickup": "拥抱混乱",
+    "description": "拥抱混乱",
+    "effects": [
+      "CardID: 90",
+      "Activates the D6 and D20 effects, rerolling all items and pickups in the room. Unlike the regular D6, rerolled items can pick from any item pool",
+      "* Soul Stone"
+    ]
+  },
+  "card-091": {
+    "nameZh": "迷失者之魂",
+    "pickup": "留下你的躯壳",
+    "description": "留下你的躯壳",
+    "effects": [
+      "CardID: 91",
+      "When used, Isaac dies and becomes The Lost for the current room. This gives you his ability to fly, and the Holy Mantle effect. However if you take damage a second time you die like the Lost does",
+      "Same effect as touching a white fire, but only lasts one room",
+      "* Soul Stone"
+    ]
+  },
+  "card-092": {
+    "nameZh": "莉莉丝之魂",
+    "pickup": "母性",
+    "description": "母性",
+    "effects": [
+      "CardID: 92",
+      "Gives you 1 random permanent familiar",
+      "* Soul Stone"
+    ]
+  },
+  "card-093": {
+    "nameZh": "守护者之魂",
+    "pickup": "$$$",
+    "description": "$$$",
+    "effects": [
+      "CardID: 93",
+      "Spawns up to 25 random coins on the floor",
+      "* Soul Stone"
+    ]
+  },
+  "card-094": {
+    "nameZh": "阿波利安之魂",
+    "pickup": "灾祸的使者",
+    "description": "灾祸的使者",
+    "effects": [
+      "CardID: 94",
+      "Creates 15 random Locusts",
+      "Locusts are variants of blue flies, except they have special effects based on the color",
+      "War (Red) - Explodes when touching the enemy. The actual explosion deals flat 60 damage",
+      "Pestilence (Green) - Poisons the enemy it attacks",
+      "Famine (Brown) - Applies a slowing effect",
+      "Death (Black) - Deals x4 damage instead of x2",
+      "Conquest (White) - Spawns 2-5 at once",
+      "* Soul Stone"
+    ]
+  },
+  "card-095": {
+    "nameZh": "被遗忘者之魂",
+    "pickup": "骸骨守护者",
+    "description": "骸骨守护者",
+    "effects": [
+      "CardID: 95",
+      "Gives you The Forgotten as a temporary familiar, with 2 Bone hearts and his bone weapon. He behaves the same as how Esau works with Jacob, following your exact movements",
+      "Disappears after the current room or if he takes enough damage and dies",
+      "* Soul Stone"
+    ]
+  },
+  "card-096": {
+    "nameZh": "贝塔妮之魂",
+    "pickup": "来自彼岸的友人",
+    "description": "来自彼岸的友人",
+    "effects": [
+      "CardID: 96",
+      "Creates 6 wisps, similar to the Book of Virtues effect",
+      "Mosts wisps will be the standard blue ones, but have a chance to have random special properties",
+      "* Soul Stone"
+    ]
+  },
+  "card-097": {
+    "nameZh": "雅各与以扫之魂",
+    "pickup": "血亲羁绊",
+    "description": "血亲羁绊",
+    "effects": [
+      "CardID: 97",
+      "Spawns Esau as a temporary familiar, who copies your exact movements the same as how the Jacob & Esau character works",
+      "Disappears after the current room or if he takes enough damage and dies",
+      "* Soul Stone"
+    ]
+  },
+  "card-314": {
+    "nameZh": "黄金电池",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Fully charges your active item when picked up",
+      "Also, you take a full heart of damage when picked up. Doing this will cause this Golden Battery to reappear somewhere else on the floor",
+      "*"
+    ]
+  },
+  "card-315": {
+    "nameZh": "黄金 troll 炸弹",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Spawns similar to regular troll bombs and cannot be picked up",
+      "However, they will explode forever instead of disappearing",
+      "The Safety Scissors trinket will turn this into a gold bomb",
+      "*"
+    ]
+  },
+  "card-316": {
+    "nameZh": "黄金便士",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "When picked up, will respawn again at a random location in the room",
+      "Every time you pick up a golden penny it has a 5% chance to disappear completely",
+      "*"
+    ]
+  },
+  "card-319": {
+    "nameZh": "腐烂之心",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Rotten Hearts fill up a whole container the same as normal red hearts, or the rightmost heart if you're at full health",
+      "Every time you clear a room, you'll spawn 2 Blue Flies for each Rotten Heart you currently have",
+      "*"
+    ]
+  },
+  "card-320": {
+    "nameZh": "黑袋",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Spawns 2-3 pills, black/bone hearts and/or bombs when picked up",
+      "Can spawn in place of a regular sack, including in Shops for 7c",
+      "Only one heart can spawn per sack as a maximum",
+      "*"
+    ]
+  },
+  "card-1004": {
+    "nameZh": "忏悔药丸",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Shot Speed Down - -0.15 shot speed",
+      "Shot Speed Up - +0.15 shot speed",
+      "Experimental Pill - Increases one random stat and decreases another random stat. Amount changed equals the equivalent stat up/down pill. If you have PhD it will only increase one stat",
+      "*"
+    ]
+  },
+  "card-1005": {
+    "nameZh": "金药丸",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "When used gives a random pill effect",
+      "Can be used multiple times, but every time you use it, it has a chance to disappear",
+      "The Gold Pill can spawn as a Horse Pill, which then causes it to give random Horse pill effects",
+      "*"
+    ]
+  },
+  "card-1006": {
+    "nameZh": "马药丸",
+    "pickup": "",
+    "description": "",
+    "effects": [
+      "Horse Pills rarely spawn as larger versions of normal pills with more powerful effects",
+      "Items that synergize with pills also have the same effect with Horse pills",
+      "In general, the effect of a Horse Pill is double the effect of a normal pill i.e. Speed Up will be +0.3 instead of +0.15. Pills with effects that can't necessarily 'double' are stronger, i.e. Pretty Fly gives a Big Fan item rather than a fly orbital",
+      "*"
+    ]
+  }
+}

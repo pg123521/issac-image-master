@@ -1,0 +1,73 @@
+{
+  "status": "passed-with-runtime",
+  "assets": {
+    "RoomCollectibleDetector.mlpackage": {
+      "bytes": 5082622
+    },
+    "MobileCLIPImageEncoderRaw.mlpackage": {
+      "bytes": 23094086
+    }
+  },
+  "searchIndex": {
+    "rows": 943,
+    "dimensions": 512,
+    "maxQuantizationError": 0.00012201070785522461,
+    "meanQuantizationError": 5.50823688172386e-06,
+    "top1Agreement": 1.0,
+    "top10SetAgreement": 1.0
+  },
+  "coreML": {
+    "encoderContract": {
+      "inputs": [
+        {
+          "name": "image",
+          "type": "imageType",
+          "width": 256,
+          "height": 256
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embedding",
+          "type": "multiArrayType",
+          "shape": [
+            1,
+            512
+          ]
+        }
+      ]
+    },
+    "detectorContract": {
+      "inputs": [
+        {
+          "name": "image",
+          "type": "imageType",
+          "width": 1024,
+          "height": 1024
+        }
+      ],
+      "outputs": [
+        {
+          "name": "var_1440",
+          "type": "multiArrayType",
+          "shape": [
+            1,
+            300,
+            6
+          ]
+        }
+      ]
+    },
+    "runtime": {
+      "available": true,
+      "encoderMaxAbsoluteError": 0.02540752850472927,
+      "encoderCosineSimilarity": 0.9925968647003174
+    }
+  },
+  "detectorBaseline": {
+    "targets": 6,
+    "matched": 6,
+    "recall": 1.0,
+    "falsePositives": 41
+  }
+}

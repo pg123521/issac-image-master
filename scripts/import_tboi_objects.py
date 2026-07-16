@@ -22,6 +22,8 @@ SOURCE_DIR = PROJECT_ROOT / "data" / "sources" / "tboi"
 OUTPUT_JSON = PROJECT_ROOT / "data" / "objects.en.json"
 ICON_DIR = PROJECT_ROOT / "public" / "objects" / "icons"
 ICECAT_ITEMS_JSON = PROJECT_ROOT / "data" / "items.zh-CN.json"
+GENERATED_TRANSLATIONS_JSON = PROJECT_ROOT / "data" / "translations" / "objects.qwen3.5.zh-CN.json"
+MANUAL_TRANSLATIONS_JSON = PROJECT_ROOT / "data" / "translations" / "objects.manual.zh-CN.json"
 
 
 SPRITES = {
@@ -70,13 +72,12 @@ def main() -> int:
       args.offline,
     )
   )
-  icecat_name_icons = parse_icecat_name_icons(
-    read_or_fetch_text(
-      "https://issac-icecat.azurewebsites.net/",
-      SOURCE_DIR / "icecat-index.html",
-      args.offline,
-    )
+  icecat_html = read_or_fetch_text(
+    "https://issac-icecat.azurewebsites.net/",
+    SOURCE_DIR / "icecat-index.html",
+    args.offline,
   )
+  icecat_name_icons = parse_icecat_name_icons(icecat_html)
   objects = parse_objects(html_text)
   if args.limit:
     objects = objects[: args.limit]
@@ -101,6 +102,9 @@ def main() -> int:
     imported.append(obj)
 
   imported = merge_icecat_items(dedupe_objects(imported))
+  imported = merge_icecat_localizations(imported, parse_icecat_localizations(icecat_html))
+  imported = merge_generated_translations(imported)
+  imported = merge_translation_file(imported, MANUAL_TRANSLATIONS_JSON)
   imported.sort(key=lambda entry: (kind_order(entry["kind"]), entry["gameId"], entry["nameEn"]))
   remove_unreferenced_icons(imported)
   OUTPUT_JSON.write_text(json.dumps(imported, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -322,6 +326,60 @@ def parse_icecat_name_icons(text: str) -> dict[str, str]:
   return out
 
 
+def parse_icecat_localizations(text: str) -> dict[tuple[str, str], dict]:
+  localizations: dict[tuple[str, str], dict] = {}
+  for _, body in re.findall(r'<li class="textbox[^>]*"([^>]*)>(.*?)</li>', text, flags=re.S):
+    icon_match = re.search(r'<div[^>]+class=["\']([^"\']+)["\']', body)
+    if not icon_match:
+      continue
+    classes = icon_match.group(1).split()
+    if any("trinket" in class_name for class_name in classes):
+      kind = "trinket"
+    elif any("card" in class_name for class_name in classes):
+      kind = "card"
+    elif any("item" in class_name for class_name in classes):
+      kind = "item"
+    else:
+      continue
+
+    titles_zh = p_texts(body, "item-title")
+    titles_en = p_texts(body, "item-title2")
+    if not titles_zh:
+      continue
+    name_zh = titles_zh[0]
+    name_en = titles_en[0] if titles_en else (titles_zh[1] if len(titles_zh) > 1 else "")
+    if not name_en or not re.search(r"[A-Za-z]", name_en):
+      continue
+    pickup = first_p(body, "pickup")
+    effects = []
+    for attrs, content in re.findall(r"<p([^>]*)>(.*?)</p>", body, flags=re.S):
+      class_match = re.search(r'class=["\']([^"\']+)["\']', attrs)
+      paragraph_classes = set(class_match.group(1).split()) if class_match else set()
+      if paragraph_classes.intersection({"item-title", "item-title2", "pickup", "tags", "r-itemid"}):
+        continue
+      value = normalize(strip_tags(content)).removeprefix("•").strip()
+      if value and re.search(r"[\u4e00-\u9fff]", value):
+        effects.append(value)
+    localizations[(kind, name_key(name_en))] = {
+      "nameZh": name_zh,
+      "pickup": pickup,
+      "description": pickup,
+      "effects": effects,
+    }
+  return localizations
+
+
+def p_texts(body: str, class_name: str) -> list[str]:
+  return [
+    normalize(strip_tags(content))
+    for content in re.findall(
+      rf'<p class=["\']{re.escape(class_name)}["\']>(.*?)</p>',
+      body,
+      flags=re.S,
+    )
+  ]
+
+
 def extract_px(declaration: str, prop: str) -> int | None:
   match = re.search(rf"(?:^|;){re.escape(prop)}:(-?\d+)px", declaration)
   if not match:
@@ -438,6 +496,49 @@ def merge_icecat_items(objects: list[dict]) -> list[dict]:
         "tags": icecat.get("tags", obj["tags"]),
         "iconPath": icecat.get("iconPath", obj["iconPath"]),
         "sourceName": f"{icecat.get('sourceName', 'IcaCat 以撒图鉴')} + Platinum God",
+      }
+    merged.append(obj)
+  return merged
+
+
+def merge_icecat_localizations(
+  objects: list[dict],
+  localizations: dict[tuple[str, str], dict],
+) -> list[dict]:
+  merged = []
+  for obj in objects:
+    localization = localizations.get((obj["kind"], name_key(obj["nameEn"])))
+    if localization:
+      obj = {
+        **obj,
+        "nameZh": localization["nameZh"] or obj["nameZh"],
+        "pickup": localization["pickup"] or obj["pickup"],
+        "description": localization["description"] or obj["description"],
+        "effects": localization["effects"] or obj["effects"],
+        "sourceName": f"IcaCat 以撒图鉴 + {obj['sourceName']}",
+      }
+    merged.append(obj)
+  return merged
+
+
+def merge_generated_translations(objects: list[dict]) -> list[dict]:
+  return merge_translation_file(objects, GENERATED_TRANSLATIONS_JSON)
+
+
+def merge_translation_file(objects: list[dict], path: Path) -> list[dict]:
+  if not path.exists():
+    return objects
+  translations = json.loads(path.read_text(encoding="utf-8"))
+  merged = []
+  for obj in objects:
+    translated = translations.get(obj["id"])
+    if translated:
+      obj = {
+        **obj,
+        "nameZh": translated.get("nameZh") or obj["nameZh"],
+        "pickup": translated.get("pickup") or obj["pickup"],
+        "description": translated.get("description") or obj["description"],
+        "effects": translated.get("effects") or obj["effects"],
       }
     merged.append(obj)
   return merged

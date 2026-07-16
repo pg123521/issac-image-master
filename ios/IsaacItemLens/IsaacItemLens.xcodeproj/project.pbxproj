@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F6F082E831BAC45D8AB7595 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498487D8D8416969675A4A95 /* ItemDetailView.swift */; };
+		0FA095E40C0EFEAD0936A98E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A846DC414FED2854FEE7C748 /* ContentView.swift */; };
+		1430C75962BE66ECB2AA748B /* item-vectors.json in Resources */ = {isa = PBXBuildFile; fileRef = 63A69F960997E9A5CBCAD913 /* item-vectors.json */; };
+		17471280ADB16ABF9BE9EBA0 /* objects in Resources */ = {isa = PBXBuildFile; fileRef = C0B42499C44D16200FDFDBC1 /* objects */; };
+		2A7BE3AC393AE9EA1DEAF006 /* DetectionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDF521BE45467C4373364E /* DetectionDialog.swift */; };
+		402E35DB266304117D22FF5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD5D742DDC090A108D0675F /* Assets.xcassets */; };
+		53AD8EE7829A0A47E3E65DC1 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8912A1BF15F9E832FD57B62A /* ImageUtilities.swift */; };
+		64B03C40DFC999791CFCD641 /* IsaacItemLensApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E103C19924CE194B095AD /* IsaacItemLensApp.swift */; };
+		689939576608CEE37B8A3915 /* IsaacModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBBE4E4DBCC3D74F6C8389B /* IsaacModels.swift */; };
+		6C409EB4CDD73130B1E6811D /* CandidatePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A32FEC94F77F679AB1CBBB /* CandidatePanel.swift */; };
+		7984FFC4DC1C9C0CE191792C /* CoreMLModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244C429AB955059E5D22D069 /* CoreMLModelLoader.swift */; };
+		86A30C63AE218CE56ADC41C7 /* IsaacLensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A968494B51AE842730C5435 /* IsaacLensViewModel.swift */; };
+		949F0B7DD280A0DC0F7A1BBF /* item-vectors.f16 in Resources */ = {isa = PBXBuildFile; fileRef = 8A4DB0AAC4242376060C3F13 /* item-vectors.f16 */; };
+		C2CD4FB276252A5A60920854 /* MobileCLIPImageEncoderRaw.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = 0DF3AAB623CA8B41888294B9 /* MobileCLIPImageEncoderRaw.mlpackage */; };
+		D0910FC3D530FCEE747830B0 /* items in Resources */ = {isa = PBXBuildFile; fileRef = D1AC323863E193846D76BABA /* items */; };
+		D2EC79F293F2FE635F59CB34 /* ItemSearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62138D1191AA45D953A9A4B5 /* ItemSearchEngine.swift */; };
+		E8E9A8FDA29D398F255C7459 /* CollectibleDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEA953F54E5CE6645FE108 /* CollectibleDetector.swift */; };
+		EF7B79DC9B32619820563E87 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95325B3B99B4A3265F28ADB /* ItemRepository.swift */; };
+		F3CCA6F858B1EA76646EE5A8 /* RoomCollectibleDetector.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = A3E71F1D9FCD536C8EA0729D /* RoomCollectibleDetector.mlpackage */; };
+		FC3A2218051391A0C0572275 /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = BD099417CE23CFD3018D7B0F /* objects.json */; };
+		FD5277A9C1C0C0943C9B3A93 /* ScreenshotCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62984B0045B0BC6142EC6A5 /* ScreenshotCanvas.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0DF3AAB623CA8B41888294B9 /* MobileCLIPImageEncoderRaw.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = MobileCLIPImageEncoderRaw.mlpackage; sourceTree = "<group>"; };
+		17A32FEC94F77F679AB1CBBB /* CandidatePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatePanel.swift; sourceTree = "<group>"; };
+		202DB69893B7328C62E0D1C8 /* Isaac Item Lens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Isaac Item Lens.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		244C429AB955059E5D22D069 /* CoreMLModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLModelLoader.swift; sourceTree = "<group>"; };
+		349E103C19924CE194B095AD /* IsaacItemLensApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsaacItemLensApp.swift; sourceTree = "<group>"; };
+		498487D8D8416969675A4A95 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		62138D1191AA45D953A9A4B5 /* ItemSearchEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchEngine.swift; sourceTree = "<group>"; };
+		63A69F960997E9A5CBCAD913 /* item-vectors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "item-vectors.json"; sourceTree = "<group>"; };
+		8912A1BF15F9E832FD57B62A /* ImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
+		8A4DB0AAC4242376060C3F13 /* item-vectors.f16 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "item-vectors.f16"; sourceTree = "<group>"; };
+		9A968494B51AE842730C5435 /* IsaacLensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsaacLensViewModel.swift; sourceTree = "<group>"; };
+		9FEEA953F54E5CE6645FE108 /* CollectibleDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectibleDetector.swift; sourceTree = "<group>"; };
+		A3DDF521BE45467C4373364E /* DetectionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionDialog.swift; sourceTree = "<group>"; };
+		A3E71F1D9FCD536C8EA0729D /* RoomCollectibleDetector.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = RoomCollectibleDetector.mlpackage; sourceTree = "<group>"; };
+		A846DC414FED2854FEE7C748 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD099417CE23CFD3018D7B0F /* objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = objects.json; sourceTree = "<group>"; };
+		C0B42499C44D16200FDFDBC1 /* objects */ = {isa = PBXFileReference; lastKnownFileType = folder; name = objects; path = App/Resources/objects; sourceTree = SOURCE_ROOT; };
+		D1AC323863E193846D76BABA /* items */ = {isa = PBXFileReference; lastKnownFileType = folder; name = items; path = App/Resources/items; sourceTree = SOURCE_ROOT; };
+		E95325B3B99B4A3265F28ADB /* ItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
+		F62984B0045B0BC6142EC6A5 /* ScreenshotCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCanvas.swift; sourceTree = "<group>"; };
+		FDD5D742DDC090A108D0675F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEBBE4E4DBCC3D74F6C8389B /* IsaacModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsaacModels.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		13D862123E84E902F1E9722A = {
+			isa = PBXGroup;
+			children = (
+				D1AC323863E193846D76BABA /* items */,
+				C0B42499C44D16200FDFDBC1 /* objects */,
+				735569282FF7C5D4422384F0 /* App */,
+				CFD756647A68305DA197E25B /* output */,
+				6222B366A433D5BAA6942898 /* Resources */,
+				51DA82B270DE3C8631FCC4B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		51DA82B270DE3C8631FCC4B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				202DB69893B7328C62E0D1C8 /* Isaac Item Lens.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6222B366A433D5BAA6942898 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A4DB0AAC4242376060C3F13 /* item-vectors.f16 */,
+				63A69F960997E9A5CBCAD913 /* item-vectors.json */,
+				BD099417CE23CFD3018D7B0F /* objects.json */,
+			);
+			name = Resources;
+			path = App/Resources;
+			sourceTree = "<group>";
+		};
+		735569282FF7C5D4422384F0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FDD5D742DDC090A108D0675F /* Assets.xcassets */,
+				A846DC414FED2854FEE7C748 /* ContentView.swift */,
+				349E103C19924CE194B095AD /* IsaacItemLensApp.swift */,
+				9A968494B51AE842730C5435 /* IsaacLensViewModel.swift */,
+				F347CAC66E5F2CEB14F62A0A /* Models */,
+				D2F233ABA350225719D834E4 /* Services */,
+				8871985D95829972C93E6E11 /* Views */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8871985D95829972C93E6E11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17A32FEC94F77F679AB1CBBB /* CandidatePanel.swift */,
+				A3DDF521BE45467C4373364E /* DetectionDialog.swift */,
+				498487D8D8416969675A4A95 /* ItemDetailView.swift */,
+				F62984B0045B0BC6142EC6A5 /* ScreenshotCanvas.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CFD756647A68305DA197E25B /* output */ = {
+			isa = PBXGroup;
+			children = (
+				0DF3AAB623CA8B41888294B9 /* MobileCLIPImageEncoderRaw.mlpackage */,
+				A3E71F1D9FCD536C8EA0729D /* RoomCollectibleDetector.mlpackage */,
+			);
+			name = output;
+			path = ../ModelConversion/output;
+			sourceTree = "<group>";
+		};
+		D2F233ABA350225719D834E4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9FEEA953F54E5CE6645FE108 /* CollectibleDetector.swift */,
+				244C429AB955059E5D22D069 /* CoreMLModelLoader.swift */,
+				8912A1BF15F9E832FD57B62A /* ImageUtilities.swift */,
+				E95325B3B99B4A3265F28ADB /* ItemRepository.swift */,
+				62138D1191AA45D953A9A4B5 /* ItemSearchEngine.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F347CAC66E5F2CEB14F62A0A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FEBBE4E4DBCC3D74F6C8389B /* IsaacModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE57B826A888ECBCE7E84F61 /* IsaacItemLens */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FE24A54FD1ED1368D0E5F64 /* Build configuration list for PBXNativeTarget "IsaacItemLens" */;
+			buildPhases = (
+				D87422305A3A87701FE09F3E /* Sources */,
+				812091B95E55442CDB46E168 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IsaacItemLens;
+			packageProductDependencies = (
+			);
+			productName = IsaacItemLens;
+			productReference = 202DB69893B7328C62E0D1C8 /* Isaac Item Lens.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3DF1893FDC8E4D100B15F11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					AE57B826A888ECBCE7E84F61 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 683A49F8E85FFA339CEC3370 /* Build configuration list for PBXProject "IsaacItemLens" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 13D862123E84E902F1E9722A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 51DA82B270DE3C8631FCC4B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE57B826A888ECBCE7E84F61 /* IsaacItemLens */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		812091B95E55442CDB46E168 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				402E35DB266304117D22FF5C /* Assets.xcassets in Resources */,
+				C2CD4FB276252A5A60920854 /* MobileCLIPImageEncoderRaw.mlpackage in Resources */,
+				F3CCA6F858B1EA76646EE5A8 /* RoomCollectibleDetector.mlpackage in Resources */,
+				949F0B7DD280A0DC0F7A1BBF /* item-vectors.f16 in Resources */,
+				1430C75962BE66ECB2AA748B /* item-vectors.json in Resources */,
+				D0910FC3D530FCEE747830B0 /* items in Resources */,
+				17471280ADB16ABF9BE9EBA0 /* objects in Resources */,
+				FC3A2218051391A0C0572275 /* objects.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D87422305A3A87701FE09F3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C409EB4CDD73130B1E6811D /* CandidatePanel.swift in Sources */,
+				E8E9A8FDA29D398F255C7459 /* CollectibleDetector.swift in Sources */,
+				0FA095E40C0EFEAD0936A98E /* ContentView.swift in Sources */,
+				7984FFC4DC1C9C0CE191792C /* CoreMLModelLoader.swift in Sources */,
+				2A7BE3AC393AE9EA1DEAF006 /* DetectionDialog.swift in Sources */,
+				53AD8EE7829A0A47E3E65DC1 /* ImageUtilities.swift in Sources */,
+				64B03C40DFC999791CFCD641 /* IsaacItemLensApp.swift in Sources */,
+				86A30C63AE218CE56ADC41C7 /* IsaacLensViewModel.swift in Sources */,
+				689939576608CEE37B8A3915 /* IsaacModels.swift in Sources */,
+				0F6F082E831BAC45D8AB7595 /* ItemDetailView.swift in Sources */,
+				EF7B79DC9B32619820563E87 /* ItemRepository.swift in Sources */,
+				D2EC79F293F2FE635F59CB34 /* ItemSearchEngine.swift in Sources */,
+				FD5277A9C1C0C0943C9B3A93 /* ScreenshotCanvas.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		59495AE785F870C2AA02E8FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = TFJZHWUZ84;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Isaac Item Lens";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.panmingyang.isaacitemlens.dev2026;
+				PRODUCT_NAME = "Isaac Item Lens";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8FCE76B78D5FAEF900B8BDC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFF665B068707F9A56C231C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = TFJZHWUZ84;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Isaac Item Lens";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.panmingyang.isaacitemlens.dev2026;
+				PRODUCT_NAME = "Isaac Item Lens";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD39EA965AF3FF7BE606C176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FE24A54FD1ED1368D0E5F64 /* Build configuration list for PBXNativeTarget "IsaacItemLens" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFF665B068707F9A56C231C7 /* Debug */,
+				59495AE785F870C2AA02E8FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		683A49F8E85FFA339CEC3370 /* Build configuration list for PBXProject "IsaacItemLens" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FCE76B78D5FAEF900B8BDC4 /* Debug */,
+				CD39EA965AF3FF7BE606C176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3DF1893FDC8E4D100B15F11 /* Project object */;
+}

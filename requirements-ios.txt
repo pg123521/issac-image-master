@@ -1,0 +1,3 @@
+coremltools==9.0
+-r requirements-mobileclip.txt
+-r requirements-detector.txt
