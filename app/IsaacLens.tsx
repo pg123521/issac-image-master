@@ -151,7 +151,8 @@ export function IsaacLens() {
       setLoadLabel("正在下载本地识别模型");
       setStatus("首次加载本地模型…");
       await Promise.all([
-        getModel((progress) => {
+        getModel((progress, phase) => {
+          setLoadLabel(phase === "initializing" ? "正在初始化本地识别" : "正在下载本地识别模型");
           setLoadProgress(Math.max(1, Math.round(progress * 90)));
         }),
         getIndex(),
@@ -467,46 +468,42 @@ function SelectionPreview({
   return <canvas ref={canvasRef} width={48} height={48} />;
 }
 
-async function getModel(onProgress?: (progress: number) => void) {
+async function getModel(onProgress?: (progress: number, phase: "downloading" | "initializing") => void) {
   if (!modelPromise) {
     ort.env.wasm.numThreads = 1;
     ort.env.wasm.proxy = false;
-    modelPromise = fetchBinaryWithProgress(MODEL_URL, onProgress).then((model) =>
-      ort.InferenceSession.create(model, {
+    modelPromise = fetchBinaryWithProgress(MODEL_URL, (progress) => onProgress?.(progress, "downloading")).then((model) => {
+      onProgress?.(1, "initializing");
+      return ort.InferenceSession.create(model, {
         executionProviders: ["wasm"],
         graphOptimizationLevel: "all",
-      }),
-    );
+      });
+    });
   }
   return modelPromise;
 }
 
 async function fetchBinaryWithProgress(url: string, onProgress?: (progress: number) => void) {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const total = Number(response.headers.get("content-length")) || 0;
-  if (!response.body || total <= 0) {
-    const buffer = await response.arrayBuffer();
-    onProgress?.(1);
-    return new Uint8Array(buffer);
-  }
-  const reader = response.body.getReader();
-  const chunks: Uint8Array[] = [];
-  let received = 0;
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    chunks.push(value);
-    received += value.byteLength;
-    onProgress?.(Math.min(1, received / total));
-  }
-  const result = new Uint8Array(received);
-  let offset = 0;
-  for (const chunk of chunks) {
-    result.set(chunk, offset);
-    offset += chunk.byteLength;
-  }
-  return result;
+  return new Promise<Uint8Array>((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.responseType = "arraybuffer";
+    request.timeout = 120_000;
+    request.onprogress = (event) => {
+      if (event.lengthComputable && event.total > 0) onProgress?.(Math.min(1, event.loaded / event.total));
+    };
+    request.onload = () => {
+      if (request.status < 200 || request.status >= 300 || !(request.response instanceof ArrayBuffer)) {
+        reject(new Error(`HTTP ${request.status}`));
+        return;
+      }
+      onProgress?.(1);
+      resolve(new Uint8Array(request.response));
+    };
+    request.onerror = () => reject(new Error("模型下载失败"));
+    request.ontimeout = () => reject(new Error("模型下载超时"));
+    request.send();
+  });
 }
 
 async function getIndex() {

@@ -1,6 +1,6 @@
-const CACHE = "isaac-item-lens-v1";
+const CACHE = "isaac-item-lens-v2";
 const BASE = self.registration.scope;
-const CORE = ["", "manifest.webmanifest", "models/mobileclip-image-encoder.onnx", "models/item-vectors.f16", "models/item-vectors.json"]
+const CORE = ["", "manifest.webmanifest", "icon-192.png"]
   .map((path) => new URL(path, BASE).toString());
 
 self.addEventListener("install", (event) => {
@@ -17,6 +17,18 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE).then((cache) => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;

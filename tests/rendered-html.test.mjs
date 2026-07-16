@@ -45,6 +45,7 @@ test("browser client uses local ONNX inference and contains no detector endpoint
   assert.match(source, /单指拖动 · 双指缩放 · 点击选取/);
   assert.match(source, /首次运行需要下载约 46MB/);
   assert.match(source, /fetchBinaryWithProgress/);
+  assert.match(source, /XMLHttpRequest/);
   assert.match(source, /candidateDisplayLimit/);
   assert.doesNotMatch(source, /\/detect|predict-batch|127\.0\.0\.1/);
 });
