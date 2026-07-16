@@ -48,7 +48,7 @@ label { touch-action: manipulation; }
   border-bottom: 1px solid var(--line);
   display: grid;
   gap: 12px;
-  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
   padding: max(10px, env(safe-area-inset-top)) 12px 10px;
   position: relative;
   z-index: 4;
@@ -60,7 +60,7 @@ label { touch-action: manipulation; }
 }
 
 .app-title strong { font-size: 17px; }
-.bar-actions { display: flex; justify-content: flex-end; }
+.bar-actions { display: flex; gap: 8px; justify-content: flex-end; }
 
 .icon-button {
   align-items: center;
@@ -78,6 +78,11 @@ label { touch-action: manipulation; }
 
 .icon-button:disabled { opacity: 0; pointer-events: none; }
 .upload-button { color: #55aefb; font-size: 28px; }
+.install-button {
+  color: var(--yellow);
+  font-size: 22px;
+  font-weight: 800;
+}
 .upload-button input,
 .empty-upload input { display: none; }
 
@@ -520,6 +525,52 @@ label { touch-action: manipulation; }
   font-size: 11px;
   margin: 16px 0 0;
   padding-top: 12px;
+}
+
+.install-dialog {
+  background: #202227;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.62);
+  max-width: 390px;
+  padding: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.install-mark {
+  align-items: center;
+  background: rgba(255, 213, 31, 0.12);
+  border: 1px solid rgba(255, 213, 31, 0.34);
+  border-radius: 12px;
+  color: var(--yellow);
+  display: flex;
+  font-size: 30px;
+  height: 52px;
+  justify-content: center;
+  width: 52px;
+}
+
+.install-dialog h2 {
+  font-size: 21px;
+  margin: 16px 0 0;
+}
+
+.install-dialog ol {
+  color: #e7e4dc;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 16px 0 0;
+  padding-left: 23px;
+}
+
+.install-dialog li { margin-bottom: 8px; }
+
+.install-dialog p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 14px 0 0;
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }

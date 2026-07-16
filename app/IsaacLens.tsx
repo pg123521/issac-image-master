@@ -41,6 +41,10 @@ type Match = {
 type Point = { x: number; y: number };
 type Selection = { x: number; y: number };
 type DragMode = "pan" | "selection";
+type InstallPromptEvent = Event & {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
+};
 
 const BASE_URL = import.meta.env.BASE_URL || "/";
 const MODEL_URL = `${BASE_URL}models/mobileclip-image-encoder.onnx`;
@@ -85,6 +89,9 @@ export function IsaacLens() {
   const [modelReady, setModelReady] = useState(false);
   const [loadProgress, setLoadProgress] = useState<number | null>(null);
   const [loadLabel, setLoadLabel] = useState("准备本地模型");
+  const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
+  const [showInstallHelp, setShowInstallHelp] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
 
   const baseScale = Math.min(stageSize.width / imageSize.width, stageSize.height / imageSize.height);
   const renderedScale = baseScale * zoom;
@@ -106,6 +113,15 @@ export function IsaacLens() {
       if (Number.isFinite(saved)) setCandidateLimit(Math.min(50, Math.max(1, saved)));
     }
     if ("serviceWorker" in navigator) navigator.serviceWorker.register(`${BASE_URL}sw.js`).catch(() => undefined);
+    const standalone = window.matchMedia("(display-mode: standalone)").matches
+      || Boolean((navigator as Navigator & { standalone?: boolean }).standalone);
+    setIsInstalled(standalone);
+    const captureInstallPrompt = (event: Event) => {
+      event.preventDefault();
+      setInstallPrompt(event as InstallPromptEvent);
+    };
+    window.addEventListener("beforeinstallprompt", captureInstallPrompt);
+    return () => window.removeEventListener("beforeinstallprompt", captureInstallPrompt);
   }, []);
 
   useEffect(() => {
@@ -316,6 +332,17 @@ export function IsaacLens() {
     setStatus("上传截图以识别物品");
   }
 
+  async function installToHomeScreen() {
+    if (!installPrompt) {
+      setShowInstallHelp(true);
+      return;
+    }
+    await installPrompt.prompt();
+    const choice = await installPrompt.userChoice;
+    if (choice.outcome === "accepted") setIsInstalled(true);
+    setInstallPrompt(null);
+  }
+
   return (
     <main className="lens-app">
       <header className="app-bar">
@@ -324,12 +351,51 @@ export function IsaacLens() {
           <strong>Isaac Item Lens</strong>
         </div>
         <div className="bar-actions">
+          {!isInstalled && (
+            <button
+              className="icon-button install-button"
+              type="button"
+              aria-label="添加到桌面"
+              title="添加到桌面"
+              onClick={installToHomeScreen}
+            >
+              ⇩
+            </button>
+          )}
           <label className="icon-button upload-button" aria-label={imageUrl ? "换一张图" : "上传截图"}>
             <input type="file" accept="image/*" onChange={handleFile} />
             {imageUrl ? "↻" : "+"}
           </label>
         </div>
       </header>
+
+      {showInstallHelp && (
+        <div className="item-detail-backdrop" role="presentation" onClick={() => setShowInstallHelp(false)}>
+          <section
+            className="install-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="install-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className="detail-close"
+              type="button"
+              aria-label="关闭安装说明"
+              onClick={() => setShowInstallHelp(false)}
+            >
+              ×
+            </button>
+            <div className="install-mark">⇧</div>
+            <h2 id="install-title">添加到主屏幕</h2>
+            <ol>
+              <li>点击 Safari 底部的“分享”按钮</li>
+              <li>选择“添加到主屏幕”，然后点击“添加”</li>
+            </ol>
+            <p>添加后可像普通 App 一样从桌面打开，模型缓存完成后也可离线使用。</p>
+          </section>
+        </div>
+      )}
 
       {selectedItem && (
         <div className="item-detail-backdrop" role="presentation" onClick={() => setSelectedItem(null)}>
