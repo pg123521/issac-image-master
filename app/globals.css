@@ -21,6 +21,7 @@ body {
   margin: 0;
   min-height: 100%;
   overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -31,6 +32,8 @@ button,
 input { font: inherit; }
 
 button { color: inherit; }
+button,
+label { touch-action: manipulation; }
 
 .lens-app {
   display: grid;
@@ -57,7 +60,6 @@ button { color: inherit; }
 }
 
 .app-title strong { font-size: 17px; }
-.app-title span { color: var(--muted); font-size: 11px; margin-top: 2px; }
 .bar-actions { display: flex; justify-content: flex-end; }
 
 .icon-button {
@@ -282,7 +284,10 @@ button { color: inherit; }
 .candidate-panel {
   background: rgba(31, 32, 36, 0.98);
   border-top: 1px solid var(--line);
+  min-width: 0;
+  overflow: hidden;
   padding: 10px 12px max(10px, env(safe-area-inset-bottom));
+  width: 100%;
 }
 
 .candidate-heading {
@@ -331,6 +336,7 @@ button { color: inherit; }
   background: transparent;
   border: 0;
   color: #4ba9ff;
+  font-size: 16px;
   font-weight: 750;
   outline: 0;
   text-align: center;
@@ -354,9 +360,13 @@ button { color: inherit; }
   margin-top: 10px;
   min-height: 78px;
   overflow-x: auto;
+  max-width: 100%;
   overscroll-behavior-x: contain;
   padding-bottom: 2px;
   scrollbar-width: none;
+  touch-action: pan-x;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .candidate-strip::-webkit-scrollbar { display: none; }
@@ -373,6 +383,7 @@ button { color: inherit; }
   justify-content: center;
   padding: 5px;
   color: inherit;
+  touch-action: pan-x;
 }
 
 .candidate-card img {

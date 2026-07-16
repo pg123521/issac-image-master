@@ -322,7 +322,6 @@ export function IsaacLens() {
         <button className="icon-button" type="button" disabled={!imageUrl} onClick={closeImage} aria-label="退出当前截图">×</button>
         <div className="app-title">
           <strong>Isaac Item Lens</strong>
-          <span>离线物品识别</span>
         </div>
         <div className="bar-actions">
           <label className="icon-button upload-button" aria-label={imageUrl ? "换一张图" : "上传截图"}>
