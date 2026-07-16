@@ -3,7 +3,7 @@ import { IsaacLens } from "./IsaacLens";
 
 export const metadata: Metadata = {
   title: "Isaac Item Lens",
-  description: "离线识别《以撒的结合》截图中的道具候选并查询本地百科。",
+  description: "在 iPhone 浏览器中离线识别截图里的物品候选。",
 };
 
 export default function Home() {

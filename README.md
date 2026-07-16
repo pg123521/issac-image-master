@@ -158,3 +158,30 @@ pnpm run build
 curl http://127.0.0.1:8766/health
 curl http://127.0.0.1:8767/health
 ```
+# Isaac Item Lens
+
+## 浏览器离线版
+
+当前网页版本不包含目标检测。用户上传截图后，通过单指拖动、双指缩放和手动选框确定物品区域；MobileCLIP 编码模型和 1020 项向量索引均在浏览器本地运行，图片不会上传。
+
+首次打开需要下载约 46 MB 的模型文件，之后由 PWA 缓存。iPhone 用户可以在 Safari 中选择“分享 → 添加到主屏幕”。
+
+GitHub Pages 地址：
+
+```text
+https://pg123521.github.io/issac-image-master/
+```
+
+```bash
+pnpm run build
+pnpm run build:pages
+pnpm test
+```
+
+模型由以下命令从当前微调权重导出：
+
+```bash
+.venv-train/bin/python scripts/export_web_encoder.py
+```
+
+导出脚本会同时校验 PyTorch 与 ONNX 输出的一致性，并复制当前 iOS App 使用的完整向量索引。

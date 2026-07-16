@@ -3,10 +3,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Isaac Item Lens",
-  description: "Offline screenshot item recognition prototype for The Binding of Isaac.",
+  description: "完全在浏览器本地运行的截图物品识别工具。",
+  manifest: "/manifest.webmanifest",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/icon-192.png",
+    apple: "/icon-192.png",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Item Lens",
   },
 };
 

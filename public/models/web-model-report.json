@@ -1,0 +1,9 @@
+{
+  "model": "MobileCLIP2-S0",
+  "weights": "mobileclip-partial-v2.pt",
+  "input": "1x3x256x256 RGB float32 in 0...1, NCHW",
+  "output": "1x512 raw float32 embedding; L2-normalize in browser",
+  "maxAbsoluteError": 3.8743019104003906e-07,
+  "cosineSimilarity": 0.9999999403953552,
+  "sizeBytes": 45817608
+}

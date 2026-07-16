@@ -1,0 +1,22 @@
+{
+  "name": "Isaac Item Lens",
+  "short_name": "Item Lens",
+  "description": "完全在设备本地运行的截图物品识别工具",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#101113",
+  "theme_color": "#101113",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
