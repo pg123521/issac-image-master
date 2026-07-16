@@ -47,5 +47,7 @@ test("browser client uses local ONNX inference and contains no detector endpoint
   assert.match(source, /fetchBinaryWithProgress/);
   assert.match(source, /XMLHttpRequest/);
   assert.match(source, /candidateDisplayLimit/);
+  assert.match(source, /candidateDisplayLimitV2/);
+  assert.match(source, /item-detail-dialog/);
   assert.doesNotMatch(source, /\/detect|predict-batch|127\.0\.0\.1/);
 });

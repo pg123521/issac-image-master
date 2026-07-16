@@ -19,6 +19,12 @@ type IndexedObject = {
   nameZh: string;
   nameEn: string;
   iconPath: string;
+  pickup?: string;
+  description?: string;
+  effects?: string[];
+  type?: string;
+  pools?: string[];
+  sourceName?: string;
 };
 
 type IndexMetadata = {
@@ -40,6 +46,7 @@ const BASE_URL = import.meta.env.BASE_URL || "/";
 const MODEL_URL = `${BASE_URL}models/mobileclip-image-encoder.onnx`;
 const VECTOR_URL = `${BASE_URL}models/item-vectors.f16`;
 const METADATA_URL = `${BASE_URL}models/item-vectors.json`;
+const OBJECTS_URL = `${BASE_URL}models/objects.json`;
 const MIN_ZOOM = 0.35;
 const MAX_ZOOM = 12;
 const MIN_BOX = 24;
@@ -71,7 +78,8 @@ export function IsaacLens() {
   const [selection, setSelection] = useState<Selection | null>(null);
   const [boxSize, setBoxSize] = useState(82);
   const [matches, setMatches] = useState<Match[]>([]);
-  const [candidateLimit, setCandidateLimit] = useState(15);
+  const [candidateLimit, setCandidateLimit] = useState(20);
+  const [selectedItem, setSelectedItem] = useState<IndexedObject | null>(null);
   const [status, setStatus] = useState("上传截图以识别物品");
   const [isSearching, setIsSearching] = useState(false);
   const [modelReady, setModelReady] = useState(false);
@@ -92,7 +100,7 @@ export function IsaacLens() {
     : null;
 
   useEffect(() => {
-    const saved = Number(localStorage.getItem("candidateDisplayLimit"));
+    const saved = Number(localStorage.getItem("candidateDisplayLimitV2"));
     if (Number.isFinite(saved)) setCandidateLimit(Math.min(50, Math.max(1, saved)));
     if ("serviceWorker" in navigator) navigator.serviceWorker.register(`${BASE_URL}sw.js`).catch(() => undefined);
   }, []);
@@ -138,6 +146,7 @@ export function IsaacLens() {
       setZoom(1);
       setPan({ x: 0, y: 0 });
       setSelection(null);
+      setSelectedItem(null);
       setMatches([]);
       setStatus("点击图片中的物品进行手动选取");
       void warmModel();
@@ -289,7 +298,7 @@ export function IsaacLens() {
   function updateCandidateLimit(value: number) {
     const next = clamp(Math.round(value), 1, 50);
     setCandidateLimit(next);
-    localStorage.setItem("candidateDisplayLimit", String(next));
+    localStorage.setItem("candidateDisplayLimitV2", String(next));
   }
 
   function closeImage() {
@@ -299,6 +308,7 @@ export function IsaacLens() {
     imageRef.current = null;
     setImageUrl(null);
     setSelection(null);
+    setSelectedItem(null);
     setMatches([]);
     setStatus("上传截图以识别物品");
   }
@@ -318,6 +328,49 @@ export function IsaacLens() {
           </label>
         </div>
       </header>
+
+      {selectedItem && (
+        <div className="item-detail-backdrop" role="presentation" onClick={() => setSelectedItem(null)}>
+          <section
+            className="item-detail-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="item-detail-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className="detail-close"
+              type="button"
+              aria-label="关闭物品详情"
+              onClick={() => setSelectedItem(null)}
+            >
+              ×
+            </button>
+            <div className="item-detail-heading">
+              <img src={assetUrl(selectedItem.iconPath)} alt="" />
+              <div>
+                <h2 id="item-detail-title">{selectedItem.nameZh}</h2>
+                <p>{selectedItem.nameEn}</p>
+              </div>
+            </div>
+            {(selectedItem.type || (selectedItem.pools?.length ?? 0) > 0) && (
+              <div className="detail-tags">
+                {selectedItem.type && <span>{selectedItem.type}</span>}
+                {selectedItem.pools?.slice(0, 5).map((pool) => <span key={pool}>{pool}</span>)}
+              </div>
+            )}
+            {(selectedItem.pickup || selectedItem.description) && (
+              <p className="detail-description">{selectedItem.pickup || selectedItem.description}</p>
+            )}
+            {(selectedItem.effects?.length ?? 0) > 0 && (
+              <ul>
+                {selectedItem.effects?.slice(0, 10).map((effect) => <li key={effect}>{effect}</li>)}
+              </ul>
+            )}
+            {selectedItem.sourceName && <p className="detail-source">来源：{selectedItem.sourceName}</p>}
+          </section>
+        </div>
+      )}
 
       <section
         ref={stageRef}
@@ -427,14 +480,21 @@ export function IsaacLens() {
                 onChange={(event) => updateCandidateLimit(Number(event.target.value))}
               />
             </label>
-            <button className="panel-close" type="button" onClick={() => { setSelection(null); setMatches([]); }}>×</button>
+            <button className="panel-close" type="button" onClick={() => { setSelection(null); setSelectedItem(null); setMatches([]); }}>×</button>
           </div>
           <div className="candidate-strip">
             {visibleMatches.map(({ item, score }) => (
-              <div className="candidate-card" key={item.id} title={`${item.nameZh} ${item.nameEn}`}>
+              <button
+                className="candidate-card"
+                key={item.id}
+                type="button"
+                title={`${item.nameZh} ${item.nameEn}`}
+                aria-label={`查看 ${item.nameZh} 详情，相似度 ${(score * 100).toFixed(1)}%`}
+                onClick={() => setSelectedItem(item)}
+              >
                 <img src={assetUrl(item.iconPath)} alt={item.nameZh} />
                 <span>{(score * 100).toFixed(1)}%</span>
-              </div>
+              </button>
             ))}
             {!isSearching && visibleMatches.length === 0 && <p>没有找到相似对象</p>}
           </div>
@@ -517,11 +577,22 @@ async function getIndex() {
         if (!response.ok) throw new Error("vectors");
         return response.arrayBuffer();
       }),
-    ]).then(([metadata, buffer]) => {
+      fetch(OBJECTS_URL).then((response) => {
+        if (!response.ok) throw new Error("objects");
+        return response.json() as Promise<IndexedObject[]>;
+      }),
+    ]).then(([metadata, buffer, objects]) => {
       const encoded = new Uint16Array(buffer);
       const vectors = new Float32Array(encoded.length);
       for (let index = 0; index < encoded.length; index += 1) vectors[index] = float16ToFloat32(encoded[index]);
-      return { metadata, vectors };
+      const details = new Map(objects.map((item) => [item.id, item]));
+      return {
+        metadata: {
+          ...metadata,
+          objects: metadata.objects.map((item) => ({ ...item, ...details.get(item.id) })),
+        },
+        vectors,
+      };
     });
   }
   return indexPromise;
