@@ -100,8 +100,11 @@ export function IsaacLens() {
     : null;
 
   useEffect(() => {
-    const saved = Number(localStorage.getItem("candidateDisplayLimitV2"));
-    if (Number.isFinite(saved)) setCandidateLimit(Math.min(50, Math.max(1, saved)));
+    const storedCandidateLimit = localStorage.getItem("candidateDisplayLimitV2");
+    if (storedCandidateLimit !== null) {
+      const saved = Number(storedCandidateLimit);
+      if (Number.isFinite(saved)) setCandidateLimit(Math.min(50, Math.max(1, saved)));
+    }
     if ("serviceWorker" in navigator) navigator.serviceWorker.register(`${BASE_URL}sw.js`).catch(() => undefined);
   }, []);
 
