@@ -75,6 +75,8 @@ export function IsaacLens() {
   const [status, setStatus] = useState("上传截图以识别物品");
   const [isSearching, setIsSearching] = useState(false);
   const [modelReady, setModelReady] = useState(false);
+  const [loadProgress, setLoadProgress] = useState<number | null>(null);
+  const [loadLabel, setLoadLabel] = useState("准备本地模型");
 
   const baseScale = Math.min(stageSize.width / imageSize.width, stageSize.height / imageSize.height);
   const renderedScale = baseScale * zoom;
@@ -145,11 +147,24 @@ export function IsaacLens() {
 
   async function warmModel() {
     try {
+      setLoadProgress(1);
+      setLoadLabel("正在下载本地识别模型");
       setStatus("首次加载本地模型…");
-      await Promise.all([getModel(), getIndex()]);
+      await Promise.all([
+        getModel((progress) => {
+          setLoadProgress(Math.max(1, Math.round(progress * 90)));
+        }),
+        getIndex(),
+      ]);
+      setLoadLabel("正在初始化本地识别");
+      setLoadProgress(96);
+      await new Promise((resolve) => window.setTimeout(resolve, 180));
       setModelReady(true);
+      setLoadProgress(100);
       setStatus("点击图片中的物品进行手动选取");
+      window.setTimeout(() => setLoadProgress(null), 320);
     } catch {
+      setLoadProgress(null);
       setStatus("模型加载失败，请检查网络后重试");
     }
   }
@@ -339,6 +354,24 @@ export function IsaacLens() {
               </div>
             )}
             <div className="canvas-hint">单指拖动 · 双指缩放 · 点击选取</div>
+            {loadProgress !== null && loadProgress < 100 && (
+              <div className="model-loading" role="status" aria-live="polite">
+                <div className="model-loading-heading">
+                  <strong>{loadLabel}</strong>
+                  <span>{loadProgress}%</span>
+                </div>
+                <div
+                  className="model-progress-track"
+                  role="progressbar"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={loadProgress}
+                >
+                  <span style={{ width: `${loadProgress}%` }} />
+                </div>
+                <small>首次运行需要下载约 46MB，完成后将离线缓存</small>
+              </div>
+            )}
           </>
         ) : (
           <label className="empty-upload">
@@ -434,16 +467,46 @@ function SelectionPreview({
   return <canvas ref={canvasRef} width={48} height={48} />;
 }
 
-async function getModel() {
+async function getModel(onProgress?: (progress: number) => void) {
   if (!modelPromise) {
     ort.env.wasm.numThreads = 1;
     ort.env.wasm.proxy = false;
-    modelPromise = ort.InferenceSession.create(MODEL_URL, {
-      executionProviders: ["wasm"],
-      graphOptimizationLevel: "all",
-    });
+    modelPromise = fetchBinaryWithProgress(MODEL_URL, onProgress).then((model) =>
+      ort.InferenceSession.create(model, {
+        executionProviders: ["wasm"],
+        graphOptimizationLevel: "all",
+      }),
+    );
   }
   return modelPromise;
+}
+
+async function fetchBinaryWithProgress(url: string, onProgress?: (progress: number) => void) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const total = Number(response.headers.get("content-length")) || 0;
+  if (!response.body || total <= 0) {
+    const buffer = await response.arrayBuffer();
+    onProgress?.(1);
+    return new Uint8Array(buffer);
+  }
+  const reader = response.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let received = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
+    received += value.byteLength;
+    onProgress?.(Math.min(1, received / total));
+  }
+  const result = new Uint8Array(received);
+  let offset = 0;
+  for (const chunk of chunks) {
+    result.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return result;
 }
 
 async function getIndex() {

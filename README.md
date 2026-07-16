@@ -169,7 +169,7 @@ curl http://127.0.0.1:8767/health
 GitHub Pages 地址：
 
 ```text
-https://pg123521.github.io/issac-image-master/
+https://pg123521.github.io/isaac-item-lens-web/
 ```
 
 ```bash

@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: "web-static",
   publicDir: "../public",
-  base: "/issac-image-master/",
+  base: "/isaac-item-lens-web/",
   plugins: [react()],
   build: {
     outDir: "../dist-pages",

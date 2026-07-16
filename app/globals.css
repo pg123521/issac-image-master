@@ -146,6 +146,59 @@ button { color: inherit; }
   position: absolute;
 }
 
+.model-loading {
+  backdrop-filter: blur(18px);
+  background: rgba(25, 26, 30, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.48);
+  left: 50%;
+  max-width: calc(100% - 32px);
+  padding: 16px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 330px;
+  z-index: 3;
+}
+
+.model-loading-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.model-loading-heading strong { font-size: 14px; }
+.model-loading-heading span {
+  color: var(--yellow);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 750;
+}
+
+.model-progress-track {
+  background: #0c0d0f;
+  border-radius: 999px;
+  height: 8px;
+  margin: 12px 0 9px;
+  overflow: hidden;
+}
+
+.model-progress-track span {
+  background: linear-gradient(90deg, #ffb72e, var(--yellow));
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  transition: width 120ms linear;
+}
+
+.model-loading small {
+  color: var(--muted);
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
 .empty-upload {
   align-items: center;
   cursor: pointer;
